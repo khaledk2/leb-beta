@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Automatic Installation &#8212; Local EnteroBase  documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Manual Installation" href="manual.html" />
+    <link rel="prev" title="Installation Requirements" href="requirements.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="manual.html" title="Manual Installation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="requirements.html" title="Installation Requirements"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Local EnteroBase  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="install.html" accesskey="U">Installation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="automatic-installation">
+<h1>Automatic Installation<a class="headerlink" href="#automatic-installation" title="Permalink to this headline">¶</a></h1>
+<p>The Installation script “local_enterobase_installer.sh” is saved in the “installer” sub-folder.</p>
+<p>The script will automatically download, configure and run the Docker Image (Nginx), and Singularity image (PostgreSQL, Gunicorn and Local EnteroBase) and their dependencies packages.</p>
+<p>During the installation the user will be asked to:</p>
+<ul class="simple">
+<li><p>Provide the filepath to the nginx.conf file downloaded when registering on Central EnteroBase</p></li>
+<li><p>Set a username and password for Local EnteroBase.</p></li>
+</ul>
+<p>Then system components will be configured using the default parameters and should run without any issue.</p>
+<p>NOTE: Fedora and CentOS 8 may require a system restart to complete the installation. The script will automatically reboot the server in this event, then restart the script automatically once signed back in. A restart occurs if:</p>
+<ul class="simple">
+<li><p>Docker is not installed and running for either distro</p></li>
+<li><p>IF Fedora does not have the squashfs dependency already installed.</p></li>
+</ul>
+<p>The script has been tested on the following distros: Ubuntu 18.04, Ubuntu 20.04, Fedora 32, Fedora 33, CentOS 7, CentOS 8, Debian 9, and Debian 10.</p>
+<p>The following figure shows the script workflow.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/automatic_installation_script.png"><img alt="Automatic installation workflow" src="../_images/automatic_installation_script.png" style="width: 400px;" /></a>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="requirements.html"
+                        title="previous chapter">Installation Requirements</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="manual.html"
+                        title="next chapter">Manual Installation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/installation/automatic.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="manual.html" title="Manual Installation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="requirements.html" title="Installation Requirements"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Local EnteroBase  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="install.html" >Installation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Local EnteroBase Developer.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+    </div>
+  </body>
+</html>
