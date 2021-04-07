@@ -22,10 +22,14 @@ Database Selection and Configuration
 
 
 
-Server Email
-=============
+Mail Server
+===============
+
+Note: The mail server functionality is currently unavailable for the beta test, feel free to skip this section.
 
 
+Celery Messaging
+=================
 
 **TO REMOVE**
 * The local administrator needs to:
