@@ -1,5 +1,7 @@
-Jobs
-------
+Your Jobs
+----------
+
+This webpage allows you to view current jobs
 
 DEFINE JOBS
 * This option allows the user to check his assembly jobs status

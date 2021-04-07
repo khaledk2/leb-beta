@@ -1,52 +1,69 @@
-Using the Homepage TODO
+Using the Homepage
 -----------------------
 
-SIGNING IN
------------------------
+UPDATE THIS SCREENSHOT
 
-* The user should selects "Sing in with Warwick EnteroBase"from the main page (Fig. 1)
-* The user will be redirected to Warwick EnteroBase login page, once he enters his username and password and select login he will be asked to authorize local EnteroBase installation instance to access his username and email address in addition to submit strains metadata along with assemblies in behave of him (Fig. 2).
-* After the user confirmation, he will be redirected back to the local EnteroBase instance and a page which has a list contains his Warwick EnteroBase active databases (Fig. 3)
-* Then the user can select the database which he wants to work with
+.. figure:: ../images/ceb_login.png
+   :align: center
+   :alt: Warwick EnteroBase Login Form
 
+   **Fig. 1 Local EnteroBase Homepage**
 
-.. figure:: ../images/main.png
-   :alt: Main page
+The homepage provides a means of access to all of Local EnteroBase's functionalities. These require a Central Enterobase account to access, being marked with 'lock' icons to indicate inaccessibility if you are not signed in.
+If you have previously signed in with Central EnteroBase and navigate to any of the 'locked' functions, you will be automatically signed in and redirected to the respective webpage.
 
-   **Fig. 1 First Page**
+The following sections detail the log in process as well as provide an overview of the available Local EnteroBase functions. Further detail on their operations can be found within their individual user guide sections.
 
-.. figure:: ../images/contest.png
-   :alt: Consent dialog
+Logging In
+============
 
-   **Fig. 2 Warwick EnteroBase Consent dialog**
+The homepage provides 2 methods of logging in to Local EnteroBase: using the system administrator credentials that were set during installation of your Local EnteroBase
+or when you registered an account with Central EnteroBase at Warwick (Wawick EnteroBase). These can be accessed at the top of the navigation bar. The system will not allow you to be simultaneously signed in
+as both the system administrator and a Warwick EnteroBase user.
 
+The homepage displays that you are signed in by displaying your account name with the Local EnteroBase name and logo on the left-hand side navigation drawer, as well as in the navigation bar in place of the sign in button.
 
-.. figure:: ../images/active_databases.png
-   :width: 300
-   :alt: Active databases
+**System Administrator**
 
-   **Fig. 3 Active Databases dialog**
+1. Click the "SYSTEM ADMIN LOGIN" button, you will be redirected to the login form.
+2. Enter the system administrator username and password and click the "Log In To Your Account" button. You will be signed in and redirected back to the homepage.
 
+UPDATE THIS SCREENSHOT
 
+.. figure:: ../images/sys_login.png
+   :align: center
+   :alt: System Administrator Login Form
 
+   **Fig. 1 System Administrator Login Form**
 
-* Page which has a list contains his Warwick EnteroBase active databases (Fig. 3)
-* Then the user can select the database which he wants to work with
+**Warwick EnteroBase User**
 
+1. Click the "WARWICK ENTEROBASE LOGIN" button.
 
-.. figure:: ../images/main.png
-   :alt: Main page
+  1a. If this is your first time logging in using the credentials, you will be redirected to the Warwick EnteroBase login page to authorise your Local EnteroBase. Go to step 2.
+  1b. Otherwise, you will be signed in automatically and redirected back to the homepage.
 
-   **Fig. 1 First Page**
+2. Enter your Central EnteroBase account credentials and click the "Log In" button
 
-.. figure:: ../images/contest.png
-   :alt: Consent dialog
+.. figure:: ../images/ceb_login.png
+   :align: center
+   :alt: Warwick EnteroBase Login Form
 
-   **Fig. 2 Warwick EnteroBase Consent dialog**
+   **Fig. 2 Warwick EnteroBase Login Form**
 
+Sys admin can only see the configuration
 
-.. figure:: ../images/active_databases.png
-   :width: 300
-   :alt: Active databases
+Databases to Upload Strains
+======================================
 
-   **Fig. 3 Active Databases dialog**
+Demonstrated in figure 1, the available databases for the principal genera stored and analysed using EnteroBase are displayed in the homepage. If you know the strains you will intend to upload, you can select a specific genera database from
+those displayed to upload your strains and their metadata.
+
+Your Jobs
+============
+
+When you submit strains to be assembled within Local EnteroBase, these processes are transformed into 'jobs' and queued to be operated on in the background.
+This webpage allows you to view the statuses of all submitted jobs, being 'queued' or 'completed' and providing further options to upload the results to Central EnteroBase
+and download the results.
+
+Note: Accessing this page you to be signed into Local EnteroBase with your OAuth credentials.
