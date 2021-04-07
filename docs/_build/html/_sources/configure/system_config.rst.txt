@@ -43,7 +43,7 @@ The entire form is filled by default that should correctly configure Celery with
    :align: center
    :alt: Celery Messaging Configuration Form*
 
-   **Fig 2. Celery Messaging Configuration Form**
+   **Fig FILL IN. Celery Messaging Configuration Form**
 
 
 **TO REMOVE**

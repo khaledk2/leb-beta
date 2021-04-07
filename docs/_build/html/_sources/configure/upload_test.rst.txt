@@ -21,6 +21,9 @@ Prerequisites
 
   * Please modify the default path/name of the container if you have changed this during installation.
 
+Running the Test
+=================
+
 TO BE UPDATED
 
 .. figure:: ../images/incomplete_upload_test.png
