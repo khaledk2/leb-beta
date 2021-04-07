@@ -13,7 +13,9 @@ Minimum System requirements
 
 * 4 CPU Cores
 * 32GB RAM
+
   * Ideally your system RAM should be slightly more as systems may dedicate a small portion of RAM to other processes
+  
 * 40GB Free Storage Space
 
 Additional Information
