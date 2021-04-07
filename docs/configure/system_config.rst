@@ -13,6 +13,7 @@ General Configuration
   filled in on the form that is created if currently non-existent.
 
   .. figure:: ../images/general_config.png
+     :align: center
      :alt: General Configuration Form
 
      **Fig 1. General Configuration Form**
@@ -36,6 +37,7 @@ DESCRIBE CELERY
 The entire form is filled by default that should correctly configure Celery with your Local EnteroBase. **please do not change these values unless you are an expert**.
 
 .. figure:: ../images/celery_messaging.png
+   :align: center
    :alt: Celery Messaging Configuration Form*
 
    **Fig 2. Celery Messaging Configuration Form**
