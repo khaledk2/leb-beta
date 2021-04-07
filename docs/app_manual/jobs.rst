@@ -1,6 +1,7 @@
-Jobs Status
------------
+Jobs
+------
 
+DEFINE JOBS
 * This option allows the user to check his assembly jobs status
 
 .. figure:: ../images/job_status.png
@@ -19,5 +20,3 @@ Notes
     * provide new read files in case of the assembly job failed due to read files
     * submit the strains metadata along with read files to Warwick EnteroBase.
 * The previous functions are not implemented yet
-
-

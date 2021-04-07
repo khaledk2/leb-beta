@@ -3,12 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Local EnteroBase's documentation!
+Welcome to the Local EnteroBase Beta Test!
 ============================================
 
-The main purpose of this version is to enable our partners (users) to assemble their read files locally and send the strain metadata along with the assembly files to Warwick EnteroBase.
-The source code repository address is https://bitbucket.org/enterobase/local_enterobase/.
+Thank you for participating in our beta test! The purpose of the test is to gather user experience feedback of the installation and configuration processes, in addition to the usage of the web interface that we have developed.
+The team will be on hand to provide support during the beta test, the main person of contact is Will Sewell (w.sewell@warwick.ac.uk), please reach out if you have any questions or queries!
 
+The main purpose of Local EnteroBase is to enable users to locally assemble their read files and send the strain metadata, along with the assembly files, to the Central EnteroBase hosted at Warwick.
 
 
 .. toctree::
@@ -20,16 +21,4 @@ The source code repository address is https://bitbucket.org/enterobase/local_ent
    configure/configure
    app_manual/app_manual
    developer/developer
-
-
-
-
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   forms/forms

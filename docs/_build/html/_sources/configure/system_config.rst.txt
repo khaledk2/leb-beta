@@ -1,5 +1,5 @@
 System Configuration
---------------------
+---------------------
 
 * The local administrator needs to:
 
@@ -17,7 +17,7 @@ System Configuration
 
 
 
-* In case of using  "local_enterobase_installer.sh" bash script to install the system, then the script will configure the system with the default setting which should be fine for most of cases. 
+* In case of using  "local_enterobase_installer.sh" bash script to install the system, then the script will configure the system with the default setting which should be fine for most of cases.
 
 * The local installation configuration file is saved in the user home folder ($HOME/.local_configuration_file.yml), you can edit it directly using any text editor (e.g. vim) or it can be alerted using "/update_system_configuration"  link from the web interface (it will be the default main web page if the database is not configured or not configured correctly in case of manual installation).
 
@@ -40,4 +40,3 @@ Notes
 
 * It is needed to synchronize the local installation name with the registration form.
 * In case of using the automatic installation, it is needed to get the server URL from the user input during the installation.
-

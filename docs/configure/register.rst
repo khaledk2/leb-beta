@@ -1,4 +1,4 @@
-Client Registration
+Registration
 -------------------
 
 * The local administrator needs to submit a request to register his client with Warwick EnteroBase by selecting “Register your Local EnteroBase Website” option from the first web page” or use this link “/register_client”
@@ -18,4 +18,3 @@ Client Registration
    **Fig 2 Client Registration Form**
 
 * An email will be sent to the user (loal adminstrator) who registered the local instance, the email will contain a Warwick temporary token, it will be used to authorize “test uploading 100 files” from your local installation to Warwick EnteroBase and submit the results (uploading time) to Warwick EnteroBase. This test is a part of the registration process, and should be done once the local adminstrator received the token so the Warwick EnteroBase administrator can check the registration request.
-

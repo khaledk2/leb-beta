@@ -20,3 +20,21 @@ Notes
 * I have implemented importing the data from a text file which contains the metadata but it needs more testing
 * Submitting strains metdata and uploading read files are not implemnetd yet but we can modify and use the functions which are used to upload single strain.
 
+
+DELETE (add another row to upload multiple strains as a note)
+Upload Single Strain
+
+* This is the default database option.
+* It allows the user to enter the strains metadata and the provide the read files.
+* Then it will submit the metdata and upload read files.
+
+
+.. figure:: ../images/upload_single_strain.png
+   :alt: Upload Single Strains
+
+   **Upload Single Strains dialog**
+
+Notes
+^^^^^
+
+* This option should be discarded later once uploading multiple strains option completely implemented as it allows to submit one or more strains.

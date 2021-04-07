@@ -1,17 +1,9 @@
-Local EnteroBase Registration
+Registration and Configuration
 =============================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
+   register
    system_config
-   client_egistration
-   files_upload_test
-
-
-
-
-
-
-
-
+   upload_test
