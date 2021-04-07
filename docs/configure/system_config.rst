@@ -1,6 +1,33 @@
 System Configuration
 ---------------------
 
+On entry to the webpage, the Local EnteroBase administrator is required to sign in with the system credentials set during
+the installation phase. Then, the following webpages should display the following configuration steps that need to be completed:
+
+General Configuration
+=======================
+
+* A name for your Local EnteroBase, to be displayed when using the website, must be inputted. It does not need to match the name used to register your Local EnteroBase.
+* An image to be displayed as a logo in the website, that also identifies it in your browser's address bar, must be chosen. We provide functionalities for cropping and resizing if required.
+* If required, a filepath to an accessible directory that stores data produced by Local EnteroBase, such as short-read assembly results, can be selected. A default file path is automatically
+  filled in on the form that is created if currently non-existent.
+
+  .. figure:: ../images/general_config.png
+     :alt: General Configuration Form
+
+     **Fig 1 General Configuration Form**
+
+Database Selection and Configuration
+======================================
+
+
+
+Server Email
+=============
+
+
+
+**TO REMOVE**
 * The local administrator needs to:
 
   * Link an email account to act as the communication point for local enterobase. This includes the server (MAIL_SERVER), port (MAIL_PORT), username (MAIL_USERNAME), and password (MAIL_PASSWORD).
@@ -9,11 +36,6 @@ System Configuration
   * Configure the database server which includes uri( DATABSE SERVER URI), port (DATABASE PORT), username (DATABSE USER) and password (DATABSE PASSSWORD)
   * Register your installation with Warwick EnteroBase
   * Test uploading files to Warwick EnteroBase
-
-.. figure:: ../images/configuration.png
-   :alt: Local Configuration Form
-
-   **Fig 1 Configuration Form**
 
 
 
@@ -34,9 +56,4 @@ System Configuration
 
     ./restart_local_enterobase.sh
 
-
-Notes
-=====
-
-* It is needed to synchronize the local installation name with the registration form.
 * In case of using the automatic installation, it is needed to get the server URL from the user input during the installation.
