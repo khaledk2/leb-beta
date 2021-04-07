@@ -15,7 +15,7 @@ General Configuration
   .. figure:: ../images/general_config.png
      :alt: General Configuration Form
 
-     **Fig 1 General Configuration Form**
+     **Fig 1. General Configuration Form**
 
 Database Selection and Configuration
 ======================================
@@ -30,6 +30,16 @@ Note: The mail server functionality is currently unavailable for the beta test, 
 
 Celery Messaging
 =================
+
+DESCRIBE CELERY
+
+The entire form is filled by default that should correctly configure Celery with your Local EnteroBase. **please do not change these values unless you are an expert**.
+
+.. figure:: ../images/celery_messaging.png
+   :alt: Celery Messaging Configuration Form*
+
+   **Fig 2. Celery Messaging Configuration Form**
+
 
 **TO REMOVE**
 * The local administrator needs to:
