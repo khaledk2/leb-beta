@@ -20,7 +20,7 @@ Registration Page
 Once the prerequisites have been completed you can now fill out the form at: `<http://35.246.24.128:5569/local_enterobase/register>`_.
 
 .. figure:: ../images/local_enterobase_registration_screenshot.png
-   :width: 400
+   :width: 300
    :alt: Local Enterobase registration page
    
    **Fig 1 Local Enterobase registration page**
