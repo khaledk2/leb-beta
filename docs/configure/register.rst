@@ -1,20 +1,10 @@
-Registration
+Local Enterobase Registration
 -------------------
 
-* The local administrator needs to submit a request to register his client with Warwick EnteroBase by selecting “Register your Local EnteroBase Website” option from the first web page” or use this link “/register_client”
+In order to maintain quality control in the distribution of Enterobase to all of the institutions that wish to maintain one, each Local Enterobase instance must be approved by Central Enterobase. This approval process begins with registering your Local Enterobase instance.
 
-* For security reason, a local log in dialog (Fig. 1) will pop up to allow the local administrator to sign in so no other user can use this option, the local administrator should input the password which he set during the system installation
-
-.. figure:: ../images/local_log_in.png
-   :alt: local login  Form
-
-   **Fig 1 Local login Form**
-
-* Then a registration form will pop up (Fig. 2), it is needed to provide your local website name, and URI (which needs to start with https://, e.g. https://myserver.com) and optionally a brief description. When the user selects submit, this information will be sent to Warwick EnteroBase and a conformation dialog contains the submitted details will pop up.
-
-.. figure:: ../images/register_client.png
-   :alt: Client Registration Form
-
-   **Fig 2 Client Registration Form**
-
-* An email will be sent to the user (loal adminstrator) who registered the local instance, the email will contain a Warwick temporary token, it will be used to authorize “test uploading 100 files” from your local installation to Warwick EnteroBase and submit the results (uploading time) to Warwick EnteroBase. This test is a part of the registration process, and should be done once the local adminstrator received the token so the Warwick EnteroBase administrator can check the registration request.
+Prerequisites
+==============
+* You must have an account with the beta test Central Enterobase, since this is a different server to the regular Central Enterobase (https://enterobase.warwick.ac.uk/), you must register a new account at http://35.246.24.128:5569/auth/register. (NOTE: this account will only exist for the duration of the beta test)
+* You must be logged into the account that you would like the administrator of the Local Enterobase instance. This account will be regarded by the Warwick Enterobase team as the point of contact for the Local Enterobase instance. This login can be performed at http://35.246.24.128:5569/auth/login.
+* You must know the URL or IP endpoint that the Local Enterobase instance will be exposed to.
