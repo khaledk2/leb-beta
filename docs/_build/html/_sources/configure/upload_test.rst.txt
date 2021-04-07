@@ -8,7 +8,7 @@ Upload Test
 * Local administrator needs to update your system configuration using these values and restart the application. At this stage, the system is ready and can be used.
 
 
-.. figure:: ../images/configuration.png
+.. figure:: ../images/test_upload.png
    :alt: Client Registration Form
 
    **Fig 1 system configuration form**

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Upload Test &#8212; Local EnteroBase (Beta)  documentation</title>
+    <title>Upload Strains &#8212; Local EnteroBase (Beta)  documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -16,8 +16,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="User Guide" href="../user_guide/user_guide.html" />
-    <link rel="prev" title="System Configuration" href="system_config.html" /> 
+    <link rel="next" title="Jobs" href="jobs.html" />
+    <link rel="prev" title="Using the Homepage TODO" href="homepage.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,13 +26,13 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../user_guide/user_guide.html" title="User Guide"
+          <a href="jobs.html" title="Jobs"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="system_config.html" title="System Configuration"
+          <a href="homepage.html" title="Using the Homepage TODO"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Local EnteroBase (Beta)  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="configure.html" accesskey="U">Registration and Configuration</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="user_guide.html" accesskey="U">User Guide</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -41,28 +41,47 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="upload-test">
-<h1>Upload Test<a class="headerlink" href="#upload-test" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="upload-strains">
+<h1>Upload Strains<a class="headerlink" href="#upload-strains" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Inside the system configuration form (Fig. 1), there is a “Warwick temporary token” field, local adminstrator should set this value using the token whihc he has received by email. Then local adminstrator should select “File Uploads Test” option then click “Start” button (Fig. 2).</p></li>
-<li><p>After submitting the upload test results, the registration request will be verified by Warwick EnteroBase administrator.</p></li>
-<li><p>Once the registration request has been approved, local administrator  will receive an email which will contain the client id and a client password which will be used to authorize the communication between the local installation and the Warwick EnteroBase.</p></li>
-<li><p>Local administrator needs to update your system configuration using these values and restart the application. At this stage, the system is ready and can be used.</p></li>
+<li><p>This options allows the user to enter one or more strains metadata along with the read files</p></li>
+<li><p>The user can write the metadata inside the table or import the metdata from a text file</p></li>
+<li><p>The user can select a folder which contains the read files and automatically it imports the paired read files for each strain and creates a row for it.</p></li>
+<li><p>The user has the option to export these data to a text file which he can edit and import the modified file.</p></li>
 </ul>
-<div class="figure align-default" id="id1">
-<img alt="Client Registration Form" src="../_images/test_upload.png" />
-<p class="caption"><span class="caption-text"><strong>Fig 1 system configuration form</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
 <div class="figure align-default" id="id2">
-<img alt="Files upload test form" src="../_images/test_upload.png" />
-<p class="caption"><span class="caption-text"><strong>Fig 2 Files upload test form</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<img alt="Upload Muliple Strains" src="../_images/upload_multiple_strains.png" />
+<p class="caption"><span class="caption-text"><strong>Upload Muliple Strains dialog</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>We should use different database user as using postgres user is not recommended. This can be done in the automatic installation script.</p></li>
-<li><p>Using “Warwick client id” instead of using “Warwick client password” field, this is can be used to authorize upload files test.</p></li>
-<li><p>Instance name and icon should be removed. The instance name should be synchronized with the registration form.</p></li>
+<li><p>This option is not completely implemented.</p></li>
+<li><dl class="simple">
+<dt>It is needed to use the Zhemin API for source and location</dt><dd><ul>
+<li><p>This requires developing Warwick EnteroBase API functions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>I have implemented importing the data from a text file which contains the metadata but it needs more testing</p></li>
+<li><p>Submitting strains metdata and uploading read files are not implemnetd yet but we can modify and use the functions which are used to upload single strain.</p></li>
+</ul>
+<p>DELETE (add another row to upload multiple strains as a note)</p>
+<ul class="simple">
+<li><p>This is the default database option.</p></li>
+<li><p>It allows the user to enter the strains metadata and the provide the read files.</p></li>
+<li><p>Then it will submit the metdata and upload read files.</p></li>
+</ul>
+<div class="figure align-default" id="id3">
+<img alt="Upload Single Strains" src="../_images/upload_single_strain.png" />
+<p class="caption"><span class="caption-text"><strong>Upload Single Strains dialog</strong></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Notes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>This option should be discarded later once uploading multiple strains option completely implemented as it allows to submit one or more strains.</p></li>
 </ul>
 </div>
 </div>
@@ -75,22 +94,23 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Upload Test</a><ul>
+<li><a class="reference internal" href="#">Upload Strains</a><ul>
 <li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#id1">Notes</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="system_config.html"
-                        title="previous chapter">System Configuration</a></p>
+  <p class="topless"><a href="homepage.html"
+                        title="previous chapter">Using the Homepage TODO</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../user_guide/user_guide.html"
-                        title="next chapter">User Guide</a></p>
+  <p class="topless"><a href="jobs.html"
+                        title="next chapter">Jobs</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/configure/upload_test.rst.txt"
+      <li><a href="../_sources/user_guide/submit_strains.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -115,13 +135,13 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../user_guide/user_guide.html" title="User Guide"
+          <a href="jobs.html" title="Jobs"
              >next</a> |</li>
         <li class="right" >
-          <a href="system_config.html" title="System Configuration"
+          <a href="homepage.html" title="Using the Homepage TODO"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Local EnteroBase (Beta)  documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="configure.html" >Registration and Configuration</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="user_guide.html" >User Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
