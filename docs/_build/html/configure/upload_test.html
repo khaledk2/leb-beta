@@ -49,7 +49,7 @@ download and upload 100 files to check the connection speed to Central EnteroBas
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p>Test token emailed by Central EnteroBase when registering your Local EnteroBase. You can also find it <a class="reference external" href="http://35.197.247.144:5569/local_enterobase/display_test_token">here</a></p></li>
+<li><p>Test token emailed by Central EnteroBase when registering your Local EnteroBase. You can also find it here: <a class="reference external" href="http://35.197.247.144:5569/local_enterobase/display_test_token">http://35.197.247.144:5569/local_enterobase/display_test_token</a></p></li>
 <li><p>Celery task scheduler and worker processes to be initialised. These are the background processes that will assemble the test short-read files and upload their results. They can be initialised using the Singularity container with the following commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>singularity run --app celery_beat $HOME/local_enterobase_home/local_enterobase/EGP.sif
 </pre></div>
