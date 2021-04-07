@@ -28,8 +28,6 @@ The homepage displays that you are signed in by displaying your account name wit
 1. Click the "SYSTEM ADMIN LOGIN" button, you will be redirected to the login form.
 2. Enter the system administrator username and password and click the "Log In To Your Account" button. You will be signed in and redirected back to the homepage.
 
-UPDATE THIS SCREENSHOT
-
 .. figure:: ../images/sys_login.png
    :align: center
    :alt: System Administrator Login Form
@@ -62,7 +60,7 @@ those displayed to upload your strains and their metadata.
 Your Jobs
 ============
 
-When you submit strains to be assembled within Local EnteroBase, these processes are transformed into 'jobs' and queued to be operated on in the background.
+When you submit strains to be assembled within Local EnteroBase, these processes are transformed into 'jobs' and queued to be operated on in the background with Celery.
 This webpage allows you to view the statuses of all submitted jobs, being 'queued' or 'completed' and providing further options to upload the results to Central EnteroBase
 and download the results.
 
