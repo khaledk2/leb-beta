@@ -7,9 +7,10 @@ DEFINE JOBS
 * This option allows the user to check his assembly jobs status
 
 .. figure:: ../images/job_status.png
+   :align: center
    :alt: Job status
 
-   **Jobs Status dialog**
+   **Fig. 1 - Jobs Status dialog**
 
 Notes
 ^^^^^

@@ -16,7 +16,7 @@ General Configuration
      :align: center
      :alt: General Configuration Form
 
-     **Fig 1. General Configuration Form**
+     **Fig. 1 - General Configuration Form**
 
 Database Selection and Configuration
 ======================================

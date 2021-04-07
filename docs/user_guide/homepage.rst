@@ -7,7 +7,7 @@ UPDATE THIS SCREENSHOT
    :align: center
    :alt: Warwick EnteroBase Login Form
 
-   **Fig. 1 Local EnteroBase Homepage**
+   **Fig. 1 - Local EnteroBase Homepage**
 
 The homepage provides a means of access to all of Local EnteroBase's functionalities. These require a Central Enterobase account to access, being marked with 'lock' icons to indicate inaccessibility if you are not signed in.
 If you have previously signed in with Central EnteroBase and navigate to any of the 'locked' functions, you will be automatically signed in and redirected to the respective webpage.
@@ -34,7 +34,7 @@ UPDATE THIS SCREENSHOT
    :align: center
    :alt: System Administrator Login Form
 
-   **Fig. 1 System Administrator Login Form**
+   **Fig. 2 - System Administrator Login Form**
 
 **Warwick EnteroBase User**
 
@@ -49,7 +49,7 @@ UPDATE THIS SCREENSHOT
    :align: center
    :alt: Warwick EnteroBase Login Form
 
-   **Fig. 2 Warwick EnteroBase Login Form**
+   **Fig. 3 - Warwick EnteroBase Login Form**
 
 Sys admin can only see the configuration
 

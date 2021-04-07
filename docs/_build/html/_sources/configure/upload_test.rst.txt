@@ -30,7 +30,7 @@ TO BE UPDATED
    :align: center
    :alt: Incomplete Upload Test Form
 
-   **Fig 1. Incomplete Upload Test Form**
+   **Fig. 1 - Incomplete Upload Test Form**
 
 TO BE UPDATED
 
@@ -38,4 +38,4 @@ TO BE UPDATED
   :align: center
   :alt: Completed Upload Test Form
 
-  **Fig 2. Completed Upload Test Form**
+  **Fig. 2 - Completed Upload Test Form**
