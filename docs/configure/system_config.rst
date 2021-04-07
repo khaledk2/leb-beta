@@ -26,8 +26,11 @@ Database Selection and Configuration
 Mail Server
 ===============
 
-Note: The mail server functionality is currently unavailable for the beta test, feel free to skip this section.
+Note: **The mail server is unavailable for this beta test**. The Warwick EnteroBase team will manually
+send emails as appropriate, particularly for registration and the test token to perform the upload test in the next configuration step. Feel free to skip this section.
 
+Details must be inputted that configures a mail server to automatically recieve email updates from Central EnteroBase: the domain, an account name and a password.
+Central EnteroBase would provide updates for significant events such as completed assemblies.
 
 Celery Messaging
 =================

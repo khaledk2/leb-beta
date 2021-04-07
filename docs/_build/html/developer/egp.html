@@ -218,7 +218,7 @@ deactivate</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%apprun celery_worker
   . /venvs/gunicorn-env/bin/activate
   cd /var/www/local_enterobase
-    celery -A  manage worker  --loglevel=debug --pidfile=$HOME/celerybeat_myapp_2.pid
+    celery -A manage worker  --loglevel=debug --pidfile=$HOME/celerybeat_myapp_2.pid
   deactivate
 </pre></div>
 </div>

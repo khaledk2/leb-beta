@@ -10,3 +10,4 @@ access to Local EnteroBase is granted.
    register
    system_config
    upload_test
+   approve
