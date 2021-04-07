@@ -11,13 +11,13 @@ System Configuration
   * Test uploading files to Warwick EnteroBase
 
 .. figure:: ../images/configuration.png
-   :alt: local Configuration  Form
+   :alt: Local Configuration Form
 
    **Fig 1 Configuration Form**
 
 
 
-* In case of using  "local_enterobase_installer.sh" bash script to install the system, then the script will configure the system with the default setting which should be fine for most of cases.
+* In case of using "local_enterobase_installer.sh" bash script to install the system, then the script will configure the system with the default setting which should be fine for most of cases.
 
 * The local installation configuration file is saved in the user home folder ($HOME/.local_configuration_file.yml), you can edit it directly using any text editor (e.g. vim) or it can be alerted using "/update_system_configuration"  link from the web interface (it will be the default main web page if the database is not configured or not configured correctly in case of manual installation).
 

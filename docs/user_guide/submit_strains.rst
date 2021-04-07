@@ -1,4 +1,4 @@
-Upload Muliple Strains
+Upload Strains
 ----------------------
 
 * This options allows the user to enter one or more strains metadata along with the read files
@@ -22,7 +22,6 @@ Notes
 
 
 DELETE (add another row to upload multiple strains as a note)
-Upload Single Strain
 
 * This is the default database option.
 * It allows the user to enter the strains metadata and the provide the read files.

@@ -19,6 +19,6 @@ The main purpose of Local EnteroBase is to enable users to locally assemble thei
 
    installation/install
    configure/configure
-   app_manual/app_manual
+   user_guide/user_guide
    developer/developer
    forms/forms
