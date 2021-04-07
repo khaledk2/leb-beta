@@ -14,7 +14,6 @@ General Configuration
 
   .. figure:: ../images/general_config.png
      :align: center
-     :class: with-border
      :alt: General Configuration Form
 
      **Fig 1. General Configuration Form**
@@ -39,7 +38,6 @@ The entire form is filled by default that should correctly configure Celery with
 
 .. figure:: ../images/celery_messaging.png
    :align: center
-   :class: with-border
    :alt: Celery Messaging Configuration Form*
 
    **Fig 2. Celery Messaging Configuration Form**
