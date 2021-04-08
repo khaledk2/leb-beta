@@ -170,13 +170,13 @@ As a result, you can attempt to amend these problems or delete the row from the 
 Tooltips
 ========
 
-* Shrinking your browser window compresses the grid toolbar.
+* Shrinking your browser window compresses the grid toolbar:
 
   * Several functions are moved into a dropdown menu that can be accessed using the blue "edit" button on the left-hand side.
   * The "Import Data" and "Export Template" functions are moved into an additional dropdown menu accessible using the blue "data" button on the right-hand side.
 
 * The cells with the names of the primary column groups can be clicked on to expand showing the entire column group, which by default hides read-only cells that store the results of your inputs to the mandatory cells.
-* Single clicking a cell will select its entire row.
-* Double clicking a cell will open up their respective editor menus for you to input data.
+* Single clicking a cell selects its entire row.
+* Double clicking a cell opens up its respective editor menu for you to input data.
 * The blue "Show/Hide Columns" button allows you to show and hide specific individual columns. This is useful if you need to focus on viewing a specific features of the data. Note: it is not recommended to hide mandatory columns.
-* The blue "Undo" and "Redo" buttons allow the undoing and redoing of your actions in the grid. Warning: They may behave temperamentally.
+* The blue "Undo" and "Redo" buttons allow the undoing and redoing of your actions in the grid. Warning: They behave temperamentally.
