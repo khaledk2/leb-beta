@@ -63,9 +63,12 @@ filled in on the form. The directory specified by the path must be manually crea
 <h2>Database Selection and Configuration<a class="headerlink" href="#database-selection-and-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Note: To ensure that the default server is functional, selecting an existing database server to connect to as well as the option to modify the pre-filled current database server settings (set during installation) are disabled for the beta test.</p>
 <ul class="simple">
-<li><p>The database server to be used by your Local EnteroBase can be selected at this stage, between one that is set up during installation of the Singularity container or an existing database server if you have one.
-* We recommend to use the PostgreSQL version 10.14 database server set up during installation of the Singularity container as we have used this to develop Local EnteroBase.
-* Additionally, we cannot guarantee that using an existing database server, especially a non-PostgreSQL version 10.14 server, maintains the expected functionality of Local EnteroBase.</p></li>
+<li><p>The database server to be used by your Local EnteroBase can be selected at this stage, between one that is set up during installation of the Singularity container or an existing database server if you have one.</p>
+<ul>
+<li><p>We recommend to use the PostgreSQL version 10.14 database server set up during installation of the Singularity container as we have used this to develop Local EnteroBase.</p></li>
+<li><p>Additionally, we cannot guarantee that using an existing database server, especially a non-PostgreSQL version 10.14 server, maintains the expected functionality of Local EnteroBase.</p></li>
+</ul>
+</li>
 <li><p>After selecting the database server, a form for either configuring the default settings for the preset database server or entering credentials for an existing server (a flask username, server URI and port number) will be displayed for you to fill out.</p></li>
 </ul>
 <div class="figure align-center" id="id2">

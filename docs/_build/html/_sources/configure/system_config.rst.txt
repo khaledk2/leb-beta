@@ -25,8 +25,10 @@ Database Selection and Configuration
 Note: To ensure that the default server is functional, selecting an existing database server to connect to as well as the option to modify the pre-filled current database server settings (set during installation) are disabled for the beta test.
 
 * The database server to be used by your Local EnteroBase can be selected at this stage, between one that is set up during installation of the Singularity container or an existing database server if you have one.
+
   * We recommend to use the PostgreSQL version 10.14 database server set up during installation of the Singularity container as we have used this to develop Local EnteroBase.
   * Additionally, we cannot guarantee that using an existing database server, especially a non-PostgreSQL version 10.14 server, maintains the expected functionality of Local EnteroBase.
+  
 * After selecting the database server, a form for either configuring the default settings for the preset database server or entering credentials for an existing server (a flask username, server URI and port number) will be displayed for you to fill out.
 
 .. figure:: ../images/database_choice.png

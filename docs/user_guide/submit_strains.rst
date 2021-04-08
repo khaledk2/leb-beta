@@ -1,4 +1,4 @@
-Upload Strains
+Uploading Strains
 ----------------------
 
 * This options allows the user to enter one or more strains metadata along with the read files

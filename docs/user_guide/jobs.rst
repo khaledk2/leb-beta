@@ -1,5 +1,5 @@
-Your Jobs
-----------
+Viewing Jobs
+------------
 
 This webpage allows you to view current jobs
 
