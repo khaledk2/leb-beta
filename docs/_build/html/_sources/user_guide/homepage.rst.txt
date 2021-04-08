@@ -3,16 +3,17 @@ Using the Homepage
 
 UPDATE THIS SCREENSHOT
 
-.. figure:: ../images/ceb_login.png
+.. figure:: ../images/homepage.png
    :align: center
    :alt: Warwick EnteroBase Login Form
 
    **Fig. 1 - Local EnteroBase Homepage**
 
-The homepage provides a means of access to all of Local EnteroBase's functionalities. These require a Central Enterobase account to access, being marked with 'lock' icons to indicate inaccessibility if you are not signed in.
-If you have previously signed in with Central EnteroBase and navigate to any of the 'locked' functions, you will be automatically signed in and redirected to the respective webpage.
+* The homepage provides a means of access to all of Local EnteroBase's functionalities. These require a Central Enterobase account to access, being marked with 'lock' icons to indicate inaccessibility if you are not signed in.
+* If you have previously signed in with Central EnteroBase and navigate to any of the 'locked' functions, you will be automatically signed in and redirected to the respective webpage.
+* The homepage provides the ability to switch between a dark and a light theme using the icon in the top navigation bar next to the login buttons.
+* The following sections detail the log in process as well as provide an overview of the available Local EnteroBase functions. Further detail on their operations can be found within their individual user guide sections.
 
-The following sections detail the log in process as well as provide an overview of the available Local EnteroBase functions. Further detail on their operations can be found within their individual user guide sections.
 
 Logging In
 ============
