@@ -51,7 +51,7 @@ Databases to Upload Strains
 ======================================
 
 Demonstrated in figure 1, the available databases for the principal genera stored and analysed using EnteroBase are displayed in the homepage. If you know the strains you will intend to upload, you can select a specific genera database from
-those displayed to upload your strains and their metadata.
+those displayed to upload your strains and their metadata. Clicking on a database will redirect you to their respective strain submission webpage.
 
 Your Jobs
 ============

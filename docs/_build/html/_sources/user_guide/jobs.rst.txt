@@ -3,6 +3,22 @@ Viewing Jobs
 
 This webpage allows you to view current jobs
 
+All the current user's jobs are listed here with some metadata (which can be Completed, Failed, UPLOADED, Upload Failed, Received, Processing).
+
+Refresh the page to update - callbacks to be implemented in the future.
+No sorting on the page currently - can be implemented in the future.
+
+When job is finished and successful, can upload to warwick EB if you want and download
+
+Upload - submits the fasta, fastq and metadata of the results
+Download - downloads the fasta, fastq and metadata to local storage (default download directory of the web browser)
+
+
+
+
+
+
+
 DEFINE JOBS
 * This option allows the user to check his assembly jobs status
 

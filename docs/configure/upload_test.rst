@@ -35,7 +35,7 @@ Running the Test
 * Enter your email (disabled for the beta test) and your test token. Click the "start test" button begins the test, it will automatically complete to a successful or erroneous state. Each step of the test displays an estimated time to complete, although the actual times will also vary depending on your geographical location.
 
   * 100 test short-read files, intended for performing download and upload speed tests, are downloaded.
-  * A single short-read file downloaded is prepared and assembled to be uploaded to Central EnteroBase to verify the correctness of these functionalities.
+  * A pair of downloaded short-read files are prepared and assembled to be uploaded to Central EnteroBase to verify the correctness of these functionalities.
   * The resulting .fastq file of the test assembly is uploaded to Central EnteroBase where it is matched it with the stored known result, which verifies that the preparation and assembly functions are working correctly.
   * In the final step, the MD5 checksum is extracted from each of the earlier downloaded short-read files and reuploaded with their respective file to Central EnteroBase to check the upload speed. Central EnteroBase also verifies the checksum against the stored known checksum, which checks that the files are not changing during upload.
 
