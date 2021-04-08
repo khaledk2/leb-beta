@@ -49,7 +49,7 @@ download and upload 100 files to check the connection speed to Central EnteroBas
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p>Test token emailed by Central EnteroBase when registering your Local EnteroBase. You can also find it here: <a class="reference external" href="http://35.197.247.144:5569/local_enterobase/display_test_token">http://35.197.247.144:5569/local_enterobase/display_test_token</a></p></li>
+<li><p>Test token on hand, it was emailed by Central EnteroBase when registering your Local EnteroBase. You can also find it here: <a class="reference external" href="http://35.197.247.144:5569/local_enterobase/display_test_token">http://35.197.247.144:5569/local_enterobase/display_test_token</a></p></li>
 <li><p>Celery task scheduler and worker processes to be initialised. These are the background processes that will assemble the test short-read files and upload their results. They can be initialised using the Singularity container with the following commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>singularity run --app celery_beat $HOME/local_enterobase_home/local_enterobase/EGP.sif
 </pre></div>
@@ -65,6 +65,13 @@ download and upload 100 files to check the connection speed to Central EnteroBas
 </div>
 <div class="section" id="running-the-test">
 <h2>Running the Test<a class="headerlink" href="#running-the-test" title="Permalink to this headline">¶</a></h2>
+<p>Enter token, click “start test” and the test starts - fully automated feel free to monitor</p>
+<p>Next step is where 100 test short read files (used for performing a download and upload speed test) are downloaded to perform assemblies on - estimated time 2 minutes depending on your geographical location</p>
+<p>Next step is where 1 downloaded short read file is prepared and assembled. - estimated time 15 minutes
+Resulting fastq file is uploaded to central enterobase where it is verified against a known result which sees if the assembly is correct</p>
+<p>Also, the md5sum is extracted from each short read file and reuploaded along with the respective file back to central enterobase which verifies this checksum against the known checksum to ensure that files are not being changed during upload</p>
+<p>On completion, a summary is displayed of the times taken to reupload each short read file, as well as the total and average times to reupload all files.</p>
+<p>If the test fails at any step, this will be displayed with an appropriate error message and a “retry” button to reattempt the upload test.</p>
 <p>TO BE UPDATED</p>
 <div class="figure align-center" id="id1">
 <img alt="Incomplete Upload Test Form" src="../_images/incomplete_upload_test.png" />
@@ -78,6 +85,10 @@ download and upload 100 files to check the connection speed to Central EnteroBas
 </div>
 <div class="section" id="after-a-successful-test">
 <h2>After a Successful Test<a class="headerlink" href="#after-a-successful-test" title="Permalink to this headline">¶</a></h2>
+<p>After a successful test, you can continue to the final page of configuration where you must contact Harry who is acting as a beta test admin to quickly approve your Local ENteroBase instance, providing name org and LEB Name. Feel free to leave the page.
+Eventually, you will be emailed a client ID and client secret that forms your Central EnteroBase OAuth credentials to fully use Local EnteroBase. SUbmit them and the form should expand to show the details that cenntral enterobase has about your local enterobase instance for you to verify your details. If this matches up, press confirm to submit the details.
+Press resubmit to refresh the retreived details in case they may change.
+If we do not have details associated with your submitted credentials, an error message will display and we suggest getting in contact with the admin.</p>
 </div>
 </div>
 

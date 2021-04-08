@@ -10,6 +10,12 @@ Prerequisites
 * You must be logged into the account that you would like to be the administrator of your Local EnteroBase. This account will be regarded by the Warwick EnteroBase team as the point of contact for your Local EnteroBase. This login can be performed at: `<http://35.246.24.128:5569/auth/login>`_.
 * You must know the URL or IP endpoint that your Local EnteroBase will be exposed to.
 
+.. figure:: ../images/central_enterobase_user.png
+   :align: center
+   :alt: Central EnteroBase User Registration Form
+
+   **Fig. 1 - Central EnteroBase User Registration Form**
+
 Registration Page
 ==================
 
@@ -18,9 +24,9 @@ Once the prerequisites have been completed you can now fill out the form at: `<h
 .. figure:: ../images/local_enterobase_registration_screenshot.png
    :width: 600
    :align: center
-   :alt: Local EnteroBase Registration Page
+   :alt: Local EnteroBase Registration Form
 
-   **Fig. 1 - Local EnteroBase Registration Page**
+   **Fig. 2 - Local EnteroBase Registration Form**
 
 The above image is a screenshot of the Local EnteroBase registration page (NOTE: you must be logged in to view it). All fields within the form are required and can be described as follows:
 
