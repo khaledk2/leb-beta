@@ -183,7 +183,7 @@ The second image is built using **"EGP.def"** recipe file
     %apprun celery_worker
       . /venvs/gunicorn-env/bin/activate
       cd /var/www/local_enterobase
-    	celery -A  manage worker  --loglevel=debug --pidfile=$HOME/celerybeat_myapp_2.pid
+    	celery -A manage worker  --loglevel=debug --pidfile=$HOME/celerybeat_myapp_2.pid
       deactivate
 
 * This entrypoint takes two argument which is a username and a password to set up an administrator account to log into the Local EnteroBase app:
@@ -381,7 +381,7 @@ The second image is built using **"EGP.def"** recipe file
 **Redis Section**
 
 * Installs and configures Redis as suggested in the Redis docs https://redis.io/topics/quickstart (found in EGP_base.def).
-  
+
   ::
 
     %appinstall redis
@@ -421,7 +421,7 @@ The second image is built using **"EGP.def"** recipe file
 
     %apprun ping_redis
       redis-cli ping
-  
+
 **Container Run and Start Scripts**
 
 * Prepares for and runs the gunicorn app enabling access to the Local EnteroBase pages through the browser.

@@ -16,7 +16,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="User Guide" href="../app_manual/app_manual.html" />
+    <link rel="next" title="Approving Your Local EnteroBase" href="approve.html" />
     <link rel="prev" title="System Configuration" href="system_config.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -26,7 +26,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../app_manual/app_manual.html" title="User Guide"
+          <a href="approve.html" title="Approving Your Local EnteroBase"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="system_config.html" title="System Configuration"
@@ -43,27 +43,45 @@
             
   <div class="section" id="upload-test">
 <h1>Upload Test<a class="headerlink" href="#upload-test" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>Inside the system configuration form (Fig. 1), there is a “Warwick temporary token” field, local adminstrator should set this value using the token whihc he has received by email. Then local adminstrator should select “File Uploads Test” option then click “Start” button (Fig. 2).</p></li>
-<li><p>After submitting the upload test results, the registration request will be verified by Warwick EnteroBase administrator.</p></li>
-<li><p>Once the registration request has been approved, local administrator  will receive an email which will contain the client id and a client password which will be used to authorize the communication between the local installation and the Warwick EnteroBase.</p></li>
-<li><p>Local administrator needs to update your system configuration using these values and restart the application. At this stage, the system is ready and can be used.</p></li>
-</ul>
-<div class="figure align-default" id="id1">
-<img alt="Client Registration Form" src="../_images/configuration.png" />
-<p class="caption"><span class="caption-text"><strong>Fig 1 system configuration form</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p>The purpose of the upload test is to ensure that your Local EnteroBase has been correctly installed and configured.
+The test consists of downloading and assembling 2 test short-read files and verifying their results. It will also
+download and upload 100 files to check the connection speed to Central EnteroBase.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Test token on hand, it was emailed by Central EnteroBase when registering your Local EnteroBase. You can also find it here: <a class="reference external" href="http://35.197.247.144:5569/local_enterobase/display_test_token">http://35.197.247.144:5569/local_enterobase/display_test_token</a></p></li>
+<li><p>Celery task scheduler and worker processes to be initialised. These are the background processes that will assemble the test short-read files and upload their results. They can be initialised using the Singularity container with the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>singularity run --app celery_beat $HOME/local_enterobase_home/local_enterobase/EGP.sif
+</pre></div>
 </div>
-<div class="figure align-default" id="id2">
-<img alt="Files upload test form" src="../_images/test_upload.png" />
-<p class="caption"><span class="caption-text"><strong>Fig 2 Files upload test form</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>singularity run --app celery_worker $HOME/local_enterobase_home/local_enterobase/EGP.sif
+</pre></div>
 </div>
-<div class="section" id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>We should use different database user as using postgres user is not recommended. This can be done in the automatic installation script.</p></li>
-<li><p>Using “Warwick client id” instead of using “Warwick client password” field, this is can be used to authorize upload files test.</p></li>
-<li><p>Instance name and icon should be removed. The instance name should be synchronized with the registration form.</p></li>
+<li><p>Please modify the default path/name of the container if you have changed this during installation.</p></li>
 </ul>
+</li>
+</ul>
+</div>
+<div class="section" id="running-the-test">
+<h2>Running the Test<a class="headerlink" href="#running-the-test" title="Permalink to this headline">¶</a></h2>
+<p>Enter token, click “start test” and the test starts - fully automated feel free to monitor</p>
+<p>Next step is where 100 test short read files (used for performing a download and upload speed test) are downloaded to perform assemblies on - estimated time 2 minutes depending on your geographical location</p>
+<p>Next step is where 1 downloaded short read file is prepared and assembled. - estimated time 15 minutes
+Resulting fastq file is uploaded to central enterobase where it is verified against a known result which sees if the assembly is correct</p>
+<p>Also, the md5sum is extracted from each short read file and reuploaded along with the respective file back to central enterobase which verifies this checksum against the known checksum to ensure that files are not being changed during upload</p>
+<p>On completion, a summary is displayed of the times taken to reupload each short read file, as well as the total and average times to reupload all files.</p>
+<p>If the test fails at any step, this will be displayed with an appropriate error message and a “retry” button to reattempt the upload test.</p>
+<p>TO BE UPDATED</p>
+<div class="figure align-center" id="id1">
+<img alt="Incomplete Upload Test Form" src="../_images/incomplete_upload_test.png" />
+<p class="caption"><span class="caption-text"><strong>Fig. 1 - Incomplete Upload Test Form</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>TO BE UPDATED</p>
+<div class="figure align-center" id="id2">
+<img alt="Completed Upload Test Form" src="../_images/incomplete_upload_test.png" />
+<p class="caption"><span class="caption-text"><strong>Fig. 2 - Completed Upload Test Form</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 
@@ -76,7 +94,8 @@
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Upload Test</a><ul>
-<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#running-the-test">Running the Test</a></li>
 </ul>
 </li>
 </ul>
@@ -85,8 +104,8 @@
   <p class="topless"><a href="system_config.html"
                         title="previous chapter">System Configuration</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../app_manual/app_manual.html"
-                        title="next chapter">User Guide</a></p>
+  <p class="topless"><a href="approve.html"
+                        title="next chapter">Approving Your Local EnteroBase</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -115,7 +134,7 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../app_manual/app_manual.html" title="User Guide"
+          <a href="approve.html" title="Approving Your Local EnteroBase"
              >next</a> |</li>
         <li class="right" >
           <a href="system_config.html" title="System Configuration"

@@ -1,4 +1,4 @@
-Upload Strains
+Uploading Strains
 ----------------------
 
 * This options allows the user to enter one or more strains metadata along with the read files
@@ -7,9 +7,10 @@ Upload Strains
 * The user has the option to export these data to a text file which he can edit and import the modified file.
 
 .. figure:: ../images/upload_multiple_strains.png
+   :align: center
    :alt: Upload Muliple Strains
 
-   **Upload Muliple Strains dialog**
+   **Fig. 1 - Upload Muliple Strains dialog**
 
 Notes
 ^^^^^
@@ -29,9 +30,10 @@ DELETE (add another row to upload multiple strains as a note)
 
 
 .. figure:: ../images/upload_single_strain.png
+   :align: center
    :alt: Upload Single Strains
 
-   **Upload Single Strains dialog**
+   **Fig. 2 - Upload Single Strains dialog**
 
 Notes
 ^^^^^

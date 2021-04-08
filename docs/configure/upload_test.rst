@@ -1,26 +1,54 @@
 Upload Test
 -----------------
 
-* Inside the system configuration form (Fig. 1), there is a “Warwick temporary token” field, local adminstrator should set this value using the token whihc he has received by email. Then local adminstrator should select “File Uploads Test” option then click “Start” button (Fig. 2).
+The purpose of the upload test is to ensure that your Local EnteroBase has been correctly installed and configured.
+The test consists of downloading and assembling 2 test short-read files and verifying their results. It will also
+download and upload 100 files to check the connection speed to Central EnteroBase.
 
-* After submitting the upload test results, the registration request will be verified by Warwick EnteroBase administrator.
-* Once the registration request has been approved, local administrator  will receive an email which will contain the client id and a client password which will be used to authorize the communication between the local installation and the Warwick EnteroBase.
-* Local administrator needs to update your system configuration using these values and restart the application. At this stage, the system is ready and can be used.
+Prerequisites
+==============
 
+* Test token on hand, it was emailed by Central EnteroBase when registering your Local EnteroBase. You can also find it here: http://35.197.247.144:5569/local_enterobase/display_test_token
+* Celery task scheduler and worker processes to be initialised. These are the background processes that will assemble the test short-read files and upload their results. They can be initialised using the Singularity container with the following commands:
 
-.. figure:: ../images/configuration.png
-   :alt: Client Registration Form
+  ::
 
-   **Fig 1 system configuration form**
+    singularity run --app celery_beat $HOME/local_enterobase_home/local_enterobase/EGP.sif
 
-.. figure:: ../images/test_upload.png
-   :alt: Files upload test form
+  ::
 
-   **Fig 2 Files upload test form**
+    singularity run --app celery_worker $HOME/local_enterobase_home/local_enterobase/EGP.sif
 
-Notes
-======
+  * Please modify the default path/name of the container if you have changed this during installation.
 
-* We should use different database user as using postgres user is not recommended. This can be done in the automatic installation script.
-* Using "Warwick client id" instead of using “Warwick client password” field, this is can be used to authorize upload files test.
-* Instance name and icon should be removed. The instance name should be synchronized with the registration form.
+Running the Test
+=================
+
+Enter token, click "start test" and the test starts - fully automated feel free to monitor
+
+Next step is where 100 test short read files (used for performing a download and upload speed test) are downloaded to perform assemblies on - estimated time 2 minutes depending on your geographical location
+
+Next step is where 1 downloaded short read file is prepared and assembled. - estimated time 15 minutes
+Resulting fastq file is uploaded to central enterobase where it is verified against a known result which sees if the assembly is correct
+
+Also, the md5sum is extracted from each short read file and reuploaded along with the respective file back to central enterobase which verifies this checksum against the known checksum to ensure that files are not being changed during upload
+
+On completion, a summary is displayed of the times taken to reupload each short read file, as well as the total and average times to reupload all files.
+
+If the test fails at any step, this will be displayed with an appropriate error message and a "retry" button to reattempt the upload test.
+
+TO BE UPDATED
+
+.. figure:: ../images/incomplete_upload_test.png
+   :align: center
+   :alt: Incomplete Upload Test Form
+
+   **Fig. 1 - Incomplete Upload Test Form**
+
+TO BE UPDATED
+
+.. figure:: ../images/incomplete_upload_test.png
+  :align: center
+  :alt: Completed Upload Test Form
+
+  **Fig. 2 - Completed Upload Test Form**
