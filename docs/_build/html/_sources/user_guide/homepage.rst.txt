@@ -1,19 +1,16 @@
 Using the Homepage
 -----------------------
 
-UPDATE THIS SCREENSHOT
-
 .. figure:: ../images/homepage.png
    :align: center
    :alt: Warwick EnteroBase Login Form
 
-   **Fig. 1 - Local EnteroBase Homepage**
+   **Fig. 1 - Local EnteroBase Homepage (For a System Admin)**
 
-* The homepage provides a means of access to all of Local EnteroBase's functionalities. These require a Central Enterobase account to access, being marked with 'lock' icons to indicate inaccessibility if you are not signed in.
+* The homepage provides a means of access to all of Local EnteroBase's functionalities. These require a Central Enterobase account to access, being marked with 'lock' icons to indicate inaccessibility if you are not signed in to the Central EnteroBase account.
 * If you have previously signed in with Central EnteroBase and navigate to any of the 'locked' functions, you will be automatically signed in and redirected to the respective webpage.
 * The homepage provides the ability to switch between a dark and a light theme using the icon in the top navigation bar next to the login buttons.
 * The following sections detail the log in process as well as provide an overview of the available Local EnteroBase functions. Further detail on their operations can be found within their individual user guide sections.
-
 
 Logging In
 ============
@@ -50,8 +47,6 @@ The homepage displays that you are signed in by displaying your account name wit
 
    **Fig. 3 - Warwick EnteroBase Login Form**
 
-Sys admin can only see the configuration
-
 Databases to Upload Strains
 ======================================
 
@@ -66,3 +61,13 @@ This webpage allows you to view the statuses of all submitted jobs, being 'queue
 and download the results.
 
 Note: Accessing this page you to be signed into Local EnteroBase with your OAuth credentials.
+
+News & Updates
+===============
+
+This page displays significant recent changes or developments for Local EnteroBase.
+
+Beta Test documentation
+========================
+
+An easily accessible link to the documentation website for the Local EnteroBase beta test can be found in the footer of the homepage and all other webpages, opening the website in a new tab if clicked.
