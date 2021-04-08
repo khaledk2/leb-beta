@@ -52,11 +52,3 @@ TO BE UPDATED
   :alt: Completed Upload Test Form
 
   **Fig. 2 - Completed Upload Test Form**
-
-After a Successful Test
-========================
-
-After a successful test, you can continue to the final page of configuration where you must contact Harry who is acting as a beta test admin to quickly approve your Local ENteroBase instance, providing name org and LEB Name. Feel free to leave the page.
-Eventually, you will be emailed a client ID and client secret that forms your Central EnteroBase OAuth credentials to fully use Local EnteroBase. SUbmit them and the form should expand to show the details that cenntral enterobase has about your local enterobase instance for you to verify your details. If this matches up, press confirm to submit the details.
-Press resubmit to refresh the retreived details in case they may change.
-If we do not have details associated with your submitted credentials, an error message will display and we suggest getting in contact with the admin.
