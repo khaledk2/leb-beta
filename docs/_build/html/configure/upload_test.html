@@ -58,6 +58,7 @@ download and upload 100 files to check the connection speed to Central EnteroBas
 </pre></div>
 </div>
 <ul class="simple">
+<li><p>If the Celery processes are running, please restart them before beginning the upload test.</p></li>
 <li><p>Please modify the default path/name of the container if you have changed this during installation.</p></li>
 </ul>
 </li>
@@ -65,21 +66,24 @@ download and upload 100 files to check the connection speed to Central EnteroBas
 </div>
 <div class="section" id="running-the-test">
 <h2>Running the Test<a class="headerlink" href="#running-the-test" title="Permalink to this headline">¶</a></h2>
-<p>Enter token, click “start test” and the test starts - fully automated feel free to monitor</p>
-<p>Next step is where 100 test short read files (used for performing a download and upload speed test) are downloaded to perform assemblies on - estimated time 2 minutes depending on your geographical location</p>
-<p>Next step is where 1 downloaded short read file is prepared and assembled. - estimated time 15 minutes
-Resulting fastq file is uploaded to central enterobase where it is verified against a known result which sees if the assembly is correct</p>
-<p>Also, the md5sum is extracted from each short read file and reuploaded along with the respective file back to central enterobase which verifies this checksum against the known checksum to ensure that files are not being changed during upload</p>
-<p>On completion, a summary is displayed of the times taken to reupload each short read file, as well as the total and average times to reupload all files.</p>
-<p>If the test fails at any step, this will be displayed with an appropriate error message and a “retry” button to reattempt the upload test.</p>
-<p>TO BE UPDATED</p>
 <div class="figure align-center" id="id1">
 <img alt="Incomplete Upload Test Form" src="../_images/incomplete_upload_test.png" />
 <p class="caption"><span class="caption-text"><strong>Fig. 1 - Incomplete Upload Test Form</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<p>TO BE UPDATED</p>
+<ul class="simple">
+<li><p>Enter your email (disabled for the beta test) and your test token. Click the “start test” button begins the test, it will automatically complete to a successful or erroneous state. Each step of the test displays an estimated time to complete, although the actual times will also vary depending on your geographical location.</p>
+<ul>
+<li><p>100 test short-read files, intended for performing download and upload speed tests, are downloaded.</p></li>
+<li><p>A single short-read file downloaded is prepared and assembled to be uploaded to Central EnteroBase to verify the correctness of these functionalities.</p></li>
+<li><p>The resulting .fastq file of the test assembly is uploaded to Central EnteroBase where it is matched it with the stored known result, which verifies that the preparation and assembly functions are working correctly.</p></li>
+<li><p>In the final step, the MD5 checksum is extracted from each of the earlier downloaded short-read files and reuploaded with their respective file to Central EnteroBase to check the upload speed. Central EnteroBase also verifies the checksum against the stored known checksum, which checks that the files are not changing during upload.</p></li>
+</ul>
+</li>
+<li><p>If the test has successfully completed, a summary is displayed of the times taken to reupload each short-read file to Central EnteroBase, as well as the total and average times across all reuploads. Click the “continue” button to proceed to the final configuration step to acquire credentials to use Local EnteroBase.</p></li>
+<li><p>If the test fails at any step, this will be displayed with an appropriate error message and a “retry” button that will reattempt the upload test when clicked.</p></li>
+</ul>
 <div class="figure align-center" id="id2">
-<img alt="Completed Upload Test Form" src="../_images/incomplete_upload_test.png" />
+<img alt="Completed Upload Test Form" src="../_images/complete_upload_test.png" />
 <p class="caption"><span class="caption-text"><strong>Fig. 2 - Completed Upload Test Form</strong></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
