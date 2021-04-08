@@ -26,7 +26,7 @@ Running the Test
 =================
 
 .. figure:: ../images/incomplete_upload_test.png
-   :width: 450
+   :width: 500
    :align: center
    :alt: Incomplete Upload Test Form
 
@@ -43,7 +43,7 @@ Running the Test
 * If the test fails at any step, this will be displayed with an appropriate error message and a "retry" button that will reattempt the upload test when clicked.
 
 .. figure:: ../images/complete_upload_test.png
-  :width: 450
+  :width: 500
   :align: center
   :alt: Completed Upload Test Form
 

@@ -10,7 +10,7 @@ Approving Your Local EnteroBase
 * If Central EnteroBase does not have details associated with your submitted credentials, an error message will display. It suggested to contact a Central EnteroBase admin.
 
 .. figure:: ../images/pending_approval.png
-   :width: 450
+   :width: 500
    :align: center
    :alt: Local EnteroBase Usage Credentials Form
 
