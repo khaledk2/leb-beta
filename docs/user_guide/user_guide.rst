@@ -8,5 +8,5 @@ before using the functions described in this user guide.
    :maxdepth: 1
 
    homepage
-   submit_strains
+   upload_strains
    jobs
