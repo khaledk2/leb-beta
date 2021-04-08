@@ -96,7 +96,7 @@ To save time adding metadata details when submitting your strains, we provide a 
 
 Clicking the blue "Export Template" in the grid toolbar downloads the template as a text file (.txt extension) that can be saved appropriately and then opened for editing.
 
-Notes:
+**Notes**
 
 * The grid must be empty of rows to correctly export the template file.
 * If the browser window is shrank, you can export using the "Export Template" button which is located by clicking the blue "Data" button. This displays a drop-down menu of the template importing and exporting functions.
@@ -111,7 +111,7 @@ Notes:
 
 The template can be opened with text editors that are able to treat the template as a "tab-separated variables" file, where the initial column labels can be divided according to the tabbed whitespace that separates them. The filled template must be saved as a text file (.txt extension), with data separated by tabbed whitespaces, to be successfully imported back into the grid.
 
-Notes:
+**Notes**
 
 * You do not have to fill in every cell as this is intended to save time on the webpage where possible.
 * When filling in the template, the initial column labels and their ordering must be preserved to correctly import it back.
@@ -131,7 +131,7 @@ You can upload the filled template file in 2 ways:
 
 When the file has been uploaded, provided it is in a correct format, a blue "Import to Grid" button appears that will import the data to the grid when clicked, creating rows of the provided strain metadata automatically.
 
-Notes:
+**Notes**
 
 * The grid must be empty of rows to correctly export the template file.
 * If the browser window is shrank, you can import using the "Import from Text File" button which is located by clicking the blue "Data" button. This displays a drop-down menu of the template importing and exporting functions.
