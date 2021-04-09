@@ -5,7 +5,7 @@ Prerequisites
 ==============
 
 * A server to host Local EnteroBase that meets the minimum system requirements below
-* A valid URL to connect to the server from
+* A valid URL or IP address to connect to the server from
 * 'sudo' privileges to the server
 
 Minimum System requirements
@@ -15,7 +15,7 @@ Minimum System requirements
 * 32GB RAM
 
   * Ideally your system RAM should be slightly more as systems may dedicate a small portion of RAM to other processes
-  
+
 * 40GB Free Storage Space
 
 Additional Information

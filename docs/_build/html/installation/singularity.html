@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Singularity installation &#8212; Local EnteroBase (Beta)  documentation</title>
+    <title>Singularity Installation &#8212; Local EnteroBase (Beta)  documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -43,12 +43,13 @@
           <div class="body" role="main">
             
   <div class="section" id="singularity-installation">
-<span id="singularity-installation-label"></span><h1>Singularity installation<a class="headerlink" href="#singularity-installation" title="Permalink to this headline">¶</a></h1>
-<p>Firstly, the user needs to install singularity software using the following steps as described in “<a class="reference external" href="https://sylabs.io/guides/3.5/user-guide/quick_start.html">https://sylabs.io/guides/3.5/user-guide/quick_start.html</a>”, please note some installation requires the user to have sudo rule, if you do not have, please ask your system administrator to install them for you</p>
+<span id="singularity-installation-label"></span><h1>Singularity Installation<a class="headerlink" href="#singularity-installation" title="Permalink to this headline">¶</a></h1>
+<p>Firstly, the user needs to install the Singularity software using the following steps described in “<a class="reference external" href="https://sylabs.io/guides/3.5/user-guide/quick_start.html">https://sylabs.io/guides/3.5/user-guide/quick_start.html</a>”.</p>
+<p>Note: Some installations require the user to have sudo privileges. If you do not have any, please ask your system administrator to install them for you.</p>
 <div class="section" id="install-the-required-packages">
-<h2>Install the required packages<a class="headerlink" href="#install-the-required-packages" title="Permalink to this headline">¶</a></h2>
+<h2>Install the Required Packages<a class="headerlink" href="#install-the-required-packages" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p>You need to use these two commands to install the dependency packages:</p>
+<li><p>You need to use the following 2 commands to install the dependency packages:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
 <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> \
 <span class="n">build</span><span class="o">-</span><span class="n">essential</span> \
@@ -67,9 +68,9 @@
 </ul>
 </div>
 <div class="section" id="install-go">
-<h2>Install go<a class="headerlink" href="#install-go" title="Permalink to this headline">¶</a></h2>
+<h2>Install Go<a class="headerlink" href="#install-go" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p>This is used by the singularity container</p>
+<li><p>This is used by the Singularity container:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export VERSION=1.13 OS=linux ARCH=amd64
 wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz
 sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz
@@ -78,7 +79,7 @@ sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
 </pre></div>
 </div>
 </li>
-<li><p>You can test your download by typing</p>
+<li><p>You can test your download by typing:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">go</span> <span class="n">help</span>
 </pre></div>
 </div>
@@ -86,9 +87,9 @@ sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
 </ul>
 </div>
 <div class="section" id="download-singularity-from-a-release">
-<h2>Download Singularity from a release<a class="headerlink" href="#download-singularity-from-a-release" title="Permalink to this headline">¶</a></h2>
+<h2>Download Singularity From a Release<a class="headerlink" href="#download-singularity-from-a-release" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p>The following command should be used to download the code:</p>
+<li><p>The following commands are used to download the code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export VERSION=3.5.2 &amp;&amp; wget  https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz
 tar -xzf singularity-${VERSION}.tar.gz
 cd singularity
@@ -98,16 +99,16 @@ cd singularity
 </ul>
 </div>
 <div class="section" id="compile-the-singularity-source-code">
-<h2>Compile the Singularity source code<a class="headerlink" href="#compile-the-singularity-source-code" title="Permalink to this headline">¶</a></h2>
+<h2>Compile the Singularity Source Code<a class="headerlink" href="#compile-the-singularity-source-code" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p>The code needs to be compiled using the follwing command:</p>
+<li><p>The code is compiled using the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">mconfig</span>
 <span class="n">make</span> <span class="o">-</span><span class="n">C</span> <span class="n">builddir</span>
 <span class="n">sudo</span> <span class="n">make</span> <span class="o">-</span><span class="n">C</span> <span class="n">builddir</span> <span class="n">install</span>
 </pre></div>
 </div>
 </li>
-<li><p>You can test the installation by typing</p>
+<li><p>You can test the installation by typing:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">h</span>
 </pre></div>
 </div>
@@ -124,11 +125,11 @@ cd singularity
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Singularity installation</a><ul>
-<li><a class="reference internal" href="#install-the-required-packages">Install the required packages</a></li>
-<li><a class="reference internal" href="#install-go">Install go</a></li>
-<li><a class="reference internal" href="#download-singularity-from-a-release">Download Singularity from a release</a></li>
-<li><a class="reference internal" href="#compile-the-singularity-source-code">Compile the Singularity source code</a></li>
+<li><a class="reference internal" href="#">Singularity Installation</a><ul>
+<li><a class="reference internal" href="#install-the-required-packages">Install the Required Packages</a></li>
+<li><a class="reference internal" href="#install-go">Install Go</a></li>
+<li><a class="reference internal" href="#download-singularity-from-a-release">Download Singularity From a Release</a></li>
+<li><a class="reference internal" href="#compile-the-singularity-source-code">Compile the Singularity Source Code</a></li>
 </ul>
 </li>
 </ul>

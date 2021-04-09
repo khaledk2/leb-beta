@@ -16,15 +16,21 @@ Prerequisites
     LC_ALL=en_GB.UTF-8
     LANG=en_GB.UTF-8
 
-* Note: Please follow the installation instructions in the order presented by this document, else the installation may fail.
+* Create a directory to store Local EnteroBase, and by extension the EGP container. The following command uses the default path "$HOME/local_enterobase_home" although you can change this to a location of your choosing.
+
+  ::
+
+    mkdir $HOME/local_enterobase_home
+
+Note: Please follow the installation instructions in the order presented by this document, else the installation may fail.
 
 Default Installation Directory
 ===============================
 
-* The documentation assumes that Local Enterobase, and by extension the EGP container, will be installed at the path: "$HOME/local_enterobase_home".
+* The documentation assumes that Local Enterobase, and by extension the EGP container, will be installed at the default home path: "$HOME/local_enterobase_home".
 * The command examples below will use this path by default, although these can be changed if you desire a different location.
 
-Pulling the container image
+Pulling the Container Image
 =============================
 
 * There is a single container image (EGP.sif) that stores the installations for EToKi, PostgreSQL and Gunicorn. This needs to be pulled from the Singularity cloud library as follows.
@@ -36,416 +42,121 @@ Pulling the container image
 
     singularity pull --arch amd64 $HOME/local_enterobase_home/local_enterobase/EGP.sif library://enterobase/default/egp:0.1
 
-PostgreSQL database server setup and run
-=========================================
-A folder and subfolders inside the home directory (by default) must be created to be bound to related folders inside the container at runtime for the server to function.
+Setting Up and Running PostgreSQL Database Server
+=================================================
 
-* The following are commands to create the required directories. Example directory names (postgres, postgres/data, postgres/temp and postgres/logs) have been used that will be referenced by future commands.
-* If different folder names are used, all ocurrences of these directory names need to be replaced with your chosen directory names accordingly in future commands.
-* If you wish to stoe the postgres data in a different location to the default, you can also replace these with locations of your choosing.
+1. Create a folder and subfolders inside the home directory (by default).
 
-  ::
-
-    mkdir $HOME/local_enterobase_home/postgres
-    mkdir $HOME/local_enterobase_home/postgres/data
-    mkdir $HOME/local_enterobase_home/postgres/temp
-    mkdir $HOME/local_enterobase_home/postgres/logs
-
-  * The "data" folder is used for saving the database data.
-  * The "temp" folder is used by the postgres server for temporary files.
-  * The "logs" folder is used for saving the database server log files.
-
-If the database server is being run for the first time, it must be first initialised using the following command. The data folder from the previous step (e.g. $HOME/postgres/data) must be empty for this part to succeed.
-
-* If the default installation directory was changed previously for EGP.sif and/or the postgres folders, replace them accordingly in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
-
-  ::
-
-    singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app init_db $HOME/local_enterobase_home/local_enterobase/EGP.sif
-
-  * Here is a brief explanation on what each of the flags being used mean:
-
-    * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
-
-      * Here, the respective data, temporary files and log directories are bound to initialise the database cluster folders and files, store temporary running files and database server running logs respectively.
-
-    * --app: Runs a specific script defined by the image.
-
-      * Here, the 'init_db' script is called to initialise the database cluster and set up a database user for the flask app to interact with.
-
-  * The following error message regarding locale settings may appear when running this command:
+  * The folders will be bound to related folders inside the container at runtime for the server to function.
+  * The following are commands to create the required directories. Example directory names (postgres, postgres/data, postgres/temp and postgres/logs) have been used that will be referenced by future commands.
+  * If different folder names are used, all ocurrences of these directory names need to be replaced with your chosen directory names accordingly in future commands.
+  * If you wish to store the postgres data in a different location to the default, you can also replace these with locations of your choosing.
 
     ::
 
-      initdb: invalid locale settings; check LANG and LC_* environment vairables
-      pg_ctl: database sustem initialization failed
+      mkdir $HOME/local_enterobase_home/postgres
+      mkdir $HOME/local_enterobase_home/postgres/data
+      mkdir $HOME/local_enterobase_home/postgres/temp
+      mkdir $HOME/local_enterobase_home/postgres/logs
 
-    * Please refer to and carry out the commands for setting matching locale in the 'Prerequisites' section if the above error occurs, and rerun the original initialisation command.
+    * The "data" folder is used for saving the database data.
+    * The "temp" folder is used by the postgres server for temporary files.
+    * The "logs" folder is used for saving the database server log files.
 
-  * If the created database server data folder is not empty, it is assumed that the database cluster has been initialised and the process will fail with the following output:
+2. If the database server is being run for the **first time**, you must first initialise it.
 
-    ::
-
-      Database cluster initialisation failed
-      Database cluster seems to have been previously initialised since the data directory is non-empty
-
-    * Please ensure that a new database cluster is to be initialised first, and empty the data folder before rerunning the original initialisation command.
-
-Then, the following command can be run to start up the database server.
-
-* "flask_password" is the default database user password for the flask app. If this is changed during the local instance configuration then this must also be changed in the command to match.
-* The default port number for the database server is 5432. If this is changed in the local configuration, then you must replace 5432 with the new port number
-* If the default installation directory was changed previously for EGP.sif and/or the postgres folders, replace them accordingly in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
-
-  ::
-
-    SINGULARITYENV_POSTGRES_PASSWORD=flask_password singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app start_server $HOME/local_enterobase_home/local_enterobase/EGP.sif -p 5432
-
-  * Here is a brief explanation on what each of the flags being used mean:
-
-    * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
-
-      * Here, the respective data, temporary files and log directories are bound to initialise the database cluster folders and files, store temporary running files and database server running logs respectively.
-
-    * --app: Runs a specific script defined by the image.
-
-      * Here, the 'start_server' script is called to begin running the database server.
-
-    * -p:
-
-      * The port number for the database server to run on, this can be changed depending on the local configuration although 5432 is the default value.
-
-  * The output may 'hang' when the command is entered i.e. become seemingly stuck on the output as follows:
+  * The data folder from step 1 (e.g. $HOME/local_enterobase_home/postgres/data) must be empty for this step to succeed.
+  * If the default installation directory was changed previously for EGP.sif and/or the postgres folders, replace them accordingly in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
 
     ::
 
-      waiting for server to start.... done
-      server started
-      |
+      singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app init_db $HOME/local_enterobase_home/local_enterobase/EGP.sif
 
-    * Press the return/enter key to restore the normal running terminal state where inputs can be entered.
-    * The database server is set to run as a background process thus will continue to do so when the potential hang is cleared.
+    * Here is a brief explanation on what each of the flags being used mean:
 
-To stop the database server, the following command must be issued:
+      * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
 
-* Note: Stopping the running instance of the image will not stop the running database server.
+        * Here, the respective data, temporary files and log directories are bound to initialise the database cluster folders and files, store temporary running files and database server running logs respectively.
 
-  ::
+      * --app: Runs a specific script defined by the image.
 
-    SINGULARITYENV_POSTGRES_PASSWORD=flask_password singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app stop_server $HOME/local_enterobase_home/local_enterobase/EGP.sif
+        * Here, the 'init_db' script is called to initialise the database cluster and set up a database user for the flask app to interact with.
 
-  * Here is a brief explanation on what each of the flags being used mean:
+    * The following error message regarding locale settings may appear when running this command:
 
-    * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
+      ::
 
-      * Here, the respective data, temporary files and log directories are bound to store the database cluster folders and files, store temporary running files and database server running logs respectively.
+        initdb: invalid locale settings; check LANG and LC_* environment vairables
+        pg_ctl: database sustem initialization failed
 
-    * --app: Runs a specific script defined by the image.
+      * Please refer to and carry out the commands for setting matching locale in the 'Prerequisites' section if the above error occurs, and rerun the original initialisation command.
 
-      * Here, the 'stop_server' script is called to safely stop the running database server. 'start_server' is called to start the running database server.
+    * If the created database server data folder is not empty, it is assumed that the database cluster has been initialised and the process will fail with the following output:
 
-Running the Gunicorn app
-==========================
-For security reasons, you should first set up a system user password so you can use the web interface to configure the application, register your client with Warwick EnteroBase and test upload files to Warwick EnteroBase.
+      ::
 
-* This enables the configured URL (the default being the localhost IP 127.0.0.1) to be used as an input into the browser to access the application configuration pages.
-* Set up the username and password by replacing "username" and "mypassword" with your own details.
-* If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
+        Database cluster initialisation failed
+        Database cluster seems to have been previously initialised since the data directory is non-empty
 
-  ::
+      * Please ensure that a new database cluster is to be initialised first, and empty the data folder before rerunning the original initialisation command.
 
-    singularity run --app set_user $HOME/local_enterobase_home/local_enterobase/EGP.sif -u <username> -p <password>
+3. Start up the database server.
 
-  * Here is a brief explanation on what each of the flags being used mean:
+  * "flask_password" is the default database user password for the flask app. If this is changed during the local instance configuration then this must also be changed in the command to match.
+  * The default port number for the database server is 5432. If this is changed in the local configuration, then you must replace 5432 with the new port number
+  * If the default installation directory was changed previously for EGP.sif and/or the postgres folders, replace them accordingly in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
+  * Do not stop the database server immediately after setup as it is required to complete the installation and configuration of Local EnteroBase.
 
-    * --app: Runs a specific script defined by the image.
+    ::
 
-      * Here, the 'set_user' script is called to set the user's details such that they can be used to access the application.
+      SINGULARITYENV_POSTGRES_PASSWORD=flask_password singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app start_server $HOME/local_enterobase_home/local_enterobase/EGP.sif -p 5432
 
-    * -u: Identifies the following argument as a username.
+    * Here is a brief explanation on what each of the flags being used mean:
 
-    * -p: Identifies the following argument as a password.
+      * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
 
-* Please note that an error message regarding database configuration may appear when running this command, but it can be ignored at this stage. E.g:
+        * Here, the respective data, temporary files and log directories are bound to initialise the database cluster folders and files, store temporary running files and database server running logs respectively.
 
-  ::
+      * --app: Runs a specific script defined by the image.
 
-    [2020-11-16 09:52:13,656] INFO in __init__: Database error: <class 'sqlalchemy.exc.OperationalError'>, error is (psycopg2.OperationalError) could not connect to server: Connection refused
-  	  Is the server running on host "localhost" (127.0.0.1) and accepting
-  	  TCP/IP connections on port 5432?
+        * Here, the 'start_server' script is called to begin running the database server.
 
-Then, the following command can be used to run the Gunicorn application.
+      * -p:
 
-* If the default installation directory was changed previously for EGP.sif, replace it accordingly in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
-* "egp" is the given name of the running image instance, this can be changed to a name of your choosing.
-* The following gunicorn app running options are the set defaults, these values can be changed if desired.
+        * The port number for the database server to run on, this can be changed depending on the local configuration although 5432 is the default value.
 
-  ::
+    * The output may 'hang' when the command is entered i.e. become seemingly stuck on the output as follows:
 
-    singularity instance start $HOME/local_enterobase_home/local_enterobase/EGP.sif egp -b 0.0.0.0:8000 --timeout 300 --name "local_entero" --log-file=$HOME/logs/gunilog.log --bind=unix:$HOME/sock
+      ::
 
-  * Here is a brief explanation on what each of the flags being used mean:
+        waiting for server to start.... done
+        server started
+        |
 
-    * -b: Defines a server socket to bind.
+      * Press the return/enter key to restore the normal running terminal state where inputs can be entered.
+      * The database server is set to run as a background process thus will continue to do so when the potential hang is cleared.
 
-      * Here, both the sockets 0.0.0.0:8000 and unix:$HOME/sock are defined to run the gunicorn app off of.
+**Usage Tooltips**
 
-    * --timeout: Specifies the time to wait for activity from silent workers before killing and restarting them.
+* Stop the database server:
 
-      * Here, a 300 second (5 minute) waiting time is defined.
+  * Note: Stopping the running instance of the Singularity image will not stop the running of the database server.
 
-    * --name: The base process name.
+    ::
 
-      * Here, it is named "local_entero".
+      SINGULARITYENV_POSTGRES_PASSWORD=flask_password singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app stop_server $HOME/local_enterobase_home/local_enterobase/EGP.sif
 
-    * --log-file: The path of the log file to write errors to.
+    * Here is a brief explanation on what each of the flags being used mean:
 
-      * Here, the default home directory and log file name are used.
+      * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
 
+        * Here, the respective data, temporary files and log directories are bound to store the database cluster folders and files, store temporary running files and database server running logs respectively.
 
+      * --app: Runs a specific script defined by the image.
 
-To be sure that the instance is running, the local admin can use the following command to list all the running Singularity instances:
-
-::
-
-  singularity instance list
-
-* The output will include the running instance name "i.e. local_enterobase", it will look something like this:
-
-+------------------------+------------+----------+----------------------------------+
-| INSTANCE NAME          | PID        | IP       |IMAGE                             |
-+========================+============+==========+==================================+
-| egp       | 23456      |            | /home/user/local_enterobase.sif             |
-+------------------------+------------+----------+----------------------------------+
-
-* If you want to restart the system, you should stop the instance first, then run it again using the commands for applying a system configuration change below.
-
-Redis Setup and Use
-====================
-
-A folder and subfolders inside the home directory (by default) must be created to be bound to related folders inside the container at runtime for the server to function.
-
-* The following are commands to create the required directories. Example directory names (redis, redis/data, redis/temp and redis/logs) have been used that will be referenced by future commands.
-* If different folder names are used, all ocurrences of these directory names need to be replaced with your chosen directory names accordingly in future commands.
-* If you wish to stoe the redis data in a different location to the default, you can also replace these with locations of your choosing.
-
-  ::
-
-    mkdir $HOME/local_enterobase_home/redis
-    mkdir $HOME/local_enterobase_home/redis/data
-    mkdir $HOME/local_enterobase_home/redis/temp
-    mkdir $HOME/local_enterobase_home/redis/logs
-
-  * The "data" folder is used for saving the redis data.
-  * The "temp" folder is used by the redis server for temporary files. If there are any pid-related errors when starting Redis such as "/var/run/redis_6379.pid exists, process is already running or crashed", delete the ".pid" file in this directory and the problem should be resolved.
-  * The "logs" folder is used for saving the redis server log files.
-
-The redis server can be run with the following command:
-
-* If the default installation directory was changed previously for EGP.sif and/or the redis folders, replace them accordingly in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
-
-  ::
-
-    singularity run -B $HOME/local_enterobase_home/redis/data:/var/redis/6379 -B $HOME/local_enterobase_home/redis/temp:/var/run/ -B $HOME/local_enterobase_home/redis/logs:/var/log/redis --app start_redis $HOME/local_enterobase_home/local_enterobase/EGP.sif
-
-  * Here is a brief explanation on what each of the flags being used mean:
-
-    * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
-
-      * Here, the respective data, temporary files and log directories are bound to store the redis server folders and files, store temporary running files and redis server running logs respectively.
-
-    * --app: Runs a specific script defined by the image.
-
-      * Here, the 'start_redis' script is called to start running the redis server.
-
-To check if the redis server is up and running, the following command can be run:
-
-* If the default installation directory was changed previously for EGP.sif and/or the redis folders, replace them accordingly in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
-
-  ::
-    
-    singularity run -B $HOME/local_enterobase_home/redis/data:/var/redis/6379 -B $HOME/local_enterobase_home/redis/temp:/var/run/ -B $HOME/local_enterobase_home/redis/logs:/var/log/redis --app ping_redis $HOME/local_enterobase_home/local_enterobase/EGP.sif
-
-  * Here is a brief explanation on what each of the flags being used mean:
-
-    * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
-
-      * Here, the respective data, temporary files and log directories are bound to store the redis server folders and files, store temporary running files and redis server running logs respectively.
-
-    * --app: Runs a specific script defined by the image.
-
-      * Here, the 'ping_redis' script is called to check if the redis server is running.
-
-The redis server can be stopped with the following command:
-
-* If the default installation directory was changed previously for EGP.sif and/or the redis folders, replace them accordingly in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
-
-  ::
-
-    singularity run -B $HOME/local_enterobase_home/redis/data:/var/redis/6379 -B $HOME/local_enterobase_home/redis/temp:/var/run/ -B $HOME/local_enterobase_home/redis/logs:/var/log/redis --app stop_redis $HOME/local_enterobase_home/local_enterobase/EGP.sif
-
-  * Here is a brief explanation on what each of the flags being used mean:
-
-    * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
-
-      * Here, the respective data, temporary files and log directories are bound to store the redis server folders and files, store temporary running files and redis server running logs respectively.
-
-    * --app: Runs a specific script defined by the image.
-
-      * Here, the 'stop_redis' script is called to stop running the redis server.
-  
-
-Preparing and Assembling Read Files using EToKi
-================================================
-A folder inside the home directory (by default) must be created to be bound to related folders inside the container at runtime to enable the correct functionality of EToKi for Local EnteroBase.
-
-* The following is a command to create the required directories. Their names have been used as defaults and will be referenced by future commands.
-* If a different folder name is used, all ocurrences of this need to be replaced with your chosen directory name accordingly in future commands.
-* The default installation location is $HOME/local_enterobase_home. If you wish to install it in a different location, you can also replace this with a location of your choosing.
-
-  ::
-
-    mkdir $HOME/local_enterobase_home/EToKi_externals
-    mkdir $HOME/local_enterobase_home/EToKi
-    mkdir $HOME/local_enterobase_home/EToKi/reads
-    mkdir $HOME/local_enterobase_home/EToKi/prep_out
-    mkdir $HOME/local_enterobase_home/EToKi/asm_out
-
-  * "EToKi_externals" is used for saving external files to be used by EToKi.
-  * "EToKi" folder is used for saving files to be used by EToKi and store results of their preparation and assembly.
-  * "EToKi/reads" is used for storing read files to be prepared and assembled.
-  * "EToKi/prep_out" is used for storing the preparation results of the initial read files.
-  * "EToKi/asm_out" is used to store the assembly results of the prepared read files.
-
-* The following command must be run to copy the required configure data file (configure.ini) to the current working directory, $HOME/local_enterobase_home/EToKi is used by default.
-* If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
-
-  ::
-
-    singularity run --app cp_configure $HOME/local_enterobase_home/local_enterobase/EGP.sif
-
-* Then, you should download the following. A suggest commands to do so is 'wget':
-
-  * usearch software. It will be needed to submit a free licence request, you should receive an email which contains a download link.
-  * Kraken database, you can download it using this link: ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/minikraken2_v2_8GB_201904_UPDATE.tgz
-
-You should save both of them to the same folder e.g. $HOME/local_enterobase_home/EToKi_externals and run the following command to configure EToKi.
-
-* If the name EToKi_externals has been changed, replace its occurrence in the following command by the new name.
-* If the storage location for configure.ini has been changed, replace its path in the following command by its location.
-* If the Kraken database has a different directory name other than the default "minikraken2" upon installation, you can leave it unchanged or change it to this/another appropriate name and replace its occurrence in the following command accordingly.
-* If the default installation directory was changed previously for EGP.sif and/or EToki_Externals, replace them in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
-
-  ::
-
-    singularity run -B $HOME/local_enterobase_home/EToKi/configure.ini:/code/EToKi/modules/configure.ini -B $HOME/local_enterobase_home/EToKi_externals:/code/EToKi/local_externals --app run_etoki $HOME/local_enterobase_home/local_enterobase/EGP.sif configure --usearch /code/EToKi/local_externals/usearch11.0.667_i86linux32 --link_krakenDB /code/EToKi/local_externals/minikraken2/
-
-  * Here is a brief explanation on what some flags being used mean:
-
-    * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
-
-      * Here, the EToKi configuration file and the local externals folder storing usearch and minikraken2 are bound to enable updating the configuration paths and internally access usearch and minkraken2 respectively.
-
-    * --app: Runs a specific script defined by the image.
-
-      * Here, the 'run_etoki' script is called to pass in commands leading to the execution of EToKi functions, in this case it is cp_configure.
-
-    * --usearch: Used to pass the locally downloaded usearch file to the container.
-
-      * As /code/EToKi/local_externals is bound by the local externals folder, the internal container path that usearch is saved to can be used.
-
-    * --link_krakenDB: Used to pass the locally downloaded Kraken database to the container.
-
-      * As /code/EToKi/local_externals is bound by the local externals folder, the internal container path that the database directory is saved to can be used.
-
-This is the command to prepare read files for assembly.
-
-* If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
-* pe_example_1.fastq.gz, pe_example_2.fastq.gz and example_dir are example names for the read files to be prepared and the subdirectory in which to store their preparation results in. Replace these as required.
-
-  ::
-
-    singularity run -B $HOME/local_enterobase_home/EToKi/prep_out:/code/EToKi/prep_out -B $HOME/local_enterobase_home/EToKi/reads:/code/EToKi/reads --app run_etoki $HOME/local_enterobase_home/local_enterobase/EGP.sif prepare --pe /code/EToKi/reads/pe_example_1.fastq.gz,/code/EToKi/reads/pe_example_2.fastq.gz -p /code/EToKi/prep_out/example_dir/file_suffix
-
-  * Here is a brief explanation on what some flags being used mean:
-
-    * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
-
-      * Here, the folders for storing the read files and preparation results are bound to pass the locally stored read files to the container and receive the prepared files respectively.
-
-    * --pe: Links one or more paired-end read files to prepare.
-
-      * Here, 2 paired-end read files have been passed in as an example.
-      * The flag --se for passing single-end read files can also be used if these are initially present.
-
-    * -p: Links a target path to store preparation results.
-
-      * Here, an example subdirectory within EToKi/prep_out has been passed in as an example, with 'file_suffix' being appended onto all generated filenames e.g. 'file_suffix_L1_R1.fastq.gz'
-
-This is the command to assemble the prepared read files.
-
-* If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
-* pe_example_1.fastq.gz, pe_example_2.fastq.gz and example_dir are example names for the resulting prepared read files from the previous step. Use the names of your resulting files accordingly.
-
-  ::
-
-    singularity run -B $HOME/local_enterobase_home/EToKi/asm_out:/code/EToKi/asm_out -B $HOME/local_enterobase_home/EToKi/prep_out:/code/EToKi/prep_out --app run_etoki $HOME/local_enterobase_home/local_enterobase/EGP.sif assemble --pe /code/EToKi/prep_out/pe_example_1.fastq.gz,/code/EToKi/prep_out/pe_example_2.fastq.gz --se /code/EToKi/prep_out/se_example_2.fastq.gz -p /code/EToKi/asm_out/example_dir/file_suffix
-
-  * Here is a brief explanation on what some flags being used mean:
-
-    * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
-
-      * Here, the folders for storing the prepared read files and assmbly results are bound to pass the prepared read files stored locally from the previous step to the container and receive the assembly results respectively.
-
-    * --pe: Links one or more paired-end read files to assemble.
-
-      * Here, 2 paired-end prepared read files have been passed in as an example.
-
-    * --se: Links one or more single-end read files to prepare.
-
-      * Here, a singular prepared read file has been passed in as an example. This is a possible result from preparing only paired-end read files.
-      * This flag is optional as it depends on the initial read files and their preparation results.
-
-    * -p: Links a target directory to store preparation results.
-
-      * Here, an example subdirectory within EToKi/prep_out has been passed in as an example, with 'file_suffix' being appended onto all generated filenames e.g. 'file_suffix.result.fastq'
-
-Using the application
-======================
-
-* To be able to fully use the application, you will need to:
-
-  * Configure the database server which includes Database server URI, Database port number, Database user and Database password.
-  * Register your installation with Warwick EnteroBase
-  * Test uploading 100 files to Warwick EnteroBase
-
-* The local installation configuration file is saved in your home folder (.local_configuration_file.yml), you can edit it directly using any text editor (e.g. vim) or it can be alerted using “/update_system_configuration”  link from the web interface (it will be the default main web page if the database is not configured or not configured correctly).
-
-* The app is accessible by the provided URL/IP address, set during NGINX configuration (in the nginx_local_enterobase.conf file).
-
-* To apply a database configuration change, the database server must be restarted using the following commands.
-
-  ::
-
-    SINGULARITYENV_POSTGRES_PASSWORD=flask_password singularity run -B $HOME/postgres/data:/usr/local/pgsql/data -B $HOME/postgres/temp:/var/run/postgresql/ -B $HOME/postgres/logs:/usr/local/pgsql/logs --app restart_server $HOME/local_enterobase_home/local_enterobase/EGP.sif -p 5432
-
-* The database server restart can also be performed manually if required:
-
-  ::
-
-    SINGULARITYENV_POSTGRES_PASSWORD=flask_password singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app stop_server $HOME/local_enterobase_home/local_enterobase/EGP.sif
-    SINGULARITYENV_POSTGRES_PASSWORD=flask_password singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app start_server $HOME/local_enterobase_home/local_enterobase/EGP.sif -p 5432
+        * Here, the 'stop_server' script is called to safely stop the running database server. 'start_server' is called to start the running database server.
 
 * To apply a system configuration change, the database server and application must be restarted using the following commands.
 
@@ -456,7 +167,20 @@ Using the application
     SINGULARITYENV_POSTGRES_PASSWORD=flask_password singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app start_server $HOME/local_enterobase_home/local_enterobase/EGP.sif -p 5432
     singularity instance start $HOME/local_enterobase_home/local_enterobase/EGP.sif egp
 
-* New database users (with default SELECT, INSERT, UPDATE and DELETE permissions) can be added:
+* To apply a database configuration change, the database server must be restarted using the following command:
+
+  ::
+
+    SINGULARITYENV_POSTGRES_PASSWORD=flask_password singularity run -B $HOME/postgres/data:/usr/local/pgsql/data -B $HOME/postgres/temp:/var/run/postgresql/ -B $HOME/postgres/logs:/usr/local/pgsql/logs --app restart_server $HOME/local_enterobase_home/local_enterobase/EGP.sif -p 5432
+
+  * The database server restart can also be performed using start and stop commands if required:
+
+    ::
+
+      SINGULARITYENV_POSTGRES_PASSWORD=flask_password singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app stop_server $HOME/local_enterobase_home/local_enterobase/EGP.sif
+      SINGULARITYENV_POSTGRES_PASSWORD=flask_password singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app start_server $HOME/local_enterobase_home/local_enterobase/EGP.sif -p 5432
+
+* Add new database users (with default SELECT, INSERT, UPDATE and DELETE permissions):
 
   ::
 
@@ -465,11 +189,294 @@ Using the application
   * Replace <username> and <password> with the required credentials.
   * The provided username must not already be an existing database user.
 
-* New database users (with default SELECT, INSERT, UPDATE and DELETE permissions) can be added:
+Running the Gunicorn Application
+================================
+
+1. Set up a username and password for the system app administrator so that you can use the web interface to configure the application, register your Local EnteroBase with Central EnteroBase at Warwick (Warwick EnteroBase) and test upload files to Warwick EnteroBase.
+
+  * This enables the configured URL (the default being the localhost IP 127.0.0.1) to be used as an input into the browser to access the application configuration pages.
+  * Set up the username and password by replacing "username" and "mypassword" with your own details.
+  * If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
+
+    ::
+
+      singularity run --app set_user $HOME/local_enterobase_home/local_enterobase/EGP.sif -u <username> -p <password>
+
+    * Here is a brief explanation on what each of the flags being used mean:
+
+      * --app: Runs a specific script defined by the image.
+
+        * Here, the 'set_user' script is called to set the user's details such that they can be used to access the application.
+
+      * -u: Identifies the following argument as a username.
+
+      * -p: Identifies the following argument as a password.
+
+  * Please note that an error message regarding database configuration may appear when running this command, but it can be ignored at this stage. E.g:
+
+    ::
+
+      [2020-11-16 09:52:13,656] INFO in __init__: Database error: <class 'sqlalchemy.exc.OperationalError'>, error is (psycopg2.OperationalError) could not connect to server: Connection refused
+    	  Is the server running on host "localhost" (127.0.0.1) and accepting
+    	  TCP/IP connections on port 5432?
+
+2. Run the Gunicorn application.
+
+  * If the default installation directory was changed previously for EGP.sif, replace it accordingly in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
+  * "egp" is the given name of the running image instance, this can be changed to a name of your choosing.
+  * The following gunicorn app running options are the set defaults, these values can be changed if desired.
+
+    ::
+
+      singularity instance start $HOME/local_enterobase_home/local_enterobase/EGP.sif egp -b 0.0.0.0:8000 --timeout 300 --name "local_entero" --log-file=$HOME/logs/gunilog.log --bind=unix:$HOME/sock
+
+    * Here is a brief explanation on what each of the flags being used mean:
+
+      * -b: Defines a server socket to bind.
+
+        * Here, both the sockets 0.0.0.0:8000 and unix:$HOME/sock are defined to run the gunicorn app off of.
+
+      * --timeout: Specifies the time to wait for activity from silent workers before killing and restarting them.
+
+        * Here, a 300 second (5 minute) waiting time is defined.
+
+      * --name: The base process name.
+
+        * Here, it is named "local_entero".
+
+      * --log-file: The path of the log file to write errors to.
+
+        * Here, the default home directory and log file name are used.
+
+**Usage Tooltips**
+
+* To ensure that the Local EnteroBase instance is running, use the following command to list all the running Singularity instances:
 
   ::
 
-    singularity run --app change_dbuser_password $HOME/local_enterobase_home/local_enterobase/EGP.sif -u <username> -p <password>
+    singularity instance list
 
-  * Replace <username> and <password> with the required credentials.
-  * The provided username must be an existing database user.
+  * The output will include the running instance name "i.e. local_enterobase", it will look something like this:
+
+  +------------------------+------------+----------+----------------------------------+
+  | INSTANCE NAME          | PID        | IP       |IMAGE                             |
+  +========================+============+==========+==================================+
+  | egp       | 23456      |            | /home/user/local_enterobase.sif             |
+  +------------------------+------------+----------+----------------------------------+
+
+  * If you want to restart the system, you should stop the instance first, then run it again using the commands for applying a system configuration change below.
+
+Redis Setup and Usage
+=====================
+
+1. Create a folder and subfolders inside the home directory (by default).
+
+  * The folders will be bound to related folders inside the container at runtime for the server to function.
+  * The following are commands to create the required directories. Example directory names (redis, redis/data, redis/temp and redis/logs) have been used that will be referenced by future commands.
+  * If different folder names are used, all ocurrences of these directory names need to be replaced with your chosen directory names accordingly in future commands.
+  * If you wish to store the redis data in a different location to the default, you can also replace these with locations of your choosing.
+
+    ::
+
+      mkdir $HOME/local_enterobase_home/redis
+      mkdir $HOME/local_enterobase_home/redis/data
+      mkdir $HOME/local_enterobase_home/redis/temp
+      mkdir $HOME/local_enterobase_home/redis/logs
+
+    * The "data" folder is used for saving the Redis data.
+    * The "temp" folder is used by the Redis server for temporary files. If there are any pid-related errors when starting Redis such as "/var/run/redis_6379.pid exists, process is already running or crashed", delete the ".pid" file in this directory and the problem should be resolved.
+    * The "logs" folder is used for saving the Redis server log files.
+
+2. Run the Redis server.
+
+  * If the default installation directory was changed previously for EGP.sif and/or the Redis folders, replace them accordingly in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
+
+    ::
+
+      singularity run -B $HOME/local_enterobase_home/redis/data:/var/redis/6379 -B $HOME/local_enterobase_home/redis/temp:/var/run/ -B $HOME/local_enterobase_home/redis/logs:/var/log/redis --app start_redis $HOME/local_enterobase_home/local_enterobase/EGP.sif
+
+    * Here is a brief explanation on what each of the flags being used mean:
+
+      * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
+
+        * Here, the respective data, temporary files and log directories are bound to store the Redis server folders and files, store temporary running files and Redis server running logs respectively.
+
+      * --app: Runs a specific script defined by the image.
+
+        * Here, the 'start_redis' script is called to start running the Redis server.
+
+**Usage Tooltips**
+
+* To check if the Redis server is up and running, run the following command:
+
+  * If the default installation directory was changed previously for EGP.sif and/or the Redis folders, replace them accordingly in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
+
+    ::
+
+      singularity run -B $HOME/local_enterobase_home/redis/data:/var/redis/6379 -B $HOME/local_enterobase_home/redis/temp:/var/run/ -B $HOME/local_enterobase_home/redis/logs:/var/log/redis --app ping_redis $HOME/local_enterobase_home/local_enterobase/EGP.sif
+
+    * Here is a brief explanation on what each of the flags being used mean:
+
+      * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
+
+        * Here, the respective data, temporary files and log directories are bound to store the Redis server folders and files, store temporary running files and Redis server running logs respectively.
+
+      * --app: Runs a specific script defined by the image.
+
+        * Here, the 'ping_redis' script is called to check if the Redis server is running.
+
+* The Redis server can be stopped with the following command:
+
+  * If the default installation directory was changed previously for EGP.sif and/or the Redis folders, replace them accordingly in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
+
+    ::
+
+      singularity run -B $HOME/local_enterobase_home/redis/data:/var/redis/6379 -B $HOME/local_enterobase_home/redis/temp:/var/run/ -B $HOME/local_enterobase_home/redis/logs:/var/log/redis --app stop_redis $HOME/local_enterobase_home/local_enterobase/EGP.sif
+
+    * Here is a brief explanation on what each of the flags being used mean:
+
+      * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
+
+        * Here, the respective data, temporary files and log directories are bound to store the Redis server folders and files, store temporary running files and Redis server running logs respectively.
+
+      * --app: Runs a specific script defined by the image.
+
+        * Here, the 'stop_redis' script is called to stop running the Redis server.
+
+
+Preparing and Assembling Read Files using EToKi
+===============================================
+
+1. Create a folder inside the home directory (by default)
+
+  * The folder will be bound to a related folder inside the container at runtime to enable the correct functionality of EToKi for Local EnteroBase.
+  * The following is a command to create the required directories. Their names have been used as defaults and will be referenced by future commands.
+  * If a different folder name is used, all ocurrences of this need to be replaced with your chosen directory name accordingly in future commands.
+  * The default installation location is $HOME/local_enterobase_home. If you wish to install it in a different location, you can also replace this with a location of your choosing.
+
+    ::
+
+      mkdir $HOME/local_enterobase_home/EToKi_externals
+      mkdir $HOME/local_enterobase_home/EToKi
+      mkdir $HOME/local_enterobase_home/EToKi/reads
+      mkdir $HOME/local_enterobase_home/EToKi/prep_out
+      mkdir $HOME/local_enterobase_home/EToKi/asm_out
+
+    * "EToKi_externals" is used for saving external files to be used by EToKi.
+    * "EToKi" folder is used for saving files to be used by EToKi and store results of their preparation and assembly.
+    * "EToKi/reads" is used for storing read files to be prepared and assembled.
+    * "EToKi/prep_out" is used for storing the preparation results of the initial read files.
+    * "EToKi/asm_out" is used to store the assembly results of the prepared read files.
+
+2. Copy the required configure data file (configure.ini) to the current working directory, $HOME/local_enterobase_home/EToKi is used by default.
+
+  * If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
+
+    ::
+
+      singularity run --app cp_configure $HOME/local_enterobase_home/local_enterobase/EGP.sif
+
+3. Download usearch and the MiniKraken2 database for EToKi to function correctly, saving them to the same folder e.g. $HOME/local_enterobase_home/EToKi_externals (default)
+
+  * A suggested command is 'wget' to download the software.
+  * usearch software - You may need to submit a free licence request, where you should receive an email which contains a download link.
+  * MiniKraken2 database - You can download it using this link: ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/minikraken2_v2_8GB_201904_UPDATE.tgz
+
+4. Configure EToKi.
+
+  * If the name EToKi_externals has been changed, replace its occurrence in the following command by the new name.
+  * If the storage location for configure.ini has been changed, replace its path in the following command by its location.
+  * If the Kraken database has a different directory name other than the default "minikraken2" upon installation, you can leave it unchanged or change it to this/another appropriate name and replace its occurrence in the following command accordingly.
+  * If the default installation directory was changed previously for EGP.sif and/or EToki_Externals, replace them in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
+
+    ::
+
+      singularity run -B $HOME/local_enterobase_home/EToKi/configure.ini:/code/EToKi/modules/configure.ini -B $HOME/local_enterobase_home/EToKi_externals:/code/EToKi/local_externals --app run_etoki $HOME/local_enterobase_home/local_enterobase/EGP.sif configure --usearch /code/EToKi/local_externals/usearch11.0.667_i86linux32 --link_krakenDB /code/EToKi/local_externals/minikraken2/
+
+    * Here is a brief explanation on what some flags being used mean:
+
+      * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
+
+        * Here, the EToKi configuration file and the local externals folder storing usearch and minikraken2 are bound to enable updating the configuration paths and internally access usearch and minkraken2 respectively.
+
+      * --app: Runs a specific script defined by the image.
+
+        * Here, the 'run_etoki' script is called to pass in commands leading to the execution of EToKi functions, in this case it is cp_configure.
+
+      * --usearch: Used to pass the locally downloaded usearch file to the container.
+
+        * As /code/EToKi/local_externals is bound by the local externals folder, the internal container path that usearch is saved to can be used.
+
+      * --link_krakenDB: Used to pass the locally downloaded Kraken database to the container.
+
+        * As /code/EToKi/local_externals is bound by the local externals folder, the internal container path that the database directory is saved to can be used.
+
+**Usage Tooltips**
+
+* Preparing Read Files for Assembly.
+
+  * If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
+  * pe_example_1.fastq.gz, pe_example_2.fastq.gz and example_dir are example names for the read files to be prepared and the subdirectory in which to store their preparation results in. Replace these as required.
+
+    ::
+
+      singularity run -B $HOME/local_enterobase_home/EToKi/prep_out:/code/EToKi/prep_out -B $HOME/local_enterobase_home/EToKi/reads:/code/EToKi/reads --app run_etoki $HOME/local_enterobase_home/local_enterobase/EGP.sif prepare --pe /code/EToKi/reads/pe_example_1.fastq.gz,/code/EToKi/reads/pe_example_2.fastq.gz -p /code/EToKi/prep_out/example_dir/file_suffix
+
+    * Here is a brief explanation on what some flags being used mean:
+
+      * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
+
+        * Here, the folders for storing the read files and preparation results are bound to pass the locally stored read files to the container and receive the prepared files respectively.
+
+      * --pe: Links one or more paired-end read files to prepare.
+
+        * Here, 2 paired-end read files have been passed in as an example.
+        * The flag --se for passing single-end read files can also be used if these are initially present.
+
+      * -p: Links a target path to store preparation results.
+
+        * Here, an example subdirectory within EToKi/prep_out has been passed in as an example, with 'file_suffix' being appended onto all generated filenames e.g. 'file_suffix_L1_R1.fastq.gz'
+
+* Assembling Prepared Read Files.
+
+  * If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
+  * pe_example_1.fastq.gz, pe_example_2.fastq.gz and example_dir are example names for the resulting prepared read files from the previous step. Use the names of your resulting files accordingly.
+
+    ::
+
+      singularity run -B $HOME/local_enterobase_home/EToKi/asm_out:/code/EToKi/asm_out -B $HOME/local_enterobase_home/EToKi/prep_out:/code/EToKi/prep_out --app run_etoki $HOME/local_enterobase_home/local_enterobase/EGP.sif assemble --pe /code/EToKi/prep_out/pe_example_1.fastq.gz,/code/EToKi/prep_out/pe_example_2.fastq.gz --se /code/EToKi/prep_out/se_example_2.fastq.gz -p /code/EToKi/asm_out/example_dir/file_suffix
+
+    * Here is a brief explanation on what some flags being used mean:
+
+      * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
+
+        * Here, the folders for storing the prepared read files and assmbly results are bound to pass the prepared read files stored locally from the previous step to the container and receive the assembly results respectively.
+
+      * --pe: Links one or more paired-end read files to assemble.
+
+        * Here, 2 paired-end prepared read files have been passed in as an example.
+
+      * --se: Links one or more single-end read files to prepare.
+
+        * Here, a singular prepared read file has been passed in as an example. This is a possible result from preparing only paired-end read files.
+        * This flag is optional as it depends on the initial read files and their preparation results.
+
+      * -p: Links a target directory to store preparation results.
+
+        * Here, an example subdirectory within EToKi/prep_out has been passed in as an example, with 'file_suffix' being appended onto all generated filenames e.g. 'file_suffix.result.fastq'
+
+Additional Notes
+================
+
+* The local installation configuration file is saved in your home folder (.local_configuration_file.yml), you can edit it directly using any text editor (e.g. vim) or it can be alerted using “/update_system_configuration”  link from the web interface (it will be the default main web page if the database is not configured or not configured correctly).
+
+* The application is accessible by the provided URL/IP address, set during NGINX configuration (in the nginx.conf file).
