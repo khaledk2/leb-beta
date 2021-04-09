@@ -3,7 +3,7 @@
 NGINX Web Server
 ^^^^^^^^^^^^^^^^
 
-Nginx will act as a reverse-proxy, and load balancer for Local EnteroBase. It will serve requests to the website to all the servers it is installed on.
+NGINX will act as a reverse-proxy, and load balancer for Local EnteroBase. It will serve requests to the website to all the servers it is installed on.
 
 Prerequisites
 =============
@@ -22,20 +22,20 @@ Installing the Image
 Running NGINX container
 =======================
 
-To run the container, the user first needs to set up the sub-folder in their own machine. The default Nginx configuration file, certs folder, and logs folder will be copied into this sub folder. This then gets binded to the directory "/home/nginx_user" in the container. The container is also currently saved under the name localenterobase/nginx:1.0.
+To run the container, the user first needs to set up the sub-folder in their own machine. The default NGINX configuration file, certs folder, and logs folder will be copied into this sub folder. This then gets binded to the directory "/home/nginx_user" in the container. The container is also currently saved under the name localenterobase/nginx:1.0.
 
 * The Docker container takes three different args (setup, test, run) detailed below.
 
   * **setup** - used to setup the file structure on the host machine.
-  * **test** - ensure that a valid .conf file is being used for nginx.
-  * **run** - run the nginx server.
+  * **test** - ensure that a valid .conf file is being used for NGINX.
+  * **run** - run the NGINX server.
 * The directory structure needs to be set up on the host machine. To do this, you can use the docker image by using the following command:
 
   ::
     
     sudo docker run --rm -v $HOME/nginx:/home/nginx_user/:z localenterobase/nginx:1.0 setup
 
-* NOTE: The above command will create the folder in the home directory in the local machine. If you wish to install it in a specific location change $HOME to the directory you wish to set up the nginx files in. 
+* NOTE: The above command will create the folder in the home directory in the local machine. If you wish to install it in a specific location change $HOME to the directory you wish to set up the NGINX files in. 
 
 * The directory structure is setup as follows:
   
@@ -81,7 +81,7 @@ To run the container, the user first needs to set up the sub-folder in their own
 
     sudo docker run --rm -p 80:80 -p 443:443 -v $HOME/nginx:/home/nginx_user/ --name nginx_local_enterobase localenterobase/nginx:1.0 test
 
-* Use the following command to start the Nginx server:
+* Use the following command to start the NGINX server:
 
   ::
 
