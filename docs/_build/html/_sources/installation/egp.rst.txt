@@ -384,13 +384,13 @@ Configuring EToKi
       cd $HOME/local_enterobase_home/EToKi
       singularity run --app cp_configure $HOME/local_enterobase_home/local_enterobase/EGP.sif
 
-3. Download usearch and the MiniKraken2 database for EToKi to function correctly.
+3. Download usearch and the MiniKraken2 database for EToKi to function correctly. **(Not required for the beta test)**.
 
   * usearch software - You may need to submit a free licence request, where you should receive an email which contains a download link.
   * MiniKraken2 database - You can download it from their website: https://ccb.jhu.edu/software/kraken2/index.shtml?t=downloads
   * A suggested command is "wget" to download the software.
 
-  * ** For the beta test ** you can use the following commands to download usearch:
+  You can use the following commands to download usearch:
 
     ::
 
@@ -399,7 +399,7 @@ Configuring EToKi
       chmod 755 usearch11.0.667_i86linux32.gz
       gzip -d usearch11.0.667_i86linux32.gz
 
-  * ** For the beta test ** you can use the following commands to download MiniKraken2:
+  You can use the following commands to download MiniKraken2:
 
     ::
 
@@ -407,9 +407,9 @@ Configuring EToKi
       tar xf v2.0.8-beta.tar.gz
       mv kraken2-2.0.8-beta minikraken2
 
-4. Save usearch and MiniKraken2 to the same folder e.g. $HOME/local_enterobase_home/EToKi_externals (default).
+4. Save usearch and MiniKraken2 to the same folder e.g. $HOME/local_enterobase_home/EToKi_externals (default). **(Not required for the beta test)**.
 
-5. Configure EToKi.
+5. Configure EToKi. **(Not required for the beta test)**.
 
   * If the name EToKi_externals has been changed, replace its occurrence in the following command by the new name.
   * If the storage location for configure.ini has been changed, replace its path in the following command by its location.
