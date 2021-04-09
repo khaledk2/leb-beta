@@ -352,7 +352,7 @@ Redis Setup and Usage
 Configuring EToKi
 =================
 
-1. Create a folder inside the home directory (by default)
+1. Create a folder inside the home directory (by default).
 
   * The folder will be bound to a related folder inside the container at runtime to enable the correct functionality of EToKi for Local EnteroBase.
   * The following is a command to create the required directories. Their names have been used as defaults and will be referenced by future commands.
@@ -384,7 +384,7 @@ Configuring EToKi
       cd $HOME/local_enterobase_home/EToKi
       singularity run --app cp_configure $HOME/local_enterobase_home/local_enterobase/EGP.sif
 
-3. Download usearch and the MiniKraken2 database for EToKi to function correctly
+3. Download usearch and the MiniKraken2 database for EToKi to function correctly.
 
   * usearch software - You may need to submit a free licence request, where you should receive an email which contains a download link.
   * MiniKraken2 database - You can download it from their website: https://ccb.jhu.edu/software/kraken2/index.shtml?t=downloads
@@ -407,7 +407,7 @@ Configuring EToKi
       tar xf v2.0.8-beta.tar.gz
       mv kraken2-2.0.8-beta minikraken2
 
-4. Save usearch and MiniKraken2 to the same folder e.g. $HOME/local_enterobase_home/EToKi_externals (default)
+4. Save usearch and MiniKraken2 to the same folder e.g. $HOME/local_enterobase_home/EToKi_externals (default).
 
 5. Configure EToKi.
 
