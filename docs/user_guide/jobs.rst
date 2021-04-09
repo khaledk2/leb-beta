@@ -10,10 +10,10 @@ This webpage allows viewing of all jobs that have been produced for the current 
 
   * **Note:** We intend for the job to be able to be re-generated, although this is currently non-functional in the beta version.
 
-* Uploaded - The job results have been submitted to the Central EnteroBase at Warwick (Warwick EnteroBase).
+* Uploaded - The job results have been submitted to Central EnteroBase.
 * Upload Failed - An attempt to submit the job results to Central EnteroBase has failed, the job can be re-uploaded by the user.
 
-When a job has been successfully processed, 2 blue icons will appear in the table cells under the "Upload to Warwick EnteroBase" and "Download" columns for the job row. These icons can be clicked to upload the results of the job to Warwick EnteroBase and download the results to local storage respectively.
+When a job has been successfully processed, 2 blue icons will appear in the table cells under the "Upload to Warwick EnteroBase" and "Download" columns for the job row. These icons can be clicked to upload the results of the job to the Central EnteroBase at Warwick and download the results to local storage respectively.
 
 Note: The page must be refreshed to update the statuses, we intend to implement live-updating callback in the future.
 

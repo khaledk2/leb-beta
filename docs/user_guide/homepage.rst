@@ -28,6 +28,7 @@ The homepage displays that you are signed in by displaying your account name wit
 
 .. figure:: ../images/sys_login.png
    :align: center
+   :width: 70%
    :alt: System Administrator Login Form
 
    **Fig. 2 - System Administrator Login Form**

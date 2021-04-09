@@ -29,6 +29,7 @@ Clicking the cell underneath the "Read Files" column, which is annotated with a 
 
 .. figure:: ../images/read_file.png
    :align: center
+   :width: 65%
    :alt: Pop-up Menu For Selecting Short-read Files
 
    **Fig. 2 - Pop-up Menu For Selecting Short-read Files**
@@ -139,6 +140,7 @@ When the file has been uploaded, provided it is in the correct format, a blue "I
 
 .. figure:: ../images/import_template.png
   :align: center
+  :width: 65%
   :alt: Modal Window for Uploading a Filled Template File
 
   **Fig. 8 - Modal Window for Uploading a Filled Template File**
@@ -158,6 +160,7 @@ As a result, you can attempt to amend these problems or delete the row from the 
 
 .. figure:: ../images/strain_upload_success.png
   :align: center
+  :width: 70%
   :alt: Displayed Message When All Rows Pass Submission
 
   **Fig. 10 - Displayed Message When All Rows Pass Submission**
