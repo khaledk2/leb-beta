@@ -14,12 +14,16 @@ During the installation the user will be asked to:
 
 Then system components will be configured using the default parameters and should run without any issue.
 
-NOTE: Fedora and CentOS 8 may require a system restart to complete the installation. The script will automatically reboot the server in this event, then restart the script automatically once signed back in. A restart occurs if:
+**Notes**
 
-- Docker is not installed and running for either distro
-- Fedora does not have the squashfs dependency already installed.
+* Automatic installation has only been tested on newly created VMs that have not previously installed Singularity, Docker, PostgreSQL or Redis on them. As a result, you may experience issues during installation if your system has previously installed any of these software. Please contact us if you experience any issues.
 
-The script has been tested on the following distributions: Ubuntu 18.04, Ubuntu 20.04, Fedora 32, Fedora 33, CentOS 7, CentOS 8, Debian 9, and Debian 10.
+* Fedora and CentOS 8 may require a system restart to complete the installation. The script will automatically reboot the server in this event, then restart the script automatically once signed back in. A restart occurs if:
+
+  * Docker is not installed and running for either distribution.
+  * Fedora does not have the squashfs dependency already installed.
+
+* The script has been tested on the following distributions: Ubuntu 18.04, Ubuntu 20.04, Fedora 32, Fedora 33, CentOS 7, CentOS 8, Debian 9, and Debian 10.
 
 The following figure shows the script workflow.
 

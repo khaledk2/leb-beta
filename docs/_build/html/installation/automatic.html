@@ -52,12 +52,17 @@
 <li><p>Set a username and password for Local EnteroBase.</p></li>
 </ul>
 <p>Then system components will be configured using the default parameters and should run without any issue.</p>
-<p>NOTE: Fedora and CentOS 8 may require a system restart to complete the installation. The script will automatically reboot the server in this event, then restart the script automatically once signed back in. A restart occurs if:</p>
+<p><strong>Notes</strong></p>
 <ul class="simple">
-<li><p>Docker is not installed and running for either distro</p></li>
+<li><p>Automatic installation has only been tested on newly created VMs that have not previously installed Singularity, Docker, PostgreSQL or Redis on them. As a result, you may experience issues during installation if your system has previously installed any of these software. Please contact us if you experience any issues.</p></li>
+<li><p>Fedora and CentOS 8 may require a system restart to complete the installation. The script will automatically reboot the server in this event, then restart the script automatically once signed back in. A restart occurs if:</p>
+<ul>
+<li><p>Docker is not installed and running for either distribution.</p></li>
 <li><p>Fedora does not have the squashfs dependency already installed.</p></li>
 </ul>
-<p>The script has been tested on the following distributions: Ubuntu 18.04, Ubuntu 20.04, Fedora 32, Fedora 33, CentOS 7, CentOS 8, Debian 9, and Debian 10.</p>
+</li>
+<li><p>The script has been tested on the following distributions: Ubuntu 18.04, Ubuntu 20.04, Fedora 32, Fedora 33, CentOS 7, CentOS 8, Debian 9, and Debian 10.</p></li>
+</ul>
 <p>The following figure shows the script workflow.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../_images/automatic_installation_script.png"><img alt="Automatic installation workflow" src="../_images/automatic_installation_script.png" style="width: 400px;" /></a>
