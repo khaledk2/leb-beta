@@ -158,7 +158,7 @@ Setting Up and Running PostgreSQL Database Server
 
         * Here, the 'stop_server' script is called to safely stop the running database server. 'start_server' is called to start the running database server.
 
-* To apply a system configuration change, the database server and application must be restarted using the following commands.
+* To apply a system configuration change, the database server and application must be restarted using the following commands:
 
   ::
 
@@ -310,7 +310,7 @@ Redis Setup and Usage
 
 **Usage Tooltips**
 
-* To check if the Redis server is up and running, run the following command:
+* Check if the Redis server is up and running:
 
   * If the default installation directory was changed previously for EGP.sif and/or the Redis folders, replace them accordingly in the following command with the correct installation directory.
   * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
@@ -329,7 +329,7 @@ Redis Setup and Usage
 
         * Here, the 'ping_redis' script is called to check if the Redis server is running.
 
-* The Redis server can be stopped with the following command:
+* Stop the Redis server:
 
   * If the default installation directory was changed previously for EGP.sif and/or the Redis folders, replace them accordingly in the following command with the correct installation directory.
   * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
@@ -420,7 +420,7 @@ Preparing and Assembling Read Files using EToKi
 
 **Usage Tooltips**
 
-* Preparing Read Files for Assembly.
+* Preparing Read Files for Assembly:
 
   * If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
   * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
@@ -445,7 +445,7 @@ Preparing and Assembling Read Files using EToKi
 
         * Here, an example subdirectory within EToKi/prep_out has been passed in as an example, with 'file_suffix' being appended onto all generated filenames e.g. 'file_suffix_L1_R1.fastq.gz'
 
-* Assembling Prepared Read Files.
+* Assembling Prepared Read Files:
 
   * If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
   * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
