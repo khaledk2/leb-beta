@@ -1,13 +1,13 @@
 .. _nginx-installation-label:
 
 NGINX Web Server
-^^^^^^^^^^^^^^^^
+----------------
 
-NGINX will act as a reverse-proxy, and load balancer for Local EnteroBase. It will serve requests to the website to all the servers it is installed on.
-=======
+NGINX acts as a reverse-proxy and load balancer for Local EnteroBase. It will serve requests from the website to all the servers it is installed on.
 
 Prerequisites
 =============
+
 Please ensure that Docker is installed. The instructions to install Docker can be found here: :ref:`docker-installation-label`
 
 Installing the Image
@@ -36,9 +36,7 @@ To run the container, the user first needs to set up the sub-folder in their own
 
     sudo docker run --rm -v $HOME/nginx:/home/nginx_user/:z localenterobase/nginx:1.0 setup
 
-* NOTE: The above command will create the folder in the home directory in the local machine. If you wish to install it in a specific location change $HOME to the directory you wish to set up the NGINX files in. 
-
-* If you followed the steps in the "NGINX Prerequisite Resources" page, you should use the resources you saved in the next few steps. If you didn't follow the "NGINX Prerequisite Resources" page, the following steps should provide you with enough detail to proceed, however, you may want to reference it for more details.
+* NOTE: The above command will create the folder in the home directory in the local machine. If you wish to install it in a specific location change $HOME to the directory you wish to set up the nginx files in.
 
 * The directory structure is setup as follows:
 
@@ -58,7 +56,7 @@ To run the container, the user first needs to set up the sub-folder in their own
 
     sudo chown -R <user> $HOME/nginx
 
-* Before proceeding any further, make sure you have downloaded your custom nginx.conf file from the Central EnteroBase website `<http://35.246.24.128:5569/local_enterobase/nginx_config>`_
+* Before proceeding any further, make sure you have downloaded your custom nginx.conf file from the main enterobase website http://enterobase.warwick.ac.uk/auth/register
 * After you have downloaded your nginx.conf file please replace the one initialised from the setup with it, located in the $HOME/nginx directory.
   ::
 
