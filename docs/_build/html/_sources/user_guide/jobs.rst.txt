@@ -15,7 +15,7 @@ This webpage allows viewing of all jobs that have been produced for the current 
 
 When a job has been successfully processed, 2 blue icons will appear in the table cells under the "Upload to Warwick EnteroBase" and "Download" columns for the job row. These icons can be clicked to upload the results of the job to the Central EnteroBase at Warwick and download the results to local storage respectively.
 
-Note: The page must be refreshed to update the statuses, we intend to implement live-updating callback in the future.
+Note: The page must be refreshed to update the statuses, we intend to implement a live-updating callback in the future.
 
 .. figure:: ../images/jobs.png
    :align: center
@@ -26,7 +26,7 @@ Note: The page must be refreshed to update the statuses, we intend to implement 
 Uploading
 =========
 
-The metadata of the submitted strain and the FASTA and FASTQ result files, which store the reference sequence and sequence reads (and quality scores) respectively, of the assembly are uploaded to Warwick EnteroBase. This operation can only be performed once (if successful) to avoid duplicate data being uploaded and subsequently stored. A successful upload is indicated by a green check tick icon in place of the original blue upload icon, which is displayed in figure 1.
+The metadata of the submitted strain and the FASTA and FASTQ result files of the assembly are uploaded to Warwick EnteroBase. The FASTA and FASTQ files stores the reference sequence and sequence reads (and quality scores) respectively. This operation can only be performed once (if successful) to avoid duplicate data being uploaded and subsequently stored. A successful upload is indicated by a green check tick icon in place of the original blue upload icon, which is displayed in figure 1.
 
 Downloading
 ===========

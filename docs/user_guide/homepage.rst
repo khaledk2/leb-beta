@@ -16,14 +16,14 @@ Logging In
 ============
 
 The homepage provides 2 methods of logging in to Local EnteroBase: using the system administrator credentials that were set during installation of your Local EnteroBase
-or when you registered an account with Central EnteroBase at Warwick (Wawick EnteroBase). These can be accessed at the top of the navigation bar. The system will not allow you to be simultaneously signed in
+or when you registered an account with Central EnteroBase at Warwick (Warwick EnteroBase). These can be accessed at the top of the navigation bar. The system will not allow you to be simultaneously signed in
 as both the system administrator and a Warwick EnteroBase user.
 
 The homepage displays that you are signed in by displaying your account name with the Local EnteroBase name and logo on the left-hand side navigation drawer, as well as in the navigation bar in place of the sign in button.
 
 **System Administrator**
 
-1. Click the "SYSTEM ADMIN LOGIN" button, you will be redirected to the login form.
+1. Click the "System Admin Login" button, you will be redirected to the login form.
 2. Enter the system administrator username and password and click the "Log In To Your Account" button. You will be signed in and redirected back to the homepage.
 
 .. figure:: ../images/sys_login.png
@@ -51,7 +51,7 @@ The homepage displays that you are signed in by displaying your account name wit
 Databases to Upload Strains
 ======================================
 
-Demonstrated in figure 1, the available databases for the principal genera stored and analysed using EnteroBase are displayed in the homepage. If you know the strains you will intend to upload, you can select a specific genera database from
+As demonstrated in figure 1, the available databases for the principal genera stored and analysed using EnteroBase are displayed on the homepage. If you know the strains you will intend to upload, you can select a specific genera database from
 those displayed to upload your strains and their metadata. Clicking on a database will redirect you to their respective strain submission webpage.
 
 Your Jobs

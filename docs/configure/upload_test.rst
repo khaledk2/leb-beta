@@ -32,11 +32,11 @@ Running the Test
 
    **Fig. 1 - Incomplete Upload Test Form**
 
-* Enter your email (disabled for the beta test) and your test token. Click the "start test" button begins the test, it will automatically complete to a successful or erroneous state. Each step of the test displays an estimated time to complete, although the actual times will also vary depending on your geographical location.
+* Enter your email (**disabled for the beta test**) and your test token. Click the "start test" button to begin the test, it will automatically complete to a successful or erroneous state. Each step of the test displays an estimated time to complete, although the actual times will also vary depending on your geographical location.
 
   * 100 test short-read files, intended for performing download and upload speed tests, are downloaded.
   * A pair of downloaded short-read files are prepared and assembled to be uploaded to Central EnteroBase to verify the correctness of these functionalities.
-  * The resulting .fastq file of the test assembly is uploaded to Central EnteroBase where it is matched it with the stored known result, which verifies that the preparation and assembly functions are working correctly.
+  * The resulting FASTQ file of the test assembly is uploaded to Central EnteroBase where it is matched with the stored known result, which verifies that the preparation and assembly functions are working correctly.
   * In the final step, the MD5 checksum is extracted from each of the earlier downloaded short-read files and reuploaded with their respective file to Central EnteroBase to check the upload speed. Central EnteroBase also verifies the checksum against the stored known checksum, which checks that the files are not changing during upload.
 
 * If the test has successfully completed, a summary is displayed of the times taken to reupload each short-read file to Central EnteroBase, as well as the total and average times across all reuploads. Click the "continue" button to proceed to the final configuration step to acquire credentials to use Local EnteroBase.

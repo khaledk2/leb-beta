@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="EToKi, PostgreSQL and Gunicorn (EGP) Container Installation" href="egp.html" />
-    <link rel="prev" title="Singularity installation" href="singularity.html" /> 
+    <link rel="prev" title="Singularity Installation" href="singularity.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -29,7 +29,7 @@
           <a href="egp.html" title="EToKi, PostgreSQL and Gunicorn (EGP) Container Installation"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="singularity.html" title="Singularity installation"
+          <a href="singularity.html" title="Singularity Installation"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Local EnteroBase (Beta)  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="install.html" >Installation</a> &#187;</li>
@@ -44,31 +44,31 @@
             
   <div class="section" id="nginx-web-server">
 <span id="nginx-installation-label"></span><h1>NGINX Web Server<a class="headerlink" href="#nginx-web-server" title="Permalink to this headline">¶</a></h1>
-<p>Nginx will act as a reverse-proxy, and load balancer for Local EnteroBase. It will serve requests to the website to all the servers it is installed on.</p>
+<p>NGINX acts as a reverse-proxy and load balancer for Local EnteroBase. It will serve requests from the website to all the servers it is installed on.</p>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>Before proceeding, please make sure Docker is installed. The instructions to install Docker can be found here: <a class="reference internal" href="docker.html#docker-installation-label"><span class="std std-ref">Docker installation</span></a></p>
+<p>Please ensure that Docker is installed. The instructions to install Docker can be found here: <a class="reference internal" href="docker.html#docker-installation-label"><span class="std std-ref">Docker installation</span></a></p>
 </div>
 <div class="section" id="installing-the-image">
 <h2>Installing the Image<a class="headerlink" href="#installing-the-image" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p>The first stage is setting up the Docker Container, please note this will require sudo priviliges to set up.</p></li>
-<li><p>An optional step is to pull the image first but Docker will take care of this step for you if it can’t find the image on your local machine.</p>
+<li><p>The first stage is setting up the Docker Container, please note that this requires sudo privileges to set up.</p></li>
+<li><p>An optional step is to pull the image first, but Docker will take care of this step for you if it cannot find the image on your local machine.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">pull</span> <span class="n">localenterobase</span><span class="o">/</span><span class="n">nginx</span><span class="p">:</span><span class="mf">1.0</span>
 </pre></div>
 </div>
 </li>
 </ul>
 </div>
-<div class="section" id="running-nginx-container">
-<h2>Running NGINX container<a class="headerlink" href="#running-nginx-container" title="Permalink to this headline">¶</a></h2>
-<p>To run the container, the user first needs to set up the sub-folder in their own machine. The default Nginx configuration file, certs folder, and logs folder will be copied into this sub folder. This then gets binded to the directory “/home/nginx_user” in the container. The container is also currently saved under the name localenterobase/nginx:1.0.</p>
+<div class="section" id="running-the-nginx-container">
+<h2>Running the NGINX Container<a class="headerlink" href="#running-the-nginx-container" title="Permalink to this headline">¶</a></h2>
+<p>To run the container, the user first needs to set up the sub-folder in their own machine. The default NGINX configuration file, certs folder, and logs folder will be copied into this sub folder. This then gets bound to the directory “/home/nginx_user” in the container. The container is also currently saved under the name localenterobase/nginx:1.0.</p>
 <ul>
 <li><p>The Docker container takes three different args (setup, test, run) detailed below.</p>
 <ul class="simple">
 <li><p><strong>setup</strong> - used to setup the file structure on the host machine.</p></li>
-<li><p><strong>test</strong> - ensure that a valid .conf file is being used for nginx.</p></li>
-<li><p><strong>run</strong> - run the nginx server.</p></li>
+<li><p><strong>test</strong> - ensure that a valid .conf file is being used for NGINX.</p></li>
+<li><p><strong>run</strong> - run the NGINX server.</p></li>
 </ul>
 </li>
 <li><p>The directory structure needs to be set up on the host machine. To do this, you can use the docker image by using the following command:</p>
@@ -118,7 +118,7 @@
 </pre></div>
 </div>
 </li>
-<li><p>Use the following command to start the Nginx server:</p>
+<li><p>Use the following command to start the NGINX server:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo docker run --rm -d -p 80:80 -p 443:443 -v $HOME/nginx:/home/nginx_user/ --name nginx_local_enterobase localenterobase/nginx:1.0 run
 </pre></div>
 </div>
@@ -155,7 +155,7 @@
 </pre></div>
 </div>
 </li>
-<li><p>You should see the container ‘nginx_local_enterobase’ or whatever you renamed the container to.</p></li>
+<li><p>You should see the container which is named ‘nginx_local_enterobase’, or another name if you renamed the container.</p></li>
 <li><p>You may check ports 80 and 443 (or any other ports you are using) to see if traffic is reaching the site.</p></li>
 <li><p>Also at this stage, you should see “502 Bad Gateway” if you visit the websites URL. This means NGINX is setup but the internal server (gunicorn) is not just yet.</p></li>
 </ul>
@@ -185,7 +185,7 @@
 <li><a class="reference internal" href="#">NGINX Web Server</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#installing-the-image">Installing the Image</a></li>
-<li><a class="reference internal" href="#running-nginx-container">Running NGINX container</a></li>
+<li><a class="reference internal" href="#running-the-nginx-container">Running the NGINX Container</a></li>
 <li><a class="reference internal" href="#verifying-container-is-running">Verifying Container Is Running</a></li>
 <li><a class="reference internal" href="#restarting-the-container">Restarting the Container</a></li>
 </ul>
@@ -194,7 +194,7 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="singularity.html"
-                        title="previous chapter">Singularity installation</a></p>
+                        title="previous chapter">Singularity Installation</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="egp.html"
                         title="next chapter">EToKi, PostgreSQL and Gunicorn (EGP) Container Installation</a></p>
@@ -229,7 +229,7 @@
           <a href="egp.html" title="EToKi, PostgreSQL and Gunicorn (EGP) Container Installation"
              >next</a> |</li>
         <li class="right" >
-          <a href="singularity.html" title="Singularity installation"
+          <a href="singularity.html" title="Singularity Installation"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Local EnteroBase (Beta)  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="install.html" >Installation</a> &#187;</li>

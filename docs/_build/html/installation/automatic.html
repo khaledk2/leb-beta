@@ -44,7 +44,7 @@
   <div class="section" id="automatic-installation">
 <h1>Automatic Installation<a class="headerlink" href="#automatic-installation" title="Permalink to this headline">¶</a></h1>
 <p>The Installation script “local_enterobase_installer.sh” is saved in the “installer” sub-folder.</p>
-<p>The script will automatically download, configure and run the Docker Image (Nginx), and Singularity image (PostgreSQL, Gunicorn and Local EnteroBase) and their dependencies packages.</p>
+<p>The script will automatically download, configure and run the Docker Image (NGINX), and Singularity image (PostgreSQL, Gunicorn and Local EnteroBase) and their dependencies packages.</p>
 <p>During the installation the user will be asked to:</p>
 <ul class="simple">
 <li><p>Provide the filepath to the nginx.conf file downloaded when registering on Central EnteroBase</p></li>
@@ -54,7 +54,7 @@
 <p>NOTE: Fedora and CentOS 8 may require a system restart to complete the installation. The script will automatically reboot the server in this event, then restart the script automatically once signed back in. A restart occurs if:</p>
 <ul class="simple">
 <li><p>Docker is not installed and running for either distro</p></li>
-<li><p>IF Fedora does not have the squashfs dependency already installed.</p></li>
+<li><p>Fedora does not have the squashfs dependency already installed.</p></li>
 </ul>
 <p>The script has been tested on the following distros: Ubuntu 18.04, Ubuntu 20.04, Fedora 32, Fedora 33, CentOS 7, CentOS 8, Debian 9, and Debian 10.</p>
 <p>The following figure shows the script workflow.</p>

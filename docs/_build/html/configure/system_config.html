@@ -44,13 +44,13 @@
   <div class="section" id="system-configuration">
 <h1>System Configuration<a class="headerlink" href="#system-configuration" title="Permalink to this headline">¶</a></h1>
 <p>On entry to the webpage, the Local EnteroBase administrator is required to sign in with the system credentials set during
-the installation phase. Then, the following webpages should display the following configuration steps that need to be completed. They can be traversed using the
+the installation phase. After this, the following configuration steps which need to be completed will be displayed. They can be traversed using the
 “continue” and “previous” buttons should you complete a configuration step or need to redo a step respectively.</p>
 <div class="section" id="general-configuration">
 <h2>General Configuration<a class="headerlink" href="#general-configuration" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>A name for your Local EnteroBase, to be displayed when using the website, must be inputted. It does not need to match the name used to register your Local EnteroBase.</p></li>
-<li><p>An image to be displayed as a logo in the website, that also identifies it in your browser’s address bar, must be chosen. We provide functionalities for cropping and resizing if required.</p></li>
+<li><p>An image to be displayed as a logo in the homepage. We provide functionalities for transforming the original image to create a perfect logo if required.</p></li>
 <li><p>A filepath to an accessible directory that stores data produced by Local EnteroBase, such as short-read assembly results, can be selected. A default file path is automatically
 filled in on the form. The directory specified by the path must be manually created for security reasons.</p></li>
 </ul>
@@ -65,7 +65,7 @@ filled in on the form. The directory specified by the path must be manually crea
 <ul class="simple">
 <li><p>The database server to be used by your Local EnteroBase can be selected at this stage, between one that is set up during installation of the Singularity container or an existing database server if you have one.</p>
 <ul>
-<li><p>We recommend to use the PostgreSQL version 10.14 database server set up during installation of the Singularity container as we have used this to develop Local EnteroBase.</p></li>
+<li><p>We recommend using the PostgreSQL version 10.14 database server set up during installation of the Singularity container as we have used this to develop Local EnteroBase.</p></li>
 <li><p>Additionally, we cannot guarantee that using an existing database server, especially a non-PostgreSQL version 10.14 server, maintains the expected functionality of Local EnteroBase.</p></li>
 </ul>
 </li>
@@ -80,7 +80,7 @@ filled in on the form. The directory specified by the path must be manually crea
 <h2>Mail Server<a class="headerlink" href="#mail-server" title="Permalink to this headline">¶</a></h2>
 <p>Note: <strong>The mail server is unavailable for this beta test</strong>. The Warwick EnteroBase team will manually
 send emails as appropriate, particularly for registration and the test token to perform the upload test in the next configuration step. Feel free to skip this section.</p>
-<p>Central EnteroBase would provide updates for significant events such as completed assemblies. Details must be inputted that configures a mail server to automatically recieve email updates from Central EnteroBase: the domain, port, an account name and a password.
+<p>Central EnteroBase would provide updates for significant events such as completed assemblies. Details must be inputted that configures a mail server to automatically receive email updates from Central EnteroBase: the domain, port, an account name and a password.
 The form also provides options for advanced configuration such as using TLS and SSL email encryption protocols.</p>
 </div>
 <div class="section" id="celery-messaging">

@@ -16,15 +16,21 @@ Prerequisites
     LC_ALL=en_GB.UTF-8
     LANG=en_GB.UTF-8
 
-* Note: Please follow the installation instructions in the order presented by this document, else the installation may fail.
+* Create a directory to store Local EnteroBase, and by extension the EGP container. The following command uses the default path "$HOME/local_enterobase_home" although you can change this to a location of your choosing.
+
+  ::
+
+    mkdir $HOME/local_enterobase_home
+
+Note: Please follow the installation instructions in the order presented by this document, else the installation may fail.
 
 Default Installation Directory
 ===============================
 
-* The documentation assumes that Local Enterobase, and by extension the EGP container, will be installed at the path: "$HOME/local_enterobase_home".
+* The documentation assumes that Local Enterobase, and by extension the EGP container, will be installed at the default home path: "$HOME/local_enterobase_home".
 * The command examples below will use this path by default, although these can be changed if you desire a different location.
 
-Pulling the container image
+Pulling the Container Image
 =============================
 
 * There is a single container image (EGP.sif) that stores the installations for EToKi, PostgreSQL and Gunicorn. This needs to be pulled from the Singularity cloud library as follows.
@@ -36,13 +42,14 @@ Pulling the container image
 
     singularity pull --arch amd64 $HOME/local_enterobase_home/local_enterobase/EGP.sif library://enterobase/default/egp:0.1
 
-PostgreSQL database server setup and run
-=========================================
+Setting Up and Running PostgreSQL Database Server
+=================================================
+
 A folder and subfolders inside the home directory (by default) must be created to be bound to related folders inside the container at runtime for the server to function.
 
 * The following are commands to create the required directories. Example directory names (postgres, postgres/data, postgres/temp and postgres/logs) have been used that will be referenced by future commands.
 * If different folder names are used, all ocurrences of these directory names need to be replaced with your chosen directory names accordingly in future commands.
-* If you wish to stoe the postgres data in a different location to the default, you can also replace these with locations of your choosing.
+* If you wish to store the postgres data in a different location to the default, you can also replace these with locations of your choosing.
 
   ::
 
@@ -146,8 +153,8 @@ To stop the database server, the following command must be issued:
 
       * Here, the 'stop_server' script is called to safely stop the running database server. 'start_server' is called to start the running database server.
 
-Running the Gunicorn app
-==========================
+Running the Gunicorn Application
+================================
 For security reasons, you should first set up a system user password so you can use the web interface to configure the application, register your client with Warwick EnteroBase and test upload files to Warwick EnteroBase.
 
 * This enables the configured URL (the default being the localhost IP 127.0.0.1) to be used as an input into the browser to access the application configuration pages.
@@ -224,14 +231,14 @@ To be sure that the instance is running, the local admin can use the following c
 
 * If you want to restart the system, you should stop the instance first, then run it again using the commands for applying a system configuration change below.
 
-Redis Setup and Use
-====================
+Redis Setup and Usage
+=====================
 
 A folder and subfolders inside the home directory (by default) must be created to be bound to related folders inside the container at runtime for the server to function.
 
 * The following are commands to create the required directories. Example directory names (redis, redis/data, redis/temp and redis/logs) have been used that will be referenced by future commands.
 * If different folder names are used, all ocurrences of these directory names need to be replaced with your chosen directory names accordingly in future commands.
-* If you wish to stoe the redis data in a different location to the default, you can also replace these with locations of your choosing.
+* If you wish to store the redis data in a different location to the default, you can also replace these with locations of your choosing.
 
   ::
 
@@ -269,7 +276,7 @@ To check if the redis server is up and running, the following command can be run
 * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
 
   ::
-    
+
     singularity run -B $HOME/local_enterobase_home/redis/data:/var/redis/6379 -B $HOME/local_enterobase_home/redis/temp:/var/run/ -B $HOME/local_enterobase_home/redis/logs:/var/log/redis --app ping_redis $HOME/local_enterobase_home/local_enterobase/EGP.sif
 
   * Here is a brief explanation on what each of the flags being used mean:
@@ -300,7 +307,7 @@ The redis server can be stopped with the following command:
     * --app: Runs a specific script defined by the image.
 
       * Here, the 'stop_redis' script is called to stop running the redis server.
-  
+
 
 Preparing and Assembling Read Files using EToKi
 ================================================
@@ -332,7 +339,7 @@ A folder inside the home directory (by default) must be created to be bound to r
 
     singularity run --app cp_configure $HOME/local_enterobase_home/local_enterobase/EGP.sif
 
-* Then, you should download the following. A suggest commands to do so is 'wget':
+* Then, you should download the following. A suggested command to do so is 'wget':
 
   * usearch software. It will be needed to submit a free licence request, you should receive an email which contains a download link.
   * Kraken database, you can download it using this link: ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/minikraken2_v2_8GB_201904_UPDATE.tgz
@@ -367,7 +374,7 @@ You should save both of them to the same folder e.g. $HOME/local_enterobase_home
 
       * As /code/EToKi/local_externals is bound by the local externals folder, the internal container path that the database directory is saved to can be used.
 
-This is the command to prepare read files for assembly.
+**Command to Prepare Read Files for Assembly**
 
 * If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
 * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
@@ -392,7 +399,7 @@ This is the command to prepare read files for assembly.
 
       * Here, an example subdirectory within EToKi/prep_out has been passed in as an example, with 'file_suffix' being appended onto all generated filenames e.g. 'file_suffix_L1_R1.fastq.gz'
 
-This is the command to assemble the prepared read files.
+**Command to Assemble the Prepared Read Files**
 
 * If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
 * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
@@ -421,7 +428,7 @@ This is the command to assemble the prepared read files.
 
       * Here, an example subdirectory within EToKi/prep_out has been passed in as an example, with 'file_suffix' being appended onto all generated filenames e.g. 'file_suffix.result.fastq'
 
-Using the application
+Using the Application
 ======================
 
 * To be able to fully use the application, you will need to:

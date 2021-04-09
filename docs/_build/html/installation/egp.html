@@ -59,18 +59,23 @@
 </pre></div>
 </div>
 </li>
-<li><p>Note: Please follow the installation instructions in the order presented by this document, else the installation may fail.</p></li>
+<li><p>Create a directory to store Local EnteroBase, and by extension the EGP container. The following command uses the default path “$HOME/local_enterobase_home” although you can change this to a location of your choosing.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir $HOME/local_enterobase_home
+</pre></div>
+</div>
+</li>
 </ul>
+<p>Note: Please follow the installation instructions in the order presented by this document, else the installation may fail.</p>
 </div>
 <div class="section" id="default-installation-directory">
 <h2>Default Installation Directory<a class="headerlink" href="#default-installation-directory" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>The documentation assumes that Local Enterobase, and by extension the EGP container, will be installed at the path: “$HOME/local_enterobase_home”.</p></li>
+<li><p>The documentation assumes that Local Enterobase, and by extension the EGP container, will be installed at the default home path: “$HOME/local_enterobase_home”.</p></li>
 <li><p>The command examples below will use this path by default, although these can be changed if you desire a different location.</p></li>
 </ul>
 </div>
 <div class="section" id="pulling-the-container-image">
-<h2>Pulling the container image<a class="headerlink" href="#pulling-the-container-image" title="Permalink to this headline">¶</a></h2>
+<h2>Pulling the Container Image<a class="headerlink" href="#pulling-the-container-image" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>There is a single container image (EGP.sif) that stores the installations for EToKi, PostgreSQL and Gunicorn. This needs to be pulled from the Singularity cloud library as follows.</p></li>
 <li><p>If you wish to install it in a different location from the default, you can replace this with a location of your choosing.</p></li>
@@ -82,13 +87,13 @@
 </li>
 </ul>
 </div>
-<div class="section" id="postgresql-database-server-setup-and-run">
-<h2>PostgreSQL database server setup and run<a class="headerlink" href="#postgresql-database-server-setup-and-run" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setting-up-and-running-postgresql-database-server">
+<h2>Setting Up and Running PostgreSQL Database Server<a class="headerlink" href="#setting-up-and-running-postgresql-database-server" title="Permalink to this headline">¶</a></h2>
 <p>A folder and subfolders inside the home directory (by default) must be created to be bound to related folders inside the container at runtime for the server to function.</p>
 <ul>
 <li><p>The following are commands to create the required directories. Example directory names (postgres, postgres/data, postgres/temp and postgres/logs) have been used that will be referenced by future commands.</p></li>
 <li><p>If different folder names are used, all ocurrences of these directory names need to be replaced with your chosen directory names accordingly in future commands.</p></li>
-<li><p>If you wish to stoe the postgres data in a different location to the default, you can also replace these with locations of your choosing.</p>
+<li><p>If you wish to store the postgres data in a different location to the default, you can also replace these with locations of your choosing.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir $HOME/local_enterobase_home/postgres
 mkdir $HOME/local_enterobase_home/postgres/data
 mkdir $HOME/local_enterobase_home/postgres/temp
@@ -213,8 +218,8 @@ mkdir $HOME/local_enterobase_home/postgres/logs
 </li>
 </ul>
 </div>
-<div class="section" id="running-the-gunicorn-app">
-<h2>Running the Gunicorn app<a class="headerlink" href="#running-the-gunicorn-app" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="running-the-gunicorn-application">
+<h2>Running the Gunicorn Application<a class="headerlink" href="#running-the-gunicorn-application" title="Permalink to this headline">¶</a></h2>
 <p>For security reasons, you should first set up a system user password so you can use the web interface to configure the application, register your client with Warwick EnteroBase and test upload files to Warwick EnteroBase.</p>
 <ul>
 <li><p>This enables the configured URL (the default being the localhost IP 127.0.0.1) to be used as an input into the browser to access the application configuration pages.</p></li>
@@ -315,13 +320,13 @@ mkdir $HOME/local_enterobase_home/postgres/logs
 <li><p>If you want to restart the system, you should stop the instance first, then run it again using the commands for applying a system configuration change below.</p></li>
 </ul>
 </div>
-<div class="section" id="redis-setup-and-use">
-<h2>Redis Setup and Use<a class="headerlink" href="#redis-setup-and-use" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="redis-setup-and-usage">
+<h2>Redis Setup and Usage<a class="headerlink" href="#redis-setup-and-usage" title="Permalink to this headline">¶</a></h2>
 <p>A folder and subfolders inside the home directory (by default) must be created to be bound to related folders inside the container at runtime for the server to function.</p>
 <ul>
 <li><p>The following are commands to create the required directories. Example directory names (redis, redis/data, redis/temp and redis/logs) have been used that will be referenced by future commands.</p></li>
 <li><p>If different folder names are used, all ocurrences of these directory names need to be replaced with your chosen directory names accordingly in future commands.</p></li>
-<li><p>If you wish to stoe the redis data in a different location to the default, you can also replace these with locations of your choosing.</p>
+<li><p>If you wish to store the redis data in a different location to the default, you can also replace these with locations of your choosing.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir $HOME/local_enterobase_home/redis
 mkdir $HOME/local_enterobase_home/redis/data
 mkdir $HOME/local_enterobase_home/redis/temp
@@ -440,7 +445,7 @@ mkdir $HOME/local_enterobase_home/EToKi/asm_out
 </pre></div>
 </div>
 </li>
-<li><p>Then, you should download the following. A suggest commands to do so is ‘wget’:</p>
+<li><p>Then, you should download the following. A suggested command to do so is ‘wget’:</p>
 <ul class="simple">
 <li><p>usearch software. It will be needed to submit a free licence request, you should receive an email which contains a download link.</p></li>
 <li><p>Kraken database, you can download it using this link: <a class="reference external" href="ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/minikraken2_v2_8GB_201904_UPDATE.tgz">ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/minikraken2_v2_8GB_201904_UPDATE.tgz</a></p></li>
@@ -485,7 +490,7 @@ mkdir $HOME/local_enterobase_home/EToKi/asm_out
 </ul>
 </li>
 </ul>
-<p>This is the command to prepare read files for assembly.</p>
+<p><strong>Command to Prepare Read Files for Assembly</strong></p>
 <ul>
 <li><p>If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.</p></li>
 <li><p>If the pulled image name “EGP.sif” was changed previously, replace it in the following command with your chosen name.</p></li>
@@ -517,7 +522,7 @@ mkdir $HOME/local_enterobase_home/EToKi/asm_out
 </ul>
 </li>
 </ul>
-<p>This is the command to assemble the prepared read files.</p>
+<p><strong>Command to Assemble the Prepared Read Files</strong></p>
 <ul>
 <li><p>If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.</p></li>
 <li><p>If the pulled image name “EGP.sif” was changed previously, replace it in the following command with your chosen name.</p></li>
@@ -556,7 +561,7 @@ mkdir $HOME/local_enterobase_home/EToKi/asm_out
 </ul>
 </div>
 <div class="section" id="using-the-application">
-<h2>Using the application<a class="headerlink" href="#using-the-application" title="Permalink to this headline">¶</a></h2>
+<h2>Using the Application<a class="headerlink" href="#using-the-application" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>To be able to fully use the application, you will need to:</p>
 <ul class="simple">
@@ -619,12 +624,12 @@ singularity instance start $HOME/local_enterobase_home/local_enterobase/EGP.sif 
 <li><a class="reference internal" href="#">EToKi, PostgreSQL and Gunicorn (EGP) Container Installation</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#default-installation-directory">Default Installation Directory</a></li>
-<li><a class="reference internal" href="#pulling-the-container-image">Pulling the container image</a></li>
-<li><a class="reference internal" href="#postgresql-database-server-setup-and-run">PostgreSQL database server setup and run</a></li>
-<li><a class="reference internal" href="#running-the-gunicorn-app">Running the Gunicorn app</a></li>
-<li><a class="reference internal" href="#redis-setup-and-use">Redis Setup and Use</a></li>
+<li><a class="reference internal" href="#pulling-the-container-image">Pulling the Container Image</a></li>
+<li><a class="reference internal" href="#setting-up-and-running-postgresql-database-server">Setting Up and Running PostgreSQL Database Server</a></li>
+<li><a class="reference internal" href="#running-the-gunicorn-application">Running the Gunicorn Application</a></li>
+<li><a class="reference internal" href="#redis-setup-and-usage">Redis Setup and Usage</a></li>
 <li><a class="reference internal" href="#preparing-and-assembling-read-files-using-etoki">Preparing and Assembling Read Files using EToKi</a></li>
-<li><a class="reference internal" href="#using-the-application">Using the application</a></li>
+<li><a class="reference internal" href="#using-the-application">Using the Application</a></li>
 </ul>
 </li>
 </ul>
