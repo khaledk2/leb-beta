@@ -26,9 +26,9 @@ Note: The page must be refreshed to update the statuses, we intend to implement 
 Uploading
 =========
 
-The FASTA, FASTQ result files of the assembly and the metadata of the submitted strain are uploaded to Warwick EnteroBase. This operation can only be performed once (if successful) to avoid duplicate data being uploaded and subsequently stored. A successful upload is indicated by a green check tick icon in place of the original blue upload icon, which is displayed in figure 1.
+The metadata of the submitted strain and the FASTA and FASTQ result files, which store the reference sequence and sequence reads (and quality scores) respectively, of the assembly are uploaded to Warwick EnteroBase. This operation can only be performed once (if successful) to avoid duplicate data being uploaded and subsequently stored. A successful upload is indicated by a green check tick icon in place of the original blue upload icon, which is displayed in figure 1.
 
 Downloading
 ===========
 
-The FASTA, FASTQ result files of the assembly and the metadata of the submitted strain are downloaded to the default download directory of the web browser. You can redownload the results at any time by clicking the blue download icon, which is displayed in figure 1.
+The metadata of the submitted strain and the FASTA and FASTQ result files of the assembly are downloaded to the default download directory of the web browser. You can redownload the results at any time by clicking the blue download icon, which is displayed in figure 1.
