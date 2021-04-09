@@ -75,14 +75,14 @@
 <li><p>Send File Max Chunk (k): The maximum amount of data that can be sent with a single send_file() call in kilobytes. The default value is 1024.</p></li>
 <li><p>Client Max Body Size (M): The maximum upload file size that the Local EnteroBase instance can handle in megabytes. The default value is 4000.</p></li>
 <li><p>Keep Alive Timeout (s): How long the TCP connection between the client and the server stays open after an HTTP transaction has been completed in seconds. The default value is 1500.</p></li>
-<li><p><strong>Local EnteroBase Server URL/IP</strong>: The URL or IP address of the server facilitating the assembly of short-reads. This value will be the same as the “Web Server URL/IP” value if you have installed them on the same server.</p></li>
-<li><p>Local EnteroBase Server Port: The port of the server facilitating the assembly of short-reads. The default value is 8000.</p></li>
+<li><p><strong>Local EnteroBase Server URL/IP</strong>: The URL or IP address of the server facilitating the assembly of short-read files. This value will be the same as the “Web Server URL/IP” value if you have installed them on the same server.</p></li>
+<li><p>Local EnteroBase Server Port: The port of the server facilitating the assembly of short-read files. The default value is 8000.</p></li>
 </ul>
-<p>For more information on these values please visit the NGINX docs, available at: <a class="reference external" href="http://nginx.org/en/docs/http/ngx_http_core_module.html">http://nginx.org/en/docs/http/ngx_http_core_module.html</a>.</p>
+<p>For more information on these values please visit the NGINX documentation, available at: <a class="reference external" href="http://nginx.org/en/docs/http/ngx_http_core_module.html">http://nginx.org/en/docs/http/ngx_http_core_module.html</a>.</p>
 </div>
 <div class="section" id="certs">
 <h2>“certs”<a class="headerlink" href="#certs" title="Permalink to this headline">¶</a></h2>
-<p>A valid SSL certification is required in order to run Local EnteroBase using https. For the beta test, a self-signed certificate is sufficient. A self-signed certificate can be generated using the OpenSSL tutorial at: <a class="reference external" href="https://linuxize.com/post/creating-a-self-signed-ssl-certificate">https://linuxize.com/post/creating-a-self-signed-ssl-certificate</a>. Make sure that you rename the generated files to match the filenames shown in figure 1. Alternatively, you can use the certificates provided in the Docker container by default.</p>
+<p>A valid SSL certification is required to run Local EnteroBase using HTTPS. For the beta test, a self-signed certificate is sufficient. A self-signed certificate can be generated using the OpenSSL tutorial at: <a class="reference external" href="https://linuxize.com/post/creating-a-self-signed-ssl-certificate">https://linuxize.com/post/creating-a-self-signed-ssl-certificate</a>. Please ensure that you rename the generated files to match the filenames shown in figure 1. Alternatively, you can use the certificates provided in the Docker container by default.</p>
 </div>
 <div class="section" id="logs">
 <h2>“logs”<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>

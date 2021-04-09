@@ -44,6 +44,9 @@
             
   <div class="section" id="nginx-web-server">
 <span id="nginx-installation-label"></span><h1>NGINX Web Server<a class="headerlink" href="#nginx-web-server" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nginx-will-act-as-a-reverse-proxy-and-load-balancer-for-local-enterobase-it-will-serve-requests-to-the-website-to-all-the-servers-it-is-installed-on">
+<h2>NGINX will act as a reverse-proxy, and load balancer for Local EnteroBase. It will serve requests to the website to all the servers it is installed on.<a class="headerlink" href="#nginx-will-act-as-a-reverse-proxy-and-load-balancer-for-local-enterobase-it-will-serve-requests-to-the-website-to-all-the-servers-it-is-installed-on" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <p>Please ensure that Docker is installed. The instructions to install Docker can be found here: <a class="reference internal" href="docker.html#docker-installation-label"><span class="std std-ref">Docker installation</span></a></p>
@@ -75,7 +78,8 @@
 </pre></div>
 </div>
 </li>
-<li><p>NOTE: The above command will create the folder in the home directory in the local machine. If you wish to install it in a specific location change $HOME to the directory you wish to set up the nginx files in.</p></li>
+<li><p>NOTE: The above command will create the folder in the home directory in the local machine. If you wish to install it in a specific location change $HOME to the directory you wish to set up the NGINX files in.</p></li>
+<li><p>If you followed the steps in the “NGINX Prerequisite Resources” page, you should use the resources you saved in the next few steps. If you didn’t follow the “NGINX Prerequisite Resources” page, the following steps should provide you with enough detail to proceed, however, you may want to reference it for more details.</p></li>
 <li><p>The directory structure is setup as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nginx</span>
     <span class="o">|--</span> <span class="n">nginx</span><span class="o">.</span><span class="n">conf</span>
@@ -93,7 +97,7 @@
 </pre></div>
 </div>
 </li>
-<li><p>Before proceeding any further, make sure you have downloaded your custom nginx.conf file from the main enterobase website <a class="reference external" href="http://enterobase.warwick.ac.uk/auth/register">http://enterobase.warwick.ac.uk/auth/register</a></p></li>
+<li><p>Before proceeding any further, make sure you have downloaded your custom nginx.conf file from the Central EnteroBase website <a class="reference external" href="http://35.246.24.128:5569/local_enterobase/nginx_config">http://35.246.24.128:5569/local_enterobase/nginx_config</a></p></li>
 <li><p>After you have downloaded your nginx.conf file please replace the one initialised from the setup with it, located in the $HOME/nginx directory.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mv /path/to/downloaded/nginx.conf $HOME/nginx.conf
 </pre></div>
@@ -182,6 +186,7 @@
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">NGINX Web Server</a><ul>
+<li><a class="reference internal" href="#nginx-will-act-as-a-reverse-proxy-and-load-balancer-for-local-enterobase-it-will-serve-requests-to-the-website-to-all-the-servers-it-is-installed-on">NGINX will act as a reverse-proxy, and load balancer for Local EnteroBase. It will serve requests to the website to all the servers it is installed on.</a></li>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#installing-the-image">Installing the Image</a></li>
 <li><a class="reference internal" href="#running-the-nginx-container">Running the NGINX Container</a></li>
