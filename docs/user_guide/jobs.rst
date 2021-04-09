@@ -1,41 +1,34 @@
 Viewing Jobs
 ------------
 
-This webpage allows you to view current jobs
+This webpage allows viewing of all jobs that have been produced for the current user, generated from submitted strains and metadata, in a table. Each job is displayed with column headings as identifying metadata, such as the job ID and submission date, and one of the following statuses:
 
-All the current user's jobs are listed here with some metadata (which can be Completed, Failed, UPLOADED, Upload Failed, Received, Processing).
+* Received - The job has been queued to be processed.
+* Processing - The job is currently being processed.
+* Completed - The job has been processed.
+* Failed - Processing of the job has failed.
 
-Refresh the page to update - callbacks to be implemented in the future.
-No sorting on the page currently - can be implemented in the future.
+  * **Note:** We intend for the job to be able to be re-generated, although this is currently non-functional in the beta version.
 
-When job is finished and successful, can upload to warwick EB if you want and download
+* Uploaded - The job results have been submitted to the Central EnteroBase at Warwick (Warwick EnteroBase).
+* Upload Failed - An attempt to submit the job results to Central EnteroBase has failed, the job can be re-uploaded by the user.
 
-Upload - submits the fasta, fastq and metadata of the results
-Download - downloads the fasta, fastq and metadata to local storage (default download directory of the web browser)
+When a job has been successfully processed, 2 blue icons will appear in the table cells under the "Upload to Warwick EnteroBase" and "Download" columns for the job row. These icons can be clicked to upload the results of the job to Warwick EnteroBase and download the results to local storage respectively.
 
+Note: The page must be refreshed to update the statuses, we intend to implement live-updating callback in the future.
 
-
-
-
-
-
-DEFINE JOBS
-* This option allows the user to check his assembly jobs status
-
-.. figure:: ../images/job_status.png
+.. figure:: ../images/jobs.png
    :align: center
-   :alt: Job status
+   :alt: Jobs Page
 
-   **Fig. 1 - Jobs Status dialog**
+   **Fig. 1 - Jobs Page**
 
-Notes
-^^^^^
+Uploading
+=========
 
-* We should modify this table to include batch jobs rather than single strain job
-* A link for each batch should be provided so the user can check the status of each strain
-* The previous link will open other dialog which allow the user to:
-    * check the status of the assembly,
-    * alert metadata,
-    * provide new read files in case of the assembly job failed due to read files
-    * submit the strains metadata along with read files to Warwick EnteroBase.
-* The previous functions are not implemented yet
+The FASTA, FASTQ result files of the assembly and the metadata of the submitted strain are uploaded to Warwick EnteroBase. This operation can only be performed once (if successful) to avoid duplicate data being uploaded and subsequently stored. A successful upload is indicated by a green check tick icon in place of the original blue upload icon, which is displayed in figure 1.
+
+Downloading
+===========
+
+The FASTA, FASTQ result files of the assembly and the metadata of the submitted strain are downloaded to the default download directory of the web browser. You can redownload the results at any time by clicking the blue download icon, which is displayed in figure 1.

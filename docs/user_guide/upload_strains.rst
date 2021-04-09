@@ -1,7 +1,7 @@
 Uploading Strains
 ----------------------
 
-The webpage for uploading a strain for the chosen genera displays an empty, large, grid. Rows can be added to the grid for each strain that you wish to upload, where you must also fill in the required cells corresponding to metadata attributes expressed by the column headings. The individual column headings belong to a primary group in the very first row of the grid.
+This webpage, for uploading a strain for the chosen genera, displays an empty, large, grid. Rows can be added to the grid for each strain that you wish to upload, where you must also fill in the required cells corresponding to metadata attributes expressed by the column headings. The individual column headings belong to a primary group in the very first row of the grid.
 A grid toolbar is displayed above the grid, which is a row of buttons performing different functions.
 
 .. figure:: ../images/grid_add_rows.png
