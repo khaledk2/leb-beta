@@ -89,8 +89,11 @@
 </div>
 <div class="section" id="setting-up-and-running-postgresql-database-server">
 <h2>Setting Up and Running PostgreSQL Database Server<a class="headerlink" href="#setting-up-and-running-postgresql-database-server" title="Permalink to this headline">¶</a></h2>
-<p>A folder and subfolders inside the home directory (by default) must be created to be bound to related folders inside the container at runtime for the server to function.</p>
-<ul>
+<ol class="arabic simple">
+<li><p>Create a folder and subfolders inside the home directory (by default) to be bound to related folders inside the container at runtime for the server to function.</p></li>
+</ol>
+<blockquote>
+<div><ul>
 <li><p>The following are commands to create the required directories. Example directory names (postgres, postgres/data, postgres/temp and postgres/logs) have been used that will be referenced by future commands.</p></li>
 <li><p>If different folder names are used, all ocurrences of these directory names need to be replaced with your chosen directory names accordingly in future commands.</p></li>
 <li><p>If you wish to store the postgres data in a different location to the default, you can also replace these with locations of your choosing.</p>
@@ -107,8 +110,13 @@ mkdir $HOME/local_enterobase_home/postgres/logs
 </ul>
 </li>
 </ul>
-<p>If the database server is being run for the first time, it must be first initialised using the following command. The data folder from the previous step (e.g. $HOME/postgres/data) must be empty for this part to succeed.</p>
-<ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>If the database server is being run for the <strong>first time</strong>, you must first initialise it using the following command.</p></li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p>The data folder from step 1 (e.g. $HOME/local_enterobase_home/postgres/data) must be empty for this step to succeed.</p></li>
 <li><p>If the default installation directory was changed previously for EGP.sif and/or the postgres folders, replace them accordingly in the following command with the correct installation directory.</p></li>
 <li><p>If the pulled image name “EGP.sif” was changed previously, replace it in the following command with your chosen name.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app init_db $HOME/local_enterobase_home/local_enterobase/EGP.sif
@@ -150,6 +158,7 @@ mkdir $HOME/local_enterobase_home/postgres/logs
 </ul>
 </li>
 </ul>
+</div></blockquote>
 <p>Then, the following command can be run to start up the database server.</p>
 <ul>
 <li><p>“flask_password” is the default database user password for the flask app. If this is changed during the local instance configuration then this must also be changed in the command to match.</p></li>

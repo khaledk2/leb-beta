@@ -45,59 +45,60 @@ Pulling the Container Image
 Setting Up and Running PostgreSQL Database Server
 =================================================
 
-A folder and subfolders inside the home directory (by default) must be created to be bound to related folders inside the container at runtime for the server to function.
+1. Create a folder and subfolders inside the home directory (by default) to be bound to related folders inside the container at runtime for the server to function.
 
-* The following are commands to create the required directories. Example directory names (postgres, postgres/data, postgres/temp and postgres/logs) have been used that will be referenced by future commands.
-* If different folder names are used, all ocurrences of these directory names need to be replaced with your chosen directory names accordingly in future commands.
-* If you wish to store the postgres data in a different location to the default, you can also replace these with locations of your choosing.
-
-  ::
-
-    mkdir $HOME/local_enterobase_home/postgres
-    mkdir $HOME/local_enterobase_home/postgres/data
-    mkdir $HOME/local_enterobase_home/postgres/temp
-    mkdir $HOME/local_enterobase_home/postgres/logs
-
-  * The "data" folder is used for saving the database data.
-  * The "temp" folder is used by the postgres server for temporary files.
-  * The "logs" folder is used for saving the database server log files.
-
-If the database server is being run for the first time, it must be first initialised using the following command. The data folder from the previous step (e.g. $HOME/postgres/data) must be empty for this part to succeed.
-
-* If the default installation directory was changed previously for EGP.sif and/or the postgres folders, replace them accordingly in the following command with the correct installation directory.
-* If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
-
-  ::
-
-    singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app init_db $HOME/local_enterobase_home/local_enterobase/EGP.sif
-
-  * Here is a brief explanation on what each of the flags being used mean:
-
-    * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
-
-      * Here, the respective data, temporary files and log directories are bound to initialise the database cluster folders and files, store temporary running files and database server running logs respectively.
-
-    * --app: Runs a specific script defined by the image.
-
-      * Here, the 'init_db' script is called to initialise the database cluster and set up a database user for the flask app to interact with.
-
-  * The following error message regarding locale settings may appear when running this command:
+  * The following are commands to create the required directories. Example directory names (postgres, postgres/data, postgres/temp and postgres/logs) have been used that will be referenced by future commands.
+  * If different folder names are used, all ocurrences of these directory names need to be replaced with your chosen directory names accordingly in future commands.
+  * If you wish to store the postgres data in a different location to the default, you can also replace these with locations of your choosing.
 
     ::
 
-      initdb: invalid locale settings; check LANG and LC_* environment vairables
-      pg_ctl: database sustem initialization failed
+      mkdir $HOME/local_enterobase_home/postgres
+      mkdir $HOME/local_enterobase_home/postgres/data
+      mkdir $HOME/local_enterobase_home/postgres/temp
+      mkdir $HOME/local_enterobase_home/postgres/logs
 
-    * Please refer to and carry out the commands for setting matching locale in the 'Prerequisites' section if the above error occurs, and rerun the original initialisation command.
+    * The "data" folder is used for saving the database data.
+    * The "temp" folder is used by the postgres server for temporary files.
+    * The "logs" folder is used for saving the database server log files.
 
-  * If the created database server data folder is not empty, it is assumed that the database cluster has been initialised and the process will fail with the following output:
+2. If the database server is being run for the **first time**, you must first initialise it using the following command.
+
+  * The data folder from step 1 (e.g. $HOME/local_enterobase_home/postgres/data) must be empty for this step to succeed.
+  * If the default installation directory was changed previously for EGP.sif and/or the postgres folders, replace them accordingly in the following command with the correct installation directory.
+  * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
 
     ::
 
-      Database cluster initialisation failed
-      Database cluster seems to have been previously initialised since the data directory is non-empty
+      singularity run -B $HOME/local_enterobase_home/postgres/data:/usr/local/pgsql/data -B $HOME/local_enterobase_home/postgres/temp:/var/run/postgresql/ -B $HOME/local_enterobase_home/postgres/logs:/usr/local/pgsql/logs --app init_db $HOME/local_enterobase_home/local_enterobase/EGP.sif
 
-    * Please ensure that a new database cluster is to be initialised first, and empty the data folder before rerunning the original initialisation command.
+    * Here is a brief explanation on what each of the flags being used mean:
+
+      * -B: Used to bind a directory on the local system to one inside the container to allow data to be read and written simultaneously since Singularity images are read-only otherwise.
+
+        * Here, the respective data, temporary files and log directories are bound to initialise the database cluster folders and files, store temporary running files and database server running logs respectively.
+
+      * --app: Runs a specific script defined by the image.
+
+        * Here, the 'init_db' script is called to initialise the database cluster and set up a database user for the flask app to interact with.
+
+    * The following error message regarding locale settings may appear when running this command:
+
+      ::
+
+        initdb: invalid locale settings; check LANG and LC_* environment vairables
+        pg_ctl: database sustem initialization failed
+
+      * Please refer to and carry out the commands for setting matching locale in the 'Prerequisites' section if the above error occurs, and rerun the original initialisation command.
+
+    * If the created database server data folder is not empty, it is assumed that the database cluster has been initialised and the process will fail with the following output:
+
+      ::
+
+        Database cluster initialisation failed
+        Database cluster seems to have been previously initialised since the data directory is non-empty
+
+      * Please ensure that a new database cluster is to be initialised first, and empty the data folder before rerunning the original initialisation command.
 
 Then, the following command can be run to start up the database server.
 
