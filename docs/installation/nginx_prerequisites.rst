@@ -48,7 +48,7 @@ For more information on these values please visit the NGINX documentation, avail
 "certs"
 =======
 
-A valid SSL certification is required to run Local EnteroBase using HTTPS. For the beta test, a self-signed certificate is sufficient. A self-signed certificate can be generated using the OpenSSL tutorial at: `<https://linuxize.com/post/creating-a-self-signed-ssl-certificate>`_. Please ensure that you rename the generated files to match the filenames shown in figure 1. Alternatively, you can use the certificates provided in the Docker container by default.
+A valid SSL certificate is required to run Local EnteroBase using HTTPS. For the beta test, a self-signed certificate is sufficient. A self-signed certificate can be generated using the OpenSSL tutorial at: `<https://linuxize.com/post/creating-a-self-signed-ssl-certificate>`_. Please ensure that you rename the generated files to match the filenames shown in figure 1. Alternatively, you can use the certificates provided in the Docker container by default.
 
 "logs"
 ======

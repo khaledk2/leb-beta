@@ -60,7 +60,7 @@ To run the container, the user first needs to set up the sub-folder in their own
 * After you have downloaded your nginx.conf file please replace the one initialised from the setup with it, located in the $HOME/nginx directory.
   ::
 
-	mv /path/to/downloaded/nginx.conf $HOME/nginx.conf
+	mv /path/to/downloaded/nginx.conf $HOME/nginx/nginx.conf
 
 * If you wish you can use the default conf if you replace the 'replaced_by_your_server_uri' with your server ip, but it is strongly recommended to use the one downloaded when setting up your account with enterobase.
   ::
@@ -68,7 +68,7 @@ To run the container, the user first needs to set up the sub-folder in their own
     vi $HOME/nginx/nginx.conf
 
 * You will need to provide a valid ssl certificate which should be saved inside the certs folder inside the user's home folder set up in the step above.
-* In case of your server does not have a valid ssl certificate, you can temporary create a self-signed certificate using the following link.
+* In case your server does not have a valid ssl certificate, you can temporarily create a self-signed certificate using the following link. Please rename the created certificate and key so that they match those stored in the above directory structure:
 
   * https://linuxize.com/post/creating-a-self-signed-ssl-certificate/
 

@@ -96,7 +96,7 @@
 </li>
 <li><p>Before proceeding any further, make sure you have downloaded your custom nginx.conf file from the main enterobase website <a class="reference external" href="http://enterobase.warwick.ac.uk/auth/register">http://enterobase.warwick.ac.uk/auth/register</a></p></li>
 <li><p>After you have downloaded your nginx.conf file please replace the one initialised from the setup with it, located in the $HOME/nginx directory.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mv /path/to/downloaded/nginx.conf $HOME/nginx.conf
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mv /path/to/downloaded/nginx.conf $HOME/nginx/nginx.conf
 </pre></div>
 </div>
 </li>
@@ -106,7 +106,7 @@
 </div>
 </li>
 <li><p>You will need to provide a valid ssl certificate which should be saved inside the certs folder inside the user’s home folder set up in the step above.</p></li>
-<li><p>In case of your server does not have a valid ssl certificate, you can temporary create a self-signed certificate using the following link.</p>
+<li><p>In case your server does not have a valid ssl certificate, you can temporarily create a self-signed certificate using the following link. Please rename the created certificate and key so that they match those stored in the above directory structure:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://linuxize.com/post/creating-a-self-signed-ssl-certificate/">https://linuxize.com/post/creating-a-self-signed-ssl-certificate/</a></p></li>
 </ul>

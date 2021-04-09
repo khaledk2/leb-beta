@@ -15,9 +15,9 @@ Then system components will be configured using the default parameters and shoul
 NOTE: Fedora and CentOS 8 may require a system restart to complete the installation. The script will automatically reboot the server in this event, then restart the script automatically once signed back in. A restart occurs if:
 
 - Docker is not installed and running for either distro
-- Fedora does not have the squashfs dependency already installed. 
+- Fedora does not have the squashfs dependency already installed.
 
-The script has been tested on the following distros: Ubuntu 18.04, Ubuntu 20.04, Fedora 32, Fedora 33, CentOS 7, CentOS 8, Debian 9, and Debian 10.
+The script has been tested on the following distributions: Ubuntu 18.04, Ubuntu 20.04, Fedora 32, Fedora 33, CentOS 7, CentOS 8, Debian 9, and Debian 10.
 
 The following figure shows the script workflow.
 
