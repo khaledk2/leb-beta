@@ -25,3 +25,15 @@ NGINX Resource Directory Structure
 ================
 
 The "nginx.conf" file is the configuration file used by NGINX. It defines a number of features of the web server, most importantly the URL or IP address it receives requests from and the URL or IP address it forwards them to. You can learn more about the nuances of this file on the NGINX "Beginner's Guide" available at: `<http://nginx.org/en/docs/beginners_guide.html>`_. In order to make the task of creating this file a bit easier, we have provided a webpage which takes some inputs and generates the "nginx.conf" file for you. This webpage is available at: `<http://35.246.24.128:5569/local_enterobase/nginx_config>`_.
+
+.. figure:: ../images/nginx_config_page.png
+   :width: 600
+   :align: center
+   :alt: Local EnteroBase Registration Form
+
+   **Fig. 1 - NGINX Configuration Form**
+   
+The above figure shows the form that is used to generate the "nginx.conf" file. All fields in the form are mandatory, however, most come with default values which you can (and probably should) keep as they are. The only values that are definitely unique to your installation are the "Web Server URL/IP" and "Local Enterobase Server URL/IP" values. Below are some short descriptions of the required variables:
+
+* Web Server URL/IP: URL or IP address for the NGINX server hosting your local Enterobase instance. This value is most likely going to be the IP address of your server, which you can find by running the command: ``curl https://ipinfo.io/ip``.
+
