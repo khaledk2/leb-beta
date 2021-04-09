@@ -158,7 +158,7 @@ When the grid is complete to your satisfaction, clicking the green "Submit" butt
 All successfully uploaded rows will disappear from the grid. Any rows that cause issues, such as containing a short-read file that was previously uploaded for assembly, stays in the grid. An appropriate error message is displayed that identifies the failed rows and their reason for failure.
 As a result, you can attempt to amend these problems or delete the row from the grid.
 
-Note: Please do not exit the page whilst the strains are being submitted, you will need to resubmit the strain information.
+**Please do not exit the page or close any notifications whilst the strains are being submitted. Hidden errors may occur and you will also need to resubmit the strain information**
 
 .. figure:: ../images/strain_upload_success.png
   :align: center
