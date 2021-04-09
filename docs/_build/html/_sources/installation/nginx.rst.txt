@@ -1,9 +1,7 @@
 .. _nginx-installation-label:
 
 NGINX Web Server
-^^^^^^^^^^^^^^^^
-
-NGINX acts as a reverse-proxy and load balancer for Local EnteroBase. It will serve requests from the website to all the servers it is installed on.
+----------------
 
 Prerequisites
 =============

@@ -350,7 +350,7 @@ Redis Setup and Usage
 
 
 Preparing and Assembling Read Files using EToKi
-================================================
+===============================================
 
 1. Create a folder inside the home directory (by default)
 
@@ -475,7 +475,7 @@ Preparing and Assembling Read Files using EToKi
         * Here, an example subdirectory within EToKi/prep_out has been passed in as an example, with 'file_suffix' being appended onto all generated filenames e.g. 'file_suffix.result.fastq'
 
 Additional Notes
-======================
+================
 
 * The local installation configuration file is saved in your home folder (.local_configuration_file.yml), you can edit it directly using any text editor (e.g. vim) or it can be alerted using “/update_system_configuration”  link from the web interface (it will be the default main web page if the database is not configured or not configured correctly).
 
