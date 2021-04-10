@@ -520,11 +520,11 @@ mkdir $HOME/local_enterobase_home/EToKi/asm_out
 </ul>
 </div></blockquote>
 <ol class="arabic simple" start="2">
-<li><p>Copy the required configure data file (configure.ini) to the working directory of EToKI. $HOME/local_enterobase_home/EToKi is used by default.</p></li>
+<li><p>Copy the required configure data file (configure.ini) to the working directory of EToKi. $HOME/local_enterobase_home/EToKi is used by default.</p></li>
 </ol>
 <blockquote>
 <div><ul>
-<li><p>Navigate to the main directory of EToKI first before copying the configure data file.</p></li>
+<li><p>Navigate to the main directory of EToKi first before copying the configure data file.</p></li>
 <li><p>If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.</p></li>
 <li><p>If the pulled image name “EGP.sif” was changed previously, replace it in the following command with your chosen name.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $HOME/local_enterobase_home/EToKi
@@ -538,31 +538,31 @@ singularity run --app cp_configure $HOME/local_enterobase_home/local_enterobase/
 <li><p>Download usearch and the MiniKraken2 database for EToKi to function correctly. <strong>(Not required for the beta test)</strong>.</p></li>
 </ol>
 <blockquote>
-<div><ul class="simple">
-<li><p>usearch software - You may need to submit a free licence request, where you should receive an email which contains a download link.</p></li>
-<li><p>MiniKraken2 database - You can download it from their website: <a class="reference external" href="https://ccb.jhu.edu/software/kraken2/index.shtml?t=downloads">https://ccb.jhu.edu/software/kraken2/index.shtml?t=downloads</a></p></li>
-<li><p>A suggested command is “wget” to download the software.</p></li>
-</ul>
-<p>You can use the following commands to download usearch:</p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $HOME/local_enterobase_home/EToKi_externals
+<div><ul>
+<li><p>If the default directory for saving external files to be used by EToKi ($HOME/local_enterobase_home/EToKi_externals) was changed previously, replace it in the installation commands for usearch and MiniKraken2 with the changed directory.</p></li>
+<li><p>Please ensure that usearch and MiniKraken2 to the same directory.</p></li>
+<li><p>The following commands downloads usearch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $HOME/local_enterobase_home/EToKi_externals
 wget https://www.drive5.com/downloads/usearch11.0.667_i86linux32.gz
 chmod 755 usearch11.0.667_i86linux32.gz
 gzip -d usearch11.0.667_i86linux32.gz
 </pre></div>
 </div>
-</div></blockquote>
-<p>You can use the following commands to download MiniKraken2:</p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">DerrickWood</span><span class="o">/</span><span class="n">kraken2</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">v2</span><span class="o">.</span><span class="mf">0.8</span><span class="o">-</span><span class="n">beta</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-<span class="n">tar</span> <span class="n">xf</span> <span class="n">v2</span><span class="o">.</span><span class="mf">0.8</span><span class="o">-</span><span class="n">beta</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-<span class="n">mv</span> <span class="n">kraken2</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">8</span><span class="o">-</span><span class="n">beta</span> <span class="n">minikraken2</span>
+<ul class="simple">
+<li></li>
+</ul>
+</li>
+<li><p>The following commands downloads the MiniKraken2 database:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $HOME/local_enterobase_home/EToKi_externals
+wget https://github.com/DerrickWood/kraken2/archive/v2.0.8-beta.tar.gz
+tar xf v2.0.8-beta.tar.gz
+mv kraken2-2.0.8-beta minikraken2
 </pre></div>
 </div>
-</div></blockquote>
+</li>
+</ul>
 </div></blockquote>
 <ol class="arabic simple" start="4">
-<li><p>Save usearch and MiniKraken2 to the same folder e.g. $HOME/local_enterobase_home/EToKi_externals (default). <strong>(Not required for the beta test)</strong>.</p></li>
 <li><p>Configure EToKi. <strong>(Not required for the beta test)</strong>.</p></li>
 </ol>
 <blockquote>

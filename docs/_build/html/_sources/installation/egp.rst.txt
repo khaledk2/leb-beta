@@ -373,9 +373,9 @@ Configuring EToKi
     * "EToKi/prep_out" is used for storing the preparation results of the initial read files.
     * "EToKi/asm_out" is used to store the assembly results of the prepared read files.
 
-2. Copy the required configure data file (configure.ini) to the working directory of EToKI. $HOME/local_enterobase_home/EToKi is used by default.
+2. Copy the required configure data file (configure.ini) to the working directory of EToKi. $HOME/local_enterobase_home/EToKi is used by default.
 
-  * Navigate to the main directory of EToKI first before copying the configure data file.
+  * Navigate to the main directory of EToKi first before copying the configure data file.
   * If the default installation directory was changed previously for EGP.sif, replace it in the following command with the correct installation directory.
   * If the pulled image name "EGP.sif" was changed previously, replace it in the following command with your chosen name.
 
@@ -386,11 +386,9 @@ Configuring EToKi
 
 3. Download usearch and the MiniKraken2 database for EToKi to function correctly. **(Not required for the beta test)**.
 
-  * usearch software - You may need to submit a free licence request, where you should receive an email which contains a download link.
-  * MiniKraken2 database - You can download it from their website: https://ccb.jhu.edu/software/kraken2/index.shtml?t=downloads
-  * A suggested command is "wget" to download the software.
-
-  You can use the following commands to download usearch:
+  * If the default directory for saving external files to be used by EToKi ($HOME/local_enterobase_home/EToKi_externals) was changed previously, replace it in the installation commands for usearch and MiniKraken2 with the changed directory.
+  * Please ensure that usearch and MiniKraken2 to the same directory.
+  * The following commands downloads usearch:
 
     ::
 
@@ -399,17 +397,18 @@ Configuring EToKi
       chmod 755 usearch11.0.667_i86linux32.gz
       gzip -d usearch11.0.667_i86linux32.gz
 
-  You can use the following commands to download MiniKraken2:
+    *
+
+  * The following commands downloads the MiniKraken2 database:
 
     ::
 
+      cd $HOME/local_enterobase_home/EToKi_externals
       wget https://github.com/DerrickWood/kraken2/archive/v2.0.8-beta.tar.gz
       tar xf v2.0.8-beta.tar.gz
       mv kraken2-2.0.8-beta minikraken2
 
-4. Save usearch and MiniKraken2 to the same folder e.g. $HOME/local_enterobase_home/EToKi_externals (default). **(Not required for the beta test)**.
-
-5. Configure EToKi. **(Not required for the beta test)**.
+4. Configure EToKi. **(Not required for the beta test)**.
 
   * If the name EToKi_externals has been changed, replace its occurrence in the following command by the new name.
   * If the storage location for configure.ini has been changed, replace its path in the following command by its location.
