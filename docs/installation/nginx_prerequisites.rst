@@ -3,7 +3,7 @@
 NGINX Prerequisite Resources
 ----------------------------
 
-NGINX acts as a reverse-proxy and load balancer for Local EnteroBase. It will serve requests from the website to all the servers it is installed on. This page guides you through the creation of the resources required to install and configure NGINX. It is important to have these resources ready before continuing with the installation process, especially if you choose the "Automatic Installation" option.
+NGINX acts as a reverse-proxy and load balancer for Local EnteroBase. It will serve requests from the website to all the servers it is installed on. This page guides you through the creation of the resources required to install and configure NGINX. It is important to have these resources ready before continuing with the installation process, especially if you choose the "Automatic Installation" option. During the installation you will be prompted to copy your resources into the relevant directories, so there is no need to formulate the exact directory (shown below) required by NGINX (just make sure you have the "nginx.conf" and cert files ready).
 
 NGINX Resource Directory Structure
 ==================================
@@ -48,15 +48,9 @@ For more information on these values please visit the NGINX documentation, avail
 "certs"
 =======
 
-A valid SSL certificate is required to run Local EnteroBase using HTTPS. For the beta test, a self-signed certificate is sufficient. A self-signed certificate can be generated using the OpenSSL tutorial at: `<https://linuxize.com/post/creating-a-self-signed-ssl-certificate>`_. Please ensure that you rename the generated files to match the filenames shown in figure 1. Alternatively, you can use the certificates provided in the Docker container by default.
+A valid SSL certificate is required to run Local EnteroBase using HTTPS. For the beta test, a self-signed certificate is sufficient. A self-signed certificate can be generated using the OpenSSL tutorial at: `<https://linuxize.com/post/creating-a-self-signed-ssl-certificate>`_. Please ensure that you rename the generated files to match the filenames shown in figure 1. Alternatively, you can use the certificates provided in the Docker container by default. These should be copied into the "$HOME/nginx/certs" file before running NGINX.
 
 "logs"
 ======
 
-The files in the "logs" folder maintain logs output by NGINX. These files can initially be created as empty files using the following commands:
-
-.. code-block:: bash
-
-	  $ mkdir logs
-	  $ touch local_enteroBase_access.log
-	  $ touch local_enteroBase_error.log
+The files in the "logs" folder maintain logs output by NGINX, and start off as empty files. These should be generated automatically so it's not necessary to make these beforehand.
