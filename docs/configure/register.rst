@@ -1,7 +1,7 @@
 Registration
 ---------------
 
-In order to maintain quality control in the distributions of EnteroBase to partner institutions, each Local EnteroBase instance must be approved by Central EnteroBase at Warwick (Warwick EnteroBase). This approval process begins with registering your Local EnteroBase instance. Once you have performed this registration, you will receive a test token which you need to save for later use (NOTE: this is used during the configuration once you are able to run assemblies, so please keep it safe). This token is used to test your Local Enterobase instance and feeds back the results to Central Enterobase before your instance is approved. The Warwick Enterobase team will review your request once the test results have been received. If at any point you forget where you saved your test token, you can find it at: `<http://35.246.24.128:5569/local_enterobase/display_test_token>`_. If this link returns an error, it either means you haven't submitted a Local EnteroBase request or your Local EnteroBase request has already been approved.
+In order to maintain quality control in the distributions of EnteroBase to partner institutions, each Local EnteroBase instance must be approved by Central EnteroBase at Warwick (Warwick EnteroBase). This approval process begins with registering your Local EnteroBase instance. Once you have performed this registration, you will receive a test token which you need to save for later use (NOTE: this is used during the configuration once you are able to run assemblies, so please keep it safe). This token is used to test your Local Enterobase instance and feeds back the results to Central Enterobase before your instance is approved. The Warwick Enterobase team will review your request once the test results have been received. If at any point you forget where you saved your test token, you can find it at: `<https://35.246.24.128:5566/local_enterobase/display_test_token>`_. If this link returns an error, it either means you haven't submitted a Local EnteroBase request or your Local EnteroBase request has already been approved.
 
 Prerequisites
 ==============
@@ -12,7 +12,7 @@ Prerequisites
 Registration Page
 ==================
 
-Once the prerequisites have been completed you can now fill out the form at: `<http://35.246.24.128:5569/local_enterobase/register>`_.
+Once the prerequisites have been completed you can now fill out the form at: `<https://35.246.24.128:5566/local_enterobase/register>`_.
 
 .. figure:: ../images/local_enterobase_registration_screenshot.png
    :width: 600
