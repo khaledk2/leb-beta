@@ -40,7 +40,7 @@ Pulling the Container Image
 
   ::
 
-    singularity pull --arch amd64 $HOME/local_enterobase_home/local_enterobase/EGP.sif library://enterobase/default/egp:0.1
+    singularity pull --arch amd64 $HOME/local_enterobase_home/local_enterobase/EGP.sif library://enterobase/default/egp:0.2
 
 Setting Up and Running PostgreSQL Database Server
 =================================================
