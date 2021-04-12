@@ -43,7 +43,7 @@
             
   <div class="section" id="nginx-prerequisite-resources">
 <span id="nginx-prerequiites-label"></span><h1>NGINX Prerequisite Resources<a class="headerlink" href="#nginx-prerequisite-resources" title="Permalink to this headline">¶</a></h1>
-<p>NGINX acts as a reverse-proxy and load balancer for Local EnteroBase. It will serve requests from the website to all the servers it is installed on. This page guides you through the creation of the resources required to install and configure NGINX. It is important to have these resources ready before continuing with the installation process, especially if you choose the “Automatic Installation” option.</p>
+<p>NGINX acts as a reverse-proxy and load balancer for Local EnteroBase. It will serve requests from the website to all the servers it is installed on. This page guides you through the creation of the resources required to install and configure NGINX. It is important to have these resources ready before continuing with the installation process, especially if you choose the “Automatic Installation” option. During the installation you will be prompted to copy your resources into the relevant directories, so there is no need to formulate the exact directory (shown below) required by NGINX (just make sure you have the “nginx.conf” and cert files ready).</p>
 <div class="section" id="nginx-resource-directory-structure">
 <h2>NGINX Resource Directory Structure<a class="headerlink" href="#nginx-resource-directory-structure" title="Permalink to this headline">¶</a></h2>
 <blockquote>
@@ -82,16 +82,11 @@
 </div>
 <div class="section" id="certs">
 <h2>“certs”<a class="headerlink" href="#certs" title="Permalink to this headline">¶</a></h2>
-<p>A valid SSL certificate is required to run Local EnteroBase using HTTPS. For the beta test, a self-signed certificate is sufficient. A self-signed certificate can be generated using the OpenSSL tutorial at: <a class="reference external" href="https://linuxize.com/post/creating-a-self-signed-ssl-certificate">https://linuxize.com/post/creating-a-self-signed-ssl-certificate</a>. Please ensure that you rename the generated files to match the filenames shown in figure 1. Alternatively, you can use the certificates provided in the Docker container by default.</p>
+<p>A valid SSL certificate is required to run Local EnteroBase using HTTPS. For the beta test, a self-signed certificate is sufficient. A self-signed certificate can be generated using the OpenSSL tutorial at: <a class="reference external" href="https://linuxize.com/post/creating-a-self-signed-ssl-certificate">https://linuxize.com/post/creating-a-self-signed-ssl-certificate</a>. Please ensure that you rename the generated files to match the filenames shown in figure 1. Alternatively, you can use the certificates provided in the Docker container by default. These should be copied into the “$HOME/nginx/certs” file before running NGINX. NOTE: copying your own certs in requires a restart of the NGINX server; if you are using the automatic installer you must copy the “key.pem” and “cert.pem” files into “$HOME/nginx/certs” folder after the installation is completed, and then restart the server (this can be done using the “run_all.sh” script in the “local_enterobase_home” folder).</p>
 </div>
 <div class="section" id="logs">
 <h2>“logs”<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
-<p>The files in the “logs” folder maintain logs output by NGINX. These files can initially be created as empty files using the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir logs
-$ touch local_enteroBase_access.log
-$ touch local_enteroBase_error.log
-</pre></div>
-</div>
+<p>The files in the “logs” folder maintain logs output by NGINX, and start off as empty files. These should be generated automatically so it’s not necessary to make these beforehand.</p>
 </div>
 </div>
 
