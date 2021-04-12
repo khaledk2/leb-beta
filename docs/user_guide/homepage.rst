@@ -35,7 +35,7 @@ The homepage displays that you are signed in by displaying your account name wit
 
 **Warwick EnteroBase User**
 
-1. Click the "WARWICK ENTEROBASE LOGIN" button.
+1. Click the "Warwick EnteroBase Login" button.
 
   1a. If this is your first time logging in using the credentials, you will be redirected to the Warwick EnteroBase login page to authorise your Local EnteroBase. Go to step 2.
   1b. Otherwise, you will be signed in automatically and redirected back to the homepage.
