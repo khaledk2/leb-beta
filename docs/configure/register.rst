@@ -7,6 +7,7 @@ Prerequisites
 ==============
 
 * You must have an account with the beta version of Central EnteroBase, and be logged in.
+* You must know the URL or IP endpoint that your Local EnteroBase will be exposed to.
 
 Registration Page
 ==================
