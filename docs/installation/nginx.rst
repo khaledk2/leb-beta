@@ -56,7 +56,7 @@ To run the container, the user first needs to set up the sub-folder in their own
 
     sudo chown -R <user> $HOME/nginx
 
-* Before proceeding any further, make sure you have downloaded your custom nginx.conf file from the main enterobase website `<https://35.246.24.128:5566/local_enterobase/nginx_config>`_
+* Before proceeding any further, make sure you have downloaded your custom nginx.conf file from the main enterobase website https://35.246.24.128:5566/local_enterobase/nginx_config
 * After you have downloaded your nginx.conf file please replace the one initialised from the setup with it, located in the $HOME/nginx directory.
   ::
 
