@@ -2,14 +2,14 @@ System Configuration
 ---------------------
 
 On entry to the webpage, the Local EnteroBase administrator is required to sign in with the system credentials set during
-the installation phase. Then, the following webpages should display the following configuration steps that need to be completed. They can be traversed using the
+the installation phase. After this, the following configuration steps which need to be completed will be displayed. They can be traversed using the
 "continue" and "previous" buttons should you complete a configuration step or need to redo a step respectively.
 
 General Configuration
 =======================
 
 * A name for your Local EnteroBase, to be displayed when using the website, must be inputted. It does not need to match the name used to register your Local EnteroBase.
-* An image to be displayed as a logo in the website, that also identifies it in your browser's address bar, must be chosen. We provide functionalities for cropping and resizing if required.
+* An image to be displayed as a logo in the homepage. We provide functionalities for transforming the original image to create a perfect logo if required.
 * A filepath to an accessible directory that stores data produced by Local EnteroBase, such as short-read assembly results, can be selected. A default file path is automatically
   filled in on the form. The directory specified by the path must be manually created for security reasons.
 
@@ -26,9 +26,9 @@ Note: To ensure that the default server is functional, selecting an existing dat
 
 * The database server to be used by your Local EnteroBase can be selected at this stage, between one that is set up during installation of the Singularity container or an existing database server if you have one.
 
-  * We recommend to use the PostgreSQL version 10.14 database server set up during installation of the Singularity container as we have used this to develop Local EnteroBase.
+  * We recommend using the PostgreSQL version 10.14 database server set up during installation of the Singularity container as we have used this to develop Local EnteroBase.
   * Additionally, we cannot guarantee that using an existing database server, especially a non-PostgreSQL version 10.14 server, maintains the expected functionality of Local EnteroBase.
-  
+
 * After selecting the database server, a form for either configuring the default settings for the preset database server or entering credentials for an existing server (a flask username, server URI and port number) will be displayed for you to fill out.
 
 .. figure:: ../images/database_choice.png
@@ -43,7 +43,7 @@ Mail Server
 Note: **The mail server is unavailable for this beta test**. The Warwick EnteroBase team will manually
 send emails as appropriate, particularly for registration and the test token to perform the upload test in the next configuration step. Feel free to skip this section.
 
-Central EnteroBase would provide updates for significant events such as completed assemblies. Details must be inputted that configures a mail server to automatically recieve email updates from Central EnteroBase: the domain, port, an account name and a password.
+Central EnteroBase would provide updates for significant events such as completed assemblies. Details must be inputted that configures a mail server to automatically receive email updates from Central EnteroBase: the domain, port, an account name and a password.
 The form also provides options for advanced configuration such as using TLS and SSL email encryption protocols.
 
 Celery Messaging

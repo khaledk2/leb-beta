@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Feedback Forms" href="../forms/forms.html" />
-    <link rel="prev" title="Uploading Strains" href="submit_strains.html" /> 
+    <link rel="prev" title="Uploading Strains" href="upload_strains.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -29,7 +29,7 @@
           <a href="../forms/forms.html" title="Feedback Forms"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="submit_strains.html" title="Uploading Strains"
+          <a href="upload_strains.html" title="Uploading Strains"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Local EnteroBase (Beta)  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="user_guide.html" accesskey="U">User Guide</a> &#187;</li> 
@@ -43,30 +43,32 @@
             
   <div class="section" id="viewing-jobs">
 <h1>Viewing Jobs<a class="headerlink" href="#viewing-jobs" title="Permalink to this headline">¶</a></h1>
-<p>This webpage allows you to view current jobs</p>
-<p>DEFINE JOBS
-* This option allows the user to check his assembly jobs status</p>
-<div class="figure align-center" id="id1">
-<img alt="Job status" src="../_images/job_status.png" />
-<p class="caption"><span class="caption-text"><strong>Fig. 1 - Jobs Status dialog</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-<div class="section" id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>This webpage allows viewing of all jobs that have been produced for the current user, generated from submitted strains and metadata, in a table. Each job is displayed with column headings as identifying metadata, such as the job ID and submission date, and one of the following statuses:</p>
 <ul class="simple">
-<li><p>We should modify this table to include batch jobs rather than single strain job</p></li>
-<li><p>A link for each batch should be provided so the user can check the status of each strain</p></li>
-<li><dl class="simple">
-<dt>The previous link will open other dialog which allow the user to:</dt><dd><ul>
-<li><p>check the status of the assembly,</p></li>
-<li><p>alert metadata,</p></li>
-<li><p>provide new read files in case of the assembly job failed due to read files</p></li>
-<li><p>submit the strains metadata along with read files to Warwick EnteroBase.</p></li>
+<li><p>Received - The job has been queued to be processed.</p></li>
+<li><p>Processing - The job is currently being processed.</p></li>
+<li><p>Completed - The job has been processed.</p></li>
+<li><p>Failed - Processing of the job has failed.</p>
+<ul>
+<li><p><strong>Note:</strong> We intend for the job to be able to be re-generated, although this is currently non-functional in the beta version.</p></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><p>The previous functions are not implemented yet</p></li>
+<li><p>Uploaded - The job results have been submitted to Central EnteroBase.</p></li>
+<li><p>Upload Failed - An attempt to submit the job results to Central EnteroBase has failed, the job can be re-uploaded by the user.</p></li>
 </ul>
+<p>When a job has been successfully processed, 2 blue icons will appear in the table cells under the “Upload to Warwick EnteroBase” and “Download” columns for the job row. These icons can be clicked to upload the results of the job to the Central EnteroBase at Warwick and download the results to local storage respectively.</p>
+<p>Note: The page must be refreshed to update the statuses, we intend to implement a live-updating callback in the future.</p>
+<div class="figure align-center" id="id1">
+<img alt="Jobs Page" src="../_images/jobs.png" />
+<p class="caption"><span class="caption-text"><strong>Fig. 1 - Jobs Page</strong></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="uploading">
+<h2>Uploading<a class="headerlink" href="#uploading" title="Permalink to this headline">¶</a></h2>
+<p>The metadata of the submitted strain and the FASTA and FASTQ result files of the assembly are uploaded to Warwick EnteroBase. The FASTA and FASTQ files stores the reference sequence and sequence reads (and quality scores) respectively. This operation can only be performed once (if successful) to avoid duplicate data being uploaded and subsequently stored. A successful upload is indicated by a green check tick icon in place of the original blue upload icon, which is displayed in figure 1.</p>
+</div>
+<div class="section" id="downloading">
+<h2>Downloading<a class="headerlink" href="#downloading" title="Permalink to this headline">¶</a></h2>
+<p>The metadata of the submitted strain and the FASTA and FASTQ result files of the assembly are downloaded to the default download directory of the web browser. You can redownload the results at any time by clicking the blue download icon, which is displayed in figure 1.</p>
 </div>
 </div>
 
@@ -79,13 +81,14 @@
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Viewing Jobs</a><ul>
-<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#uploading">Uploading</a></li>
+<li><a class="reference internal" href="#downloading">Downloading</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="submit_strains.html"
+  <p class="topless"><a href="upload_strains.html"
                         title="previous chapter">Uploading Strains</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../forms/forms.html"
@@ -121,7 +124,7 @@
           <a href="../forms/forms.html" title="Feedback Forms"
              >next</a> |</li>
         <li class="right" >
-          <a href="submit_strains.html" title="Uploading Strains"
+          <a href="upload_strains.html" title="Uploading Strains"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Local EnteroBase (Beta)  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="user_guide.html" >User Guide</a> &#187;</li> 

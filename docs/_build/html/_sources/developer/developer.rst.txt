@@ -1,7 +1,7 @@
 Developing Local EnteroBase
 ===========================
 
-Local EnteroBase is hosted in `Bitbucket repository <https://bitbucket.org/enterobase/local_enterobase/src/master/>`_
+This section provides the documentation that we have produced to support developers working on Local EnteroBase.
 
 The following figure illustrates the Local EnteroBase folder structure, all the images definition files are saved in the Singularity_Images sub-folder
 

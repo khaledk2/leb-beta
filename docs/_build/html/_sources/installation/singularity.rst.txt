@@ -1,13 +1,15 @@
-.. _singularity-installation-label: 
+.. _singularity-installation-label:
 
-Singularity installation
+Singularity Installation
 -------------------------
-Firstly, the user needs to install singularity software using the following steps as described in “https://sylabs.io/guides/3.5/user-guide/quick_start.html”, please note some installation requires the user to have sudo rule, if you do not have, please ask your system administrator to install them for you
+Firstly, the user needs to install the Singularity software using the following steps described in “https://sylabs.io/guides/3.5/user-guide/quick_start.html”.
 
-Install the required packages
+Note: Some installations require the user to have sudo privileges. If you do not have any, please ask your system administrator to install them for you.
+
+Install the Required Packages
 =============================
 
-* You need to use these two commands to install the dependency packages:
+* You need to use the following 2 commands to install the dependency packages:
 
   ::
 
@@ -24,9 +26,9 @@ Install the required packages
     git \
     cryptsetup
 
-Install go
+Install Go
 ==========
-* This is used by the singularity container
+* This is used by the Singularity container:
 
   ::
 
@@ -36,33 +38,35 @@ Install go
     rm go$VERSION.$OS-$ARCH.tar.gz
     sudo ln -s /usr/local/go/bin/go /usr/local/bin/go
 
-* You can test your download by typing
+* You can test your download by typing:
 
   ::
 
     go help
 
-Download Singularity from a release
+Download Singularity From a Release
 ===================================
 
-* The following command should be used to download the code:
+* The following commands are used to download the code:
+
   ::
 
     export VERSION=3.5.2 && wget  https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz
     tar -xzf singularity-${VERSION}.tar.gz
     cd singularity
 
-Compile the Singularity source code
+Compile the Singularity Source Code
 ====================================
 
-* The code needs to be compiled using the follwing command:
+* The code is compiled using the following command:
+
   ::
 
     ./mconfig
     make -C builddir
     sudo make -C builddir install
 
-* You can test the installation by typing
+* You can test the installation by typing:
 
   ::
 
